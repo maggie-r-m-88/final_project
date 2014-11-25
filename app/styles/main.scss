@@ -16,8 +16,23 @@ $indianred: hsl(346,41,46);
 $silver2: hsl(56,27,73);
 $darkgray: hsl(195,5,69);
 // Custom Styles
- html, body, #map-canvas {
+html, body, #map-canvas {
         height: 100%;
         margin: 0px;
         padding: 0px
       }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+#map-canvas{
+  height: 300px;
+  width: 500px;
+  border: 2px solid blue;
+}

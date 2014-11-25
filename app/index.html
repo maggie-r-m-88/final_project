@@ -16,13 +16,16 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-
-    <!-- build:js scripts/vendor/modernizr.js -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
   <body>
+    <div id="panel">
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input type="button" value="Geocode" onclick="codeAddress()">
+    </div>
        <div id="map-canvas"></div>
 
 
@@ -35,6 +38,7 @@
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/map.js"></script>
         <!-- endbuild -->
 </body>
 </html>

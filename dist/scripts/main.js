@@ -35,3 +35,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 //geocoder.geocode({address: '4203 las palmas drive austin'}, function(results, status){ console.log(results); console.log(status)})
+
+geocoder = new google.maps.Geocoder();
+
+window.getCoordinates = function ( address, callback) {
+  var coordinates;
+  geocoder.geocode({ address: address}, function (results, status)
+     coordinates = results[0].geometry.location;
+     callback(coordinates);
+
+  })
+
+}
