@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
@@ -27,8 +28,11 @@
       <input type="button" value="Geocode" onclick="codeAddress()">
     </div>
        <div id="map-canvas"></div>
-
-
+<hr>
+    <input id="address_input" placeholder="enter address" />
+    <button id="submit_address" /> Submit Address</button>
+    <div id="results">
+    </div>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
