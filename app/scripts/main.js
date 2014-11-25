@@ -1,16 +1,20 @@
-console.log('The Iron Yard Rocks');
-
-
 var geocoder;
 var map;
 function initialize() {
   geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(33.7550, -84.3900);
+  var latlng = new google.maps.LatLng(33.89307300000001, -84.339921);
   var mapOptions = {
     zoom: 8,
     center: latlng
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+    position:  latlng,
+    map: map,
+    title: 'home'
+
+  })
 }
 
 function codeAddress() {
