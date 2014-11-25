@@ -1,0 +1,23 @@
+ // Bourbon & Neat
+@import '../../bower_components/bourbon/dist/bourbon';
+@import '../../bower_components/neat/app/assets/stylesheets/neat';
+//colors
+
+$khaki: hsl(36,90,75);
+$brownish: hsl(15,21,53);
+$coral: hsl(13,74,62);
+$slate: hsl(282,7,27);
+$silver: hsl(10,21,72);
+
+$lightgray: hsl(45,20,81);
+$burlywood: hsl(47,56,66) ;
+$indianred: hsl(346,41,46);
+
+$silver2: hsl(56,27,73);
+$darkgray: hsl(195,5,69);
+// Custom Styles
+ html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
