@@ -56,6 +56,8 @@ window.getCoordinates = function ( address, callback) {
 //window.getCoordinates($('#address_input').value, function(coordinates) {console.log(coordinates) })
 
 $( "#submit_address" ).click(function() {
+
+
    var addy_home = home_address_input.value;
    window.getCoordinates(addy_home,
         function(coordinates_home)

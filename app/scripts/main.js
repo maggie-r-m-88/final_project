@@ -1,41 +1,16 @@
-var geocoder;
-var map;
-function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(33.89307300000001, -84.339921);
-  var mapOptions = {
-    zoom: 8,
-    center: latlng
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq1sVIcw0Lu9dO9Bo5qZ5UqY");
 
-  var marker = new google.maps.Marker({
-    position:  latlng,
-    map: map,
-    title: 'home'
+(function () {
 
-  })
-}
+  // Create Instance of Collection
+  App.riders = new App.Collections.Riders();
 
-function codeAddress() {
-  var address = document.getElementById('address').value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
+  // Fetch any server-side coffees
+  App.riders.fetch().done( function () {
 
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
+    App.router = new App.Routers.AppRouter();
 
-      });
-
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
   });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
 
 
-//geocoder.geocode({address: '4203 las palmas drive austin'}, function(results, status){ console.log(results); console.log(status)})
+}());
