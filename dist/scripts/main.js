@@ -94,7 +94,9 @@ $( "#submit_address" ).click(function() {
     defaults: {
       name: '',
       work_address: '',
-      home_address: ''
+      home_address: '',
+      home_latlong: '',
+      work_latlong: ''
     },
 
     initialize: function () {
@@ -237,10 +239,30 @@ $( "#submit_address" ).click(function() {
     addRider: function (e) {
       e.preventDefault();
 
+      var addy_home =  $('#rider_home').val();
+        window.getCoordinates(addy_home,
+            function(coordinates_home)
+            {
+              Data.homeCords = coordinates_home;
+
+            });
+
+      var addy_work =  $('#rider_work').val();
+      window.getCoordinates(addy_work,
+           function(coordinates_work)
+           {
+             Data.workCords = coordinates_work;
+             console.log(Data.workCords)
+           });
+
       var c = new App.Models.Rider({
         name: $('#rider_name').val(),
         home_address: $('#rider_home').val(),
-        work_address: $('#rider_work').val()
+        work_address: $('#rider_work').val(),
+        home_latlong: Data.homeCords,
+        work_latlong: Data.workCords
+
+
       });
 
       c.save(null, {

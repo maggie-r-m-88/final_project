@@ -10,6 +10,7 @@
       name: '',
       work_address: '',
       home_address: ''
+
     },
 
     initialize: function () {
