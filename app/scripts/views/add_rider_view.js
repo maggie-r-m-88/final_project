@@ -19,13 +19,25 @@
     addRider: function (e) {
       e.preventDefault();
 
+      var fileUploadControl = $("#profilePhotoFileUpload")[0];
+        if (fileUploadControl.files.length > 0) {
+          var file = fileUploadControl.files[0];
+          var name = "photo.jpg";
+
+          var parseFile = new Parse.File(name, file);
+        }
+      parseFile.save()
+
+
       var c = new App.Models.Rider({
         name: $('#rider_name').val(),
         home_address: $('#rider_home').val(),
-        work_address: $('#rider_work').val()
+        work_address: $('#rider_work').val(),
+        picture: parseFile
       });
 
-       
+
+
       var addy_home =  $('#rider_home').val();
       var addy_work =  $('#rider_work').val();
 
