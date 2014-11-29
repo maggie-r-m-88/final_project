@@ -34,6 +34,7 @@
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
         picture: parseFile
+
       });
 
 

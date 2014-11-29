@@ -35,11 +35,17 @@
         // Sort from our default comparator in our collection constructor
 
         this.collection.each(function (c) {
+
+          var profilePhoto = c.get("picture");
+
+          var imageURL = profilePhoto.url();
+          
+          $('.profilepic').src = imageURL;
+
           self.$el.append(self.template(c.toJSON()));
         });
 
 
-      
 
       }
 
