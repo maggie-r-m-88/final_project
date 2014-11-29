@@ -9,6 +9,8 @@
 
     routes: {
       '' : 'home',
+      'allriders/:riderID': 'riderProfile',
+      //'publicRiders': 'publicRiders',
       'edit/:riderID' : 'editRider',
       'add' : 'addRider',
       'signUp' : 'userSignUp',
@@ -17,13 +19,22 @@
     },
 
     home: function () {
+      new App.Views.PublicListRiders({ collection: App.riders });
+      //new App.Views.ListRiders({ collection: App.riders });
 
-      new App.Views.ListRiders({ collection: App.riders });
+    },
+    // publicRiders: function () {
+    //
+    //   new App.Views.PublicListRiders({ collection: App.riders });
+    //
+    // },
+
+    riderProfile: function (riderID) {
+      var c = App.riders.get(riderID);
+      new App.Views.riderProfileListing({ rider: c });
     },
 
     editRider: function (riderID) {
-
-
       var c = App.riders.get(riderID);
       new App.Views.SingleRider({ rider: c });
     },

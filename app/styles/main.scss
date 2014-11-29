@@ -117,6 +117,9 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
       padding-top: 200px;
     }
   }
+  .mid-nav{
+    font-size:2.5em;
+  }
   .col-group {
     overflow: hidden;
   }
@@ -152,7 +155,7 @@ html, body, #map-canvas {
   text-align: center;
   background-color: black;
   display: inline-block;
-  margin: 10px;
+  margin: 5px;
   opacity: .8;
   a{
     color: white;
@@ -167,5 +170,14 @@ html, body, #map-canvas {
   //margin-top: -22px;
   width: 100px;
   height: 150px;
+
+}
+.bigprofilepic{
+  width: 200px;
+  height: 250px;
+}
+.riderprofileSingle{
+  background-color: white;
+
 
 }

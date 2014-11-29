@@ -1,13 +1,13 @@
 (function () {
 
-  App.Views.ListRiders = Parse.View.extend({
+  App.Views.PublicListRiders = Parse.View.extend({
 
     tagName: 'ul',
     className: 'allRiders',
 
     events: {},
 
-    template: _.template($('#listTemp').html()),
+    template: _.template($('#publiclistTemp').html()),
 
     initialize: function (options) {
 

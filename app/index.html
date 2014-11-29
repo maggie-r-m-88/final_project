@@ -29,7 +29,7 @@
           <div class="header">
 
           <h1 class="logo">  ATL Rideshare </h1>
-          <h2><a href="#"> Login</a> | <a href="#">Sign Up</a></h2>
+          <h2><a href="#/login"> Login</a> | <a href="#/signUp">Sign Up</a></h2>
           </div>
         </div><!--end of header bg-->
     <!--<div class="topnav">
@@ -55,28 +55,25 @@
 
 
 
-
        <div id="map-canvas"></div>
         <hr>
 
        <div class="hero-unit">
-     <!--login and sign up section
-     <a href="#/signUp">Sign Up</a>
-     <a href="#/login">Login</a>
+
      <button id="logOut">Log Out</button>
+
      <div id="signUpField"></div>
      <div id="loginField"></div>
-   -->
+
      <hr>
       <a href="#/add" class="addBtn"><button>Add</button></a>
 
-      <div id="riderList"></div>
+      <div id="riderList">
+        <!--<div id="publicriderList">
+        </div>-->
+      </div>
     </div>
-<!--
-    <input id="home_address_input" placeholder="enter home address" />
-    <input id="work_address_input" placeholder="enter work address" />
-    <button id="submit_address" /> Submit </button>
-  -->
+
 </div><!--end of body container-->
 
         <script type="text/template" id="SignUpTemp">
@@ -107,6 +104,29 @@
         <button>Add Rider</button>
         </form>
         <hr />
+    </script>
+
+    <script type="text/template" id="publiclistTemp">
+      <li id="<%= objectId %>">
+        <a href="#/allriders/<%= objectId %>">
+
+      <img class="profilepic" src="  <%= picture.url %>">
+        <%= name %>
+
+        </div>
+
+        </a>
+      </li>
+    </script>
+
+    <script type="text/template" id="riderprofileTemp">
+      <div id="<%= objectId %>" class="bigProfile">
+
+            <img class="bigprofilepic" src="  <%= picture.url %>">
+            <%= name %>
+          
+
+      </div>
     </script>
 
     <script type="text/template" id="listTemp">
@@ -162,9 +182,11 @@
         <script src="scripts/rider_model.js"></script>
         <script src="scripts/map_collection.js"></script>
         <script src="scripts/app_router.js"></script>
+        <script src="scripts/views/rider_profile_view.js"></script>
         <script src="scripts/views/single_rider_view.js"></script>
         <script src="scripts/views/add_rider_view.js"></script>
         <script src="scripts/views/list_riders_view.js"></script>
+        <script src="scripts/views/public_list_riders_view.js"></script>
         <script src="scripts/views/signup_view.js"></script>
         <script src="scripts/views/login_view.js"></script>
         <script src="scripts/main.js"></script>

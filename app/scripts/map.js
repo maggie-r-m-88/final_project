@@ -15,22 +15,7 @@ function initialize() {
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  // getYogaStudios(function (data){
-  //   var studios = data.studios;
-  //   var studio, latLng;
-  //
-  //   for (i in studios) {
-  //     studio = studios[i];
-  //     latLng = new google.maps.LatLng(studio.latitude, studio.longitude);
-  //
-  //     var marker = new google.maps.marker({
-  //       position: latLng,
-  //       map: map,
-  //       title: studio.name
-  //     });
-  //   }
-  //
-  // })
+
 
 
 App.riders.fetch({
