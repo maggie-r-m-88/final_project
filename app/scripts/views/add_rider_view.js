@@ -33,12 +33,12 @@
         name: $('#rider_name').val(),
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
-        picture: parseFile,
-        user: App.user
+        picture: parseFile
+
 
       });
 
-      c.setACL(new Parse.ACL(App.user));
+
 
       var addy_home =  $('#rider_home').val();
       var addy_work =  $('#rider_work').val();

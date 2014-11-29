@@ -33,6 +33,8 @@
     updateRider: function (e) {
       e.preventDefault();
 
+
+
       // Update our Model Instance
       this.options.rider.set({
         name: $('#update_name').val(),
@@ -40,11 +42,35 @@
         work_address: $('#update_work_address').val()
       });
 
+
+    var addy_home =  $('#update_home_address').val();
+    var addy_work =  $('#update_work_address').val();
+
+    var x = this.options.rider;
+    window.getCoordinates(addy_home, function(coordinates_home){
+
+    // Set our home coordinates
+    x.set('home_latlong', coordinates_home);
+
+      //Get our work coordinates
+      window.getCoordinates(addy_work, function(coordinates_work){
+
+        //set work coordinates
+      x.set('work_latlong', coordinates_work);
+
+        //save object
+        x.save();
+        App.router.navigate('', {trigger: true});
+      });
+
+
+    });
+
       // Save Instance
-      this.options.rider.save();
+      //this.options.rider.save();
 
 
-      App.router.navigate('', {trigger: true});
+    //  App.router.navigate('', {trigger: true});
 
     },
 

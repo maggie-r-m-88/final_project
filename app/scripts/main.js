@@ -46,7 +46,7 @@ $(window).scroll(function(){
     var currUsr;
     if (App.user == null){
       currUsr = '';
-      $('.mid-nav').hide();
+    //  $('.mid-nav').hide();
     } else {
       currUsr = 'Welcome ' + App.user.attributes.username;
     //  $('#logOut').text('Log Out');

@@ -3,7 +3,7 @@
   App.Views.PublicListRiders = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'allRiders',
+    className: 'allpublicRiders',
 
     events: {},
 

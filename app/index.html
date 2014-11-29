@@ -143,19 +143,19 @@
     </script>
 
     <script type="text/template" id="singleTemp">
-      <li class="card" id="<%= objectId %>">
+      <div class="editprofile" id="<%= objectId %>">
         <form id="updateRider">
-
+              <img class="bigprofilepic" src="  <%= picture.url %>"><br>
+            <hr>
               <input type="text" value="<%= name %>" id="update_name" />
-              <input type="text" value="<%= work_address %>" id="update_work_address" />
               <input type="text" value="<%= home_address %>" id="update_home_address" />
-            </div>
+<input type="text" value="<%= work_address %>" id="update_work_address" />
 
               <button>Update </button>
               <button id="delete">Delete</button>
-            </div>
+
         </form>
-      </li>
+      </div>
     </script>
 
 
