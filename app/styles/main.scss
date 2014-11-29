@@ -145,8 +145,27 @@ html, body, #map-canvas {
   width: 500px;
   border: 2px solid blue;
 }
-
+#riderList li{
+  list-style-type: none;
+  width: 100px;
+  height: 180px;
+  text-align: center;
+  background-color: black;
+  display: inline-block;
+  margin: 10px;
+  opacity: .8;
+  a{
+    color: white;
+  }
+  &:hover{
+    opacity: 1;
+    box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
+  }
+}
 .profilepic{
-  width: 200px;
-  height: 300px;
+
+  //margin-top: -22px;
+  width: 100px;
+  height: 150px;
+
 }
