@@ -69,8 +69,7 @@
       <a href="#/add" class="addBtn"><button>Add</button></a>
 
       <div id="riderList">
-        <!--<div id="publicriderList">
-        </div>-->
+      
       </div>
     </div>
 
@@ -95,6 +94,7 @@
         </form>
         </script>
 
+      <!--adding a new commute-->
         <script type="text/template" id="addTemp">
         <form id="addRider">
         <input type="text" id="rider_name" placeholder="Name" />
@@ -106,6 +106,7 @@
         <hr />
     </script>
 
+    <!--list of all riders will go here-->
     <script type="text/template" id="publiclistTemp">
       <li id="<%= objectId %>">
         <a href="#/allriders/<%= objectId %>">
@@ -119,6 +120,7 @@
       </li>
     </script>
 
+    <!--individual profile of riders-->
     <script type="text/template" id="riderprofileTemp">
       <div id="<%= objectId %>" class="bigProfile">
 
@@ -129,6 +131,7 @@
       </div>
     </script>
 
+    <!--this shows your Commutes/link to edit your profile-->
     <script type="text/template" id="listTemp">
       <li id="<%= objectId %>">
         <a href="#/edit/<%= objectId %>">
@@ -142,6 +145,7 @@
       </li>
     </script>
 
+    <!--update your individual profile goes here-->
     <script type="text/template" id="singleTemp">
       <div class="editprofile" id="<%= objectId %>">
         <form id="updateRider">
