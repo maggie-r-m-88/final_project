@@ -25,6 +25,17 @@
         work_address: $('#rider_work').val()
       });
 
+      var fileUploadControl = $("#profilePhotoFileUpload")[0];
+       if (fileUploadControl.files.length > 0) {
+       var file = fileUploadControl.files[0];
+       var name = "photo.jpg";
+
+       var parseFile = new Parse.File(name, file);
+}
+
+
+
+
 
       var addy_home =  $('#rider_home').val();
       var addy_work =  $('#rider_work').val();

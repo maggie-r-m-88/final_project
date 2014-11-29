@@ -33,10 +33,14 @@
 
 
         // Sort from our default comparator in our collection constructor
-  
+
         this.collection.each(function (c) {
           self.$el.append(self.template(c.toJSON()));
         });
+
+
+      
+
       }
 
 

@@ -23,14 +23,43 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div id="panel">
-      <input id="address" type="textbox" value="Sydney, NSW">
-      <input type="button" value="Geocode" onclick="codeAddress()">
-    </div>
-       <div id="map-canvas"></div>
-<hr>
+    <div class="body-container">
+        <div class="header-bg">
 
-    <div class="hero-unit">
+          <div class="header">
+
+          <h1 class="logo">  ATL Rideshare </h1>
+          <h2><a href="#"> Login</a> | <a href="#">Sign Up</a></h2>
+          </div>
+        </div><!--end of header bg-->
+    <!--<div class="topnav">
+    Home
+  </div>-->
+  <div id="pattern" class="pattern">
+  <div class="col-group">
+    <div class="mid-nav">
+      <h2><a href="#">Find a Match</a></h2>
+
+    </div>
+    <div class="mid-nav">
+    <h2><a href="#">My Commute</a></h2>
+
+    </div>
+    <div class="mid-nav">
+      <h2><a href="#">Ride Requests</a></h2>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+       <div id="map-canvas"></div>
+        <hr>
+
+       <div class="hero-unit">
      <!--login and sign up section
      <a href="#/signUp">Sign Up</a>
      <a href="#/login">Login</a>
@@ -49,6 +78,8 @@
     <input id="work_address_input" placeholder="enter work address" />
     <button id="submit_address" /> Submit </button>
   -->
+</div><!--end of body container-->
+
         <script type="text/template" id="SignUpTemp">
         <form action="submit" id="signUp">
         <input type="text" id="signUpUser" placeholder="Name">
@@ -71,6 +102,7 @@
         <script type="text/template" id="addTemp">
         <form id="addRider">
         <input type="text" id="rider_name" placeholder="Name" />
+        <input type="file" id="profilePhotoFileUpload">
         <input type="text" id="rider_home" placeholder="Home Address" />
         <input type="text" id="rider_work" placeholder="Work Address" />
         <button>Add Rider</button>
@@ -124,7 +156,7 @@
 
         <!-- build:js scripts/main.js -->
 
-        <script src="scripts/map.js"></script>
+
         <script src="scripts/rider_model.js"></script>
         <script src="scripts/map_collection.js"></script>
         <script src="scripts/app_router.js"></script>
@@ -134,6 +166,7 @@
         <script src="scripts/views/signup_view.js"></script>
         <script src="scripts/views/login_view.js"></script>
         <script src="scripts/main.js"></script>
+        <script src="scripts/map.js"></script>
         <!-- endbuild -->
 </body>
 </html>

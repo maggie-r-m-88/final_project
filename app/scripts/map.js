@@ -1,35 +1,53 @@
 var geocoder;
 var map;
 var Data = {};
+
+
+
+
 function initialize() {
+
   geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(33.89307300000001, -84.339921);
+  var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
   var mapOptions = {
     zoom: 8,
     center: latlng
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+  // getYogaStudios(function (data){
+  //   var studios = data.studios;
+  //   var studio, latLng;
+  //
+  //   for (i in studios) {
+  //     studio = studios[i];
+  //     latLng = new google.maps.LatLng(studio.latitude, studio.longitude);
+  //
+  //     var marker = new google.maps.marker({
+  //       position: latLng,
+  //       map: map,
+  //       title: studio.name
+  //     });
+  //   }
+  //
+  // })
 
-}
 
-function codeAddress() {
-  var address = document.getElementById('address').value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
+App.riders.fetch({
 
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
+ success: function(collection) {
+       console.log(collection.models)
 
-      });
 
-    } else {
-      alert('Geocode was not successful for the following reason: ' + status);
-    }
-  });
-}
+    collection.each(function(object) {
+
+
+       }); //end of for each
+     } //end of success
+   }); //end of app.riders.fetch
+} //end of initialize
+
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -45,35 +63,3 @@ window.getCoordinates = function ( address, callback) {
   })
 
 }
-
-//function below spits me out lat and long coordinates
-//window.getCoordinates('1045 mission street', function(coordinates) {console.log(coordinates) })
-//window.getCoordinates($('#address_input').value, function(coordinates) {console.log(coordinates) })
-
-$( "#submit_address" ).click(function() {
-
-
-   var addy_home = home_address_input.value;
-   window.getCoordinates(addy_home,
-        function(coordinates_home)
-        {
-          Data.homeCords = coordinates_home;
-          console.log(Data.homeCords)
-
-        });
-  var addy_work = work_address_input.value;
-  window.getCoordinates(addy_work,
-       function(coordinates_work)
-       {
-         Data.workCords = coordinates_work;
-         console.log(Data.workCords)
-       });
-
-
-});
-
-
-
-
-// var lat = results[0].geometry.location.lat();
-// var lng = results[0].geometry.location.lng();

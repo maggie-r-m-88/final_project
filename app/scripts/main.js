@@ -10,7 +10,26 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
 
     App.router = new App.Routers.AppRouter();
 
+//
+// console.log(App.riders.models[0].attributes.home_latlong)
+// console.log(App.riders.models[1].attributes.home_latlong)
+// console.log(App.riders.models[2].attributes.home_latlong)
+
   });
+
+var divs = $('.logo');
+$(window).scroll(function(){
+   if($(window).scrollTop()<100){
+         divs.stop(true,true).fadeIn("slow");
+   } else {
+         divs.stop(true,true).fadeOut("slow");
+   }
+});
+
+
+
+
+
 
   $('#logOut').on('click', function (e) {
     e.preventDefault();
