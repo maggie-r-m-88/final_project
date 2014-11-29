@@ -10,7 +10,7 @@
     routes: {
       '' : 'home',
       'allriders/:riderID': 'riderProfile',
-      //'publicRiders': 'publicRiders',
+      'myCommute' : 'myCommute',
       'edit/:riderID' : 'editRider',
       'add' : 'addRider',
       'signUp' : 'userSignUp',
@@ -23,11 +23,11 @@
       //new App.Views.ListRiders({ collection: App.riders });
 
     },
-    // publicRiders: function () {
-    //
-    //   new App.Views.PublicListRiders({ collection: App.riders });
-    //
-    // },
+     myCommute: function () {
+
+       new App.Views.ListRiders({ collection: App.riders });
+
+     },
 
     riderProfile: function (riderID) {
       var c = App.riders.get(riderID);
