@@ -87,7 +87,13 @@ var y2 = home_collection[2].long()
 		return Math.round( x * 1000) / 1000;
 	}
 
-findDistance();
+//findDistance();
+$('#distance_calc').on('click', function (e){
+  e.preventDefault();
+
+  findDistance();
+});
+
 
 
 //end initialize
