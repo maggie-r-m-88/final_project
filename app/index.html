@@ -29,7 +29,9 @@
           <div class="header">
 
           <h1 class="logo">  ATL Rideshare </h1>
-          <h2><a href="#/login" id="login-link"> Login</a> | <a href="#/signUp">Sign Up</a></h2>
+          <h2 class="topnavlinks"><a href="#/login" id="login-link"> Login</a> | <a href="#/signUp" >Sign Up</a></h2>
+          <h2 id="logOut"><a href="#">Log Out</a></h2>
+          <!-- <button id="logOut">Log Out</button>-->
 
 
 
@@ -42,7 +44,7 @@
   <div id="pattern" class="pattern">
   <div class="col-group">
     <div class="mid-nav">
-      <h2><a href="#">Find a Match</a></h2>
+      <h2><a href="#/matches">Find a Match</a></h2>
 
     </div>
     <div class="mid-nav">
@@ -59,13 +61,12 @@
 
 
 
-  <div id="signUpField"></div>
-  <div id="loginField"></div>
-  <div class="hero-unit">
-    <a href="#/add" class="addBtn"><button>Add</button></a>
 
-       <button id="logOut">Log Out</button>
-       <hr>
+  <div class="hero-unit">
+   <a href="#/add" class="addBtn"><button>Add</button></a>
+
+
+
 
 
       <div id="riderList">
@@ -76,24 +77,36 @@
        <div id="map-canvas"></div>
         <hr>
 </div><!--end of body container-->
+        <script type="text/template" id="homeTemp">
+        <div class="homeview">
+        <ul>
+        <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Other</a>
+        </ul>
+        </div>
+        </script>
+
 
         <script type="text/template" id="SignUpTemp">
+        <div class="console">
         <form action="submit" id="signUp">
         <input type="text" id="signUpUser" placeholder="Name">
         <input type="password" id="signUpPassword" placeholder="Password"><br>
 
-         <button>Sign Up</button>
+         <button id="signer">Sign Up</button>
          </form>
+         </div>
         </script>
 
         <!-- User Login -->
         <script type="text/template" id="loginTemp">
+        <div class="console">
         <form action="submit" id="login">
          <input type="text" placeholder="Name" id="username">
          <input type="password" placeholder="Password" id="password">
 
          <button>Login</button>
         </form>
+        </div>
         </script>
 
       <!--adding a new commute-->
@@ -189,6 +202,7 @@
         <script src="scripts/rider_model.js"></script>
         <script src="scripts/map_collection.js"></script>
         <script src="scripts/app_router.js"></script>
+        <script src="scripts/views/home_view.js"></script>
         <script src="scripts/views/rider_profile_view.js"></script>
         <script src="scripts/views/single_rider_view.js"></script>
         <script src="scripts/views/add_rider_view.js"></script>

@@ -30,6 +30,8 @@
           App.user = user;
           App.router.navigate('', {trigger: true});
           $('#pattern').show();
+          $('.topnavlinks').hide();
+          $('#logOut').show();
           //$('#loginField').hide();
           console.log('were logged in');
 

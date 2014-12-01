@@ -71,7 +71,45 @@ body{
   }
 
 }
+.homeview{
+  background-color: black;
+  text-align: center;
+  color: white;
+  height: 50px;
+  font-size: 1.0em;
+  ul{
+    padding-top: 10px;
+  }
+  a{
 
+    font-size: 1.0em;
+    color: white;
+  }
+}
+
+.console{
+  height: 190px;
+  background-color: $slate;
+  #login, #signUp{
+    padding-top: 20px;
+  }
+  input, button{
+  margin-left: 10%;
+  margin-top: 15px;
+  width: 80%;
+  height: 30px;
+  padding: 5px;
+  border: none;
+  }
+  button{
+    margin-top: 20px;
+    opacity: 1;
+    height: 40px;
+  }
+  button:hover{
+    opacity: .8;
+  }
+}
 .mid-nav{
   margin-top: 20px;
   font-family: $fijalla;
@@ -108,6 +146,44 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 .col-group > div {
   padding: 1em 1em 0;
 }
+@media screen and (min-width: 50em) {
+
+  .console{
+    height: 70px;
+    margin-top: -5px;
+    background-color: $slate;
+    #login, #signUp{
+      padding-left: 5%;
+      padding-top: 25px;
+    }
+    input, button{
+    display: inline-block;
+    width: 30%;
+    margin-top: -10px;
+    margin-left: 10px;
+    //width: 80%;
+    //height: 30px;
+
+
+    }
+    button{
+    //  margin-top: 20px;
+      opacity: 1;
+      height: 30px;
+    }
+    #signer{
+      display: inline-block;
+      width: 20%;
+      padding-top: 5px;
+      margin-left: 70%;
+      //margin-top: -10px;
+    }
+    button:hover{
+      opacity: .8;
+    }
+  }
+
+}
 
 @media screen and (min-width: 50em) {
   .header, .header-bg{
@@ -127,6 +203,13 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
     float: left;
     width: 33.3333333%;
   }
+
+
+
+
+
+
+
 }
 html, body, #map-canvas {
         height: 100%;

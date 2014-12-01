@@ -36,6 +36,7 @@ $(window).scroll(function(){
     Parse.User.logOut();
     App.updateUser();
     console.log('user has logged out');
+    $('.topnavlinks').show();
     App.router.navigate('', {trigger: true});
   });
 
@@ -46,16 +47,19 @@ $(window).scroll(function(){
     var currUsr;
     if (App.user === null){
       currUsr = '';
+      $('#logOut').hide();
       $('#pattern').hide();
     } else {
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
+       $('.topnavlinks').hide();
+
     }
     $('#loggedIn').html(currUsr);
   };
   App.updateUser();
 
-// 
+//
 // $('#login-link').on('click', function(e){
 //   e.preventDefault();
 //   $('#loginField').show();
