@@ -9,7 +9,7 @@
     initialize: function(){
       this.render();
 
-      $('#loginField').html(this.$el);
+      $('#riderList').html(this.$el);
 
     },
 
@@ -29,8 +29,10 @@
         success: function (user) {
           App.user = user;
           App.router.navigate('', {trigger: true});
+          $('#pattern').show();
+          //$('#loginField').hide();
           console.log('were logged in');
-        
+
 
         }
       });

@@ -9,7 +9,7 @@
     initialize: function(){
       this.render();
 
-      $('#signUpField').html(this.$el);
+      $('#riderList').html(this.$el);
     },
 
     render: function(){
@@ -33,7 +33,7 @@
         //    alert("Error: " + error.code + " " + error.message);
         //  }
       });
-    
+
     }
   });
 }());

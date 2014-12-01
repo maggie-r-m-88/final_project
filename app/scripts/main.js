@@ -40,19 +40,29 @@ $(window).scroll(function(){
   });
 
 
-    // Update User
+  //  Update User
   App.updateUser = function (){
     App.user = Parse.User.current();
     var currUsr;
-    if (App.user == null){
+    if (App.user === null){
       currUsr = '';
-    //  $('.mid-nav').hide();
+      $('#pattern').hide();
     } else {
       currUsr = 'Welcome ' + App.user.attributes.username;
-    //  $('#logOut').text('Log Out');
+       $('#pattern').show();
     }
     $('#loggedIn').html(currUsr);
   };
   App.updateUser();
+
+// 
+// $('#login-link').on('click', function(e){
+//   e.preventDefault();
+//   $('#loginField').show();
+//
+// });
+
+
+
 
 }());

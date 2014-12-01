@@ -29,8 +29,12 @@
           <div class="header">
 
           <h1 class="logo">  ATL Rideshare </h1>
-          <h2><a href="#/login"> Login</a> | <a href="#/signUp">Sign Up</a></h2>
-          </div>
+          <h2><a href="#/login" id="login-link"> Login</a> | <a href="#/signUp">Sign Up</a></h2>
+
+
+
+
+
         </div><!--end of header bg-->
     <!--<div class="topnav">
     Home
@@ -55,24 +59,22 @@
 
 
 
-       <div id="map-canvas"></div>
-        <hr>
+  <div id="signUpField"></div>
+  <div id="loginField"></div>
+  <div class="hero-unit">
+    <a href="#/add" class="addBtn"><button>Add</button></a>
 
-       <div class="hero-unit">
+       <button id="logOut">Log Out</button>
+       <hr>
 
-     <button id="logOut">Log Out</button>
-
-     <div id="signUpField"></div>
-     <div id="loginField"></div>
-
-     <hr>
-      <a href="#/add" class="addBtn"><button>Add</button></a>
 
       <div id="riderList">
-      
-      </div>
-    </div>
 
+      </div>
+  </div>
+
+       <div id="map-canvas"></div>
+        <hr>
 </div><!--end of body container-->
 
         <script type="text/template" id="SignUpTemp">
@@ -148,6 +150,7 @@
     <!--update your individual profile goes here-->
     <script type="text/template" id="singleTemp">
       <div class="editprofile" id="<%= objectId %>">
+
         <form id="updateRider">
               <img class="bigprofilepic" src="  <%= picture.url %>"><br>
             <hr>
