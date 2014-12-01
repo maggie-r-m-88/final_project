@@ -1,8 +1,11 @@
 var geocoder;
 var map;
 var Data = {};
+var CurrentUser;
+function findDistance (){
+  console.log(App.riders.models[2].attributes.home_latlong)
+};
 
-//
 // var collection = [];
 //
 // var home_collection=[];
@@ -21,6 +24,17 @@ function initialize() {
 
  collection = App.riders.models;
 
+
+
+ currentUser = App.riders.find( function (a) {
+
+  return a.attributes.user.id == App.user.id;
+
+});
+
+var current_home_latlong = currentUser.attributes.home_latlong;
+console.log(current_home_latlong);
+
  home_collection = _.map(collection, function(object){return object.attributes.home_latlong; });
   work_collection = _.map(collection, function(object){return object.attributes.work_latlong; });
 
@@ -32,14 +46,41 @@ Array.prototype.lat = function (){
 }
 
 //here i am just calculating between my first and second rider
-var x1 = home_collection[1].lat()
-var y1 = home_collection[1].long()
-var x2 = home_collection[2].lat()
-var y2 = home_collection[2].long()
+var x1 = current_home_latlong.lat()
+console.log('x1 is'+ x1);
 
+var y1 = current_home_latlong.long()
+console.log('y1 is'+ y1);
+var x2;
+var y2;
+
+home_collection.forEach(function(entry) {
+
+  //  console.log(entry.lat());
+  //  console.log(entry.long());
+
+});
+x2 =home_collection[1].lat()
+y2 =home_collection[1].long()
   //this will stay constant
 	var Rm = 3961; // mean radius of the earth (miles) at 39 degrees from the equator
 	var Rk = 6373; // mean radius of the earth (km) at 39 degrees from the equator
+/*
+var other_users = _.filter(App.users, {id: App.user.id});
+var results = _.map(other_users, function(other) {
+  App.currentUser.find_distance(other);
+});
+
+function find_distance(other) {
+// Magic happens here.
+  var distance = ...?
+  return {user: other.name, distance: distance};
+}
+
+var neighbors = _.filter(results, function(x) {
+  if(x.distance < 5) return true;
+});
+*/
 
 	/******* main function *********/
 	function findDistance() {
@@ -70,8 +111,8 @@ var y2 = home_collection[2].long()
 		// round the results down to the nearest 1/1000
 		mi = round(dm);
 		km = round(dk);
-    console.log(mi);
-	  console.log(km);
+    console.log(mi + ' mi');
+	  console.log(km + ' km');
 	}
 
 
@@ -86,6 +127,7 @@ var y2 = home_collection[2].long()
 	function round(x) {
 		return Math.round( x * 1000) / 1000;
 	}
+
 
 //findDistance();
 $('#distance_calc').on('click', function (e){
