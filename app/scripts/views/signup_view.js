@@ -25,6 +25,8 @@
       });
       user.signUp(null, {
         success: function(user) {
+          App.user = user;
+          //App.updateUser();
           App.router.navigate('add', {trigger: true});
           $('#signUpField').hide();
         }

@@ -66,6 +66,7 @@
               // Save our entire object
               c.save(null, {
                 success: function () {
+                  App.updateUser();
                   App.riders.add(c);
                   App.router.navigate('', { trigger: true });
                 }
