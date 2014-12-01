@@ -63,11 +63,6 @@
 
 
   <div class="hero-unit">
-   <a href="#/add" class="addBtn"><button>Add</button></a>
-
-
-
-
 
       <div id="riderList">
 
@@ -148,15 +143,16 @@
 
     <!--this shows your Commutes/link to edit your profile-->
     <script type="text/template" id="listTemp">
+
       <li id="<%= objectId %>">
-        <a href="#/edit/<%= objectId %>">
+        <a href="#/edit/<%= objectId %>">Edit Profile</a>
 
       <img class="profilepic" src="  <%= picture.url %>">
         <%= name %>
 
         </div>
 
-        </a>
+        
       </li>
     </script>
 

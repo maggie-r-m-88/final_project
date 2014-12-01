@@ -57,16 +57,24 @@ $(window).scroll(function(){
     }
     $('#loggedIn').html(currUsr);
   };
+
   App.updateUser();
 
-//
-// $('#login-link').on('click', function(e){
-//   e.preventDefault();
-//   $('#loginField').show();
-//
-// });
+App.addButton = function(){
+  App.user = Parse.User.current();
+
+  if (App.user.id === null){
+    $('#adder').show();
+
+  }
+  else{
+    $('#adder').hide();
+  }
 
 
 
+};
+
+//App.addButton();
 
 }());

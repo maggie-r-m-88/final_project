@@ -25,7 +25,7 @@
       });
       user.signUp(null, {
         success: function(user) {
-          App.router.navigate('', {trigger: true});
+          App.router.navigate('add', {trigger: true});
           $('#signUpField').hide();
         }
         // error: function(user, error) {
