@@ -31,6 +31,7 @@ $(window).scroll(function(){
 
 
 
+
   $('#logOut').on('click', function (e) {
     e.preventDefault();
     Parse.User.logOut();
