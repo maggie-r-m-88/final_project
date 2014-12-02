@@ -26,14 +26,14 @@
       user.signUp(null, {
         success: function(user) {
           App.user = user;
-  
+
           App.router.navigate('add', {trigger: true});
           $('#signUpField').hide();
-        }
-        // error: function(user, error) {
+        },
+         error: function(user, error) {
         // //   // Show the error message somewhere and let the user try again.
-        //    alert("Error: " + error.code + " " + error.message);
-        //  }
+           alert("Error: " + error.code + " " + error.message);
+          }
       });
 
     }

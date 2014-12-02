@@ -34,9 +34,11 @@
           $('#logOut').show();
           //$('#loginField').hide();
           console.log('were logged in');
-
-
-        }
+        },
+        error: function(user, error) {
+       // //   // Show the error message somewhere and let the user try again.
+          alert("Error: " + error.code + " " + error.message);
+         }
       });
 
     }
