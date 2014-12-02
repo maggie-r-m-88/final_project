@@ -31,10 +31,11 @@ function initialize() {
 
   collection = App.riders.models;
 
-/*define our current user*/
+/**********define our current user*********** this is global*******/
 currentUser = App.riders.find( function (a) {
     return a.attributes.user.id == App.user.id;
   });
+
 
 var currentUserData = currentUser.attributes.home_latlong;
 
@@ -46,7 +47,7 @@ var Rm = 3961;
 var Rk = 6373;
 var otherUserData;
 
-    findDistance = function(otherUser) {
+    findDistance2 = function(otherUser) {
 
     var dlat, dlon, a, c, dm, dk, mi, km;
     /* define our other user*/

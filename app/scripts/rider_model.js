@@ -21,23 +21,39 @@
       //console.log(t + " has been added");
     },
 
-     findDistance2: function (rider) {
-      //alert('hello ' + rider.attributes.name);
-           console.log( rider.attributes.name);
-           console.log(currentUser.attributes.name + currentUser.attributes.home_latlong + rider.attributes.name);
-  //console.log(collection + 'hello i am tryingt o find ' + rider.attributes.name);
-  //    alert('hello ' + 'Im ' + currentUser.attributes.name + 'you are ' + rider.attributes.name);
+     findDistance: function (rider) {
 
-}
-    //    var deg2rad = function(deg) {
-    //      rad = deg * Math.PI/180; // radians = degrees * pi/180
-    //      return rad;
-    //    }
-    // currentUser.findDistance2(collection[4])
-    //    var round = function(x) {
-    //      return Math.round( x * 1000) / 1000;
-    //    }
-    //
+     var  a, c, dm, dk, mi, km;
+     var Rm = 3961; var Rk = 6373;
+     var x2 = rider.attributes.home_latlong[0];
+     var y2 = rider.attributes.home_latlong[1];
+     var x1 = currentUser.attributes.home_latlong[0]
+     var y1=  currentUser.attributes.home_latlong[1]
+
+     var deg2rad = function(deg) {
+       rad = deg * Math.PI/180; // radians = degrees * pi/180
+       return rad;
+
+     }
+
+    var dlat= deg2rad(x2) - deg2rad(x1);
+    var dlon= deg2rad(y2) - deg2rad(y1);
+
+    var round = function(x) {
+          return Math.round( x * 1000) / 1000;
+    }
+
+    // here's the heavy lifting
+    a  = Math.pow(Math.sin(dlat/2),2) + Math.cos(x1) * Math.cos(y1) * Math.pow(Math.sin(dlon/2),2);
+    c  = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); // great circle distance in radians
+    dm = c * Rm; // great circle distance in miles
+    dk = c * Rk; // great circle distance in km
+
+    mi = round(dm);
+    km = round(dk);
+
+    console.log(rider.attributes.name + 'is ' + km + ' km away');
+
     //   var lat1, lon1, lat2, lon2;
     //
     //   lat1 = deg2rad(this.get('home_latlong')[0]);
@@ -45,8 +61,11 @@
     //   lat2 = rider.get('home_latlong')[0];
     //   ....
     //   return {miles: mi, kilometers: km};
-    //  }
+      }
 
+
+
+// currentUser.findDistance2(collection[4])
   });
 
 }());
