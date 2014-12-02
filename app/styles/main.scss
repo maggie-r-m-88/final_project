@@ -302,8 +302,17 @@ width: 500px;
 
 }
 .matchresults{
-  height: 101px;
+  list-style-type: none;
+  height: 201px;
   background-color: $babyblue;
+  color: black;
+
+}
+
+.matchresults2{
+  list-style-type: none;
+  height: 201px;
+  background-color: white;
   color: black;
 
 }

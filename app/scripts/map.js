@@ -41,15 +41,13 @@ currentUser = App.riders.find( function (a) {
   });
 
 
-var currentUserData = currentUser.attributes.home_latlong;
+//var currentUserData = currentUser.attributes.home_latlong;
 
-x1=((currentUserData)[0])
-y1=((currentUserData)[1])
 
 
 var Rm = 3961;
 var Rk = 6373;
-var otherUserData;
+
 
 // var results = _.map(collection, function(other) {
 //   currentUser.findDistance(other);

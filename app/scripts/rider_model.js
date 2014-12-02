@@ -61,7 +61,7 @@
     km = round(dk);
 
 
-    console.log(rider.attributes.name + 'is ' + km + ' km away');
+    //console.log(rider.attributes.name + 'is ' + km + ' km away');
     return { username: rider.get('name'), miles: mi, kilometers: km };
   //  $('.matchresults').append("<li> + rider.attributes.name + 'is ' + km + ' km away' </li>");
 
