@@ -21,14 +21,22 @@
       //console.log(t + " has been added");
     },
 
-     findDistance: function (rider) {
+     findDistance: function (rider, location) {
 
      var  a, c, dm, dk, mi, km;
      var Rm = 3961; var Rk = 6373;
-     var x2 = rider.attributes.home_latlong[0];
-     var y2 = rider.attributes.home_latlong[1];
-     var x1 = currentUser.attributes.home_latlong[0]
-     var y1=  currentUser.attributes.home_latlong[1]
+     var coords_property;
+
+     if (location == 'home') {
+       coords_property = 'home_latlong';
+     } else {
+       coords_property = 'work_latlong';
+     }
+
+     var x2 = rider.get(coords_property)[0];
+     var y2 = rider.get(coords_property)[1];
+     var x1 = currentUser.get(coords_property)[0];
+     var y1=  currentUser.get(coords_property)[1];
 
      var deg2rad = function(deg) {
        rad = deg * Math.PI/180; // radians = degrees * pi/180
@@ -52,11 +60,13 @@
     mi = round(dm);
     km = round(dk);
 
+
     console.log(rider.attributes.name + 'is ' + km + ' km away');
+    return { username: rider.get('name'), miles: mi, kilometers: km };
+  //  $('.matchresults').append("<li> + rider.attributes.name + 'is ' + km + ' km away' </li>");
 
-
-    //   return {miles: mi, kilometers: km};
       }
+
 
 
 

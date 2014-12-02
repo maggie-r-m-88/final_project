@@ -33,7 +33,12 @@ $('#distance_calc').on('click', function (e) {
   e.preventDefault();
 
   var results = _.map(collection, function(other) {
-    currentUser.findDistance(other);
+    return currentUser.findDistance(other, 'home');
+  });
+  console.log(results);
+
+  var results = _.map(collection, function(other) {
+    return currentUser.findDistance(other, 'work');
   });
   console.log(results);
 
