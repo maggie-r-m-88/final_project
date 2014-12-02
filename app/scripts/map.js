@@ -64,7 +64,7 @@ var otherUserData;
 		// round the results down to the nearest 1/1000
 		mi = round(dm);
 		km = round(dk);
-    console.log(mi + ' mi');
+    alert(mi + ' mi');
 	  console.log(km + ' km');
 }
 	// convert degrees to radians
