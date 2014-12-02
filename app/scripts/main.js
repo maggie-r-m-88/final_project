@@ -32,7 +32,10 @@ $(window).scroll(function(){
 $('#distance_calc').on('click', function (e) {
   e.preventDefault();
 
-  currentUser.findDistance2(collection[2]);
+  var results = _.map(collection, function(other) {
+    currentUser.findDistance(other);
+  });
+  console.log(results);
 
 });
 
@@ -81,6 +84,5 @@ App.addButton = function(){
 
 };
 
-//App.addButton();
 
 }());

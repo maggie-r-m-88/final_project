@@ -21,8 +21,14 @@
           <div class="header">
 
           <h1 class="logo">  ATL Rideshare </h1>
-          <h2><a href="#"> Login</a> | <a href="#">Sign Up</a></h2>
-          </div>
+          <h2 class="topnavlinks"><a href="#/login" id="login-link"> Login</a> | <a href="#/signUp" >Sign Up</a></h2>
+          <h2 id="logOut"><a href="#">Log Out</a></h2>
+          <!-- <button id="logOut">Log Out</button>-->
+
+
+
+
+
         </div><!--end of header bg-->
     <!--<div class="topnav">
     Home
@@ -30,11 +36,11 @@
   <div id="pattern" class="pattern">
   <div class="col-group">
     <div class="mid-nav">
-      <h2><a href="#">Find a Match</a></h2>
+      <h2><a href="#/matches">Find a Match</a></h2>
 
     </div>
     <div class="mid-nav">
-    <h2><a href="#">My Commute</a></h2>
+    <h2><a href="#/myCommute">My Commute</a></h2>
 
     </div>
     <div class="mid-nav">
@@ -44,52 +50,49 @@
   </div>
 </div>
 
+  <div class="hero-unit">
+ <button id="distance_calc">Distance Calc</button>
+      <div id="riderList">
 
-
-
+      </div>
+  </div>
 
        <div id="map-canvas"></div>
         <hr>
-
-       <div class="hero-unit">
-     <!--login and sign up section
-     <a href="#/signUp">Sign Up</a>
-     <a href="#/login">Login</a>
-     <button id="logOut">Log Out</button>
-     <div id="signUpField"></div>
-     <div id="loginField"></div>
-   -->
-     <hr>
-      <a href="#/add" class="addBtn"><button>Add</button></a>
-
-      <div id="riderList"></div>
-    </div>
-<!--
-    <input id="home_address_input" placeholder="enter home address" />
-    <input id="work_address_input" placeholder="enter work address" />
-    <button id="submit_address" /> Submit </button>
-  -->
 </div><!--end of body container-->
+        <script type="text/template" id="homeTemp">
+        <div class="homeview">
+        <ul>
+        <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Other</a>
+        </ul>
+        </div>
+        </script>
+
 
         <script type="text/template" id="SignUpTemp">
+        <div class="console">
         <form action="submit" id="signUp">
         <input type="text" id="signUpUser" placeholder="Name">
         <input type="password" id="signUpPassword" placeholder="Password"><br>
 
-         <button>Sign Up</button>
+         <button id="signer">Sign Up</button>
          </form>
+         </div>
         </script>
 
         <!-- User Login -->
         <script type="text/template" id="loginTemp">
+        <div class="console">
         <form action="submit" id="login">
          <input type="text" placeholder="Name" id="username">
          <input type="password" placeholder="Password" id="password">
 
          <button>Login</button>
         </form>
+        </div>
         </script>
 
+      <!--adding a new commute-->
         <script type="text/template" id="addTemp">
         <form id="addRider">
         <input type="text" id="rider_name" placeholder="Name" />
@@ -101,9 +104,11 @@
         <hr />
     </script>
 
-    <script type="text/template" id="listTemp">
+    <!--list of all riders will go here-->
+    <script type="text/template" id="publiclistTemp">
+
       <li id="<%= objectId %>">
-        <a href="#/edit/<%= objectId %>">
+        <a href="#/allriders/<%= objectId %>">
 
       <img class="profilepic" src="  <%= picture.url %>">
         <%= name %>
@@ -114,20 +119,48 @@
       </li>
     </script>
 
-    <script type="text/template" id="singleTemp">
-      <li class="card" id="<%= objectId %>">
-        <form id="updateRider">
+    <!--individual profile of riders-->
+    <script type="text/template" id="riderprofileTemp">
+      <div id="<%= objectId %>" class="bigProfile">
 
+            <img class="bigprofilepic" src="  <%= picture.url %>">
+            <%= name %>
+
+
+      </div>
+    </script>
+
+    <!--this shows your Commutes/link to edit your profile-->
+    <script type="text/template" id="listTemp">
+
+      <li id="<%= objectId %>">
+        <a href="#/edit/<%= objectId %>">Edit Profile</a>
+
+      <img class="profilepic" src="  <%= picture.url %>">
+        <%= name %>
+
+        </div>
+
+
+      </li>
+    </script>
+
+    <!--update your individual profile goes here-->
+    <script type="text/template" id="singleTemp">
+      <div class="editprofile" id="<%= objectId %>">
+
+        <form id="updateRider">
+              <img class="bigprofilepic" src="  <%= picture.url %>"><br>
+            <hr>
               <input type="text" value="<%= name %>" id="update_name" />
-              <input type="text" value="<%= work_address %>" id="update_work_address" />
               <input type="text" value="<%= home_address %>" id="update_home_address" />
-            </div>
+<input type="text" value="<%= work_address %>" id="update_work_address" />
 
               <button>Update </button>
               <button id="delete">Delete</button>
-            </div>
+
         </form>
-      </li>
+      </div>
     </script>
 
 

@@ -54,18 +54,12 @@
 
     console.log(rider.attributes.name + 'is ' + km + ' km away');
 
-    //   var lat1, lon1, lat2, lon2;
-    //
-    //   lat1 = deg2rad(this.get('home_latlong')[0]);
-    //   lon1 = this.get('home_latlong')[1];
-    //   lat2 = rider.get('home_latlong')[0];
-    //   ....
+
     //   return {miles: mi, kilometers: km};
       }
 
 
 
-// currentUser.findDistance2(collection[4])
   });
 
 }());
