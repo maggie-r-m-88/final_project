@@ -18,8 +18,9 @@
       //console.log(t + " has been added");
     },
 
-    findDistance: function (rider) {
-     alert('hello' + rider);
+    // findDistance: function (rider) {
+    //  alert('hello' + rider);
+
     //   var deg2rad = function(deg) {
     //     rad = deg * Math.PI/180; // radians = degrees * pi/180
     //     return rad;
@@ -35,7 +36,7 @@
     //   lat2 = rider.get('home_latlong')[0];
     //   ....
     //   return {miles: mi, kilometers: km};
-    }
+    // }
 
   });
 
