@@ -29,7 +29,12 @@ $(window).scroll(function(){
 
 
 
+$('#distance_calc').on('click', function (e) {
+  e.preventDefault();
 
+  currentUser.findDistance2(collection[2]);
+
+});
 
 
   $('#logOut').on('click', function (e) {

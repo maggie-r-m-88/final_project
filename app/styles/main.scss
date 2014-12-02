@@ -14,12 +14,22 @@ $coral: hsl(13,74,62);
 $slate: hsl(282,7,27);
 $silver: hsl(10,21,72);
 
-$lightgray: hsl(45,20,81);
+$lightslategray: hsl(45,20,81);
 $burlywood: hsl(47,56,66) ;
 $indianred: hsl(346,41,46);
 //http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg
 $silver2: hsl(56,27,73);
 $darkgray: hsl(195,5,69);
+
+$babyblue: hsl(187,15,61);
+$lightslategray2: hsl(216,6,56);
+$silver3: hsl(67,5,71);
+
+$arty:  url("http://i.imgur.com/1qS8TeY.jpg");
+$tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
+$highway: url("http://i.imgur.com/XQiNCZU.jpg");
+$bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
+$sketchy: url("http://i.imgur.com/fshxb6E.jpg");
 // Custom Styles
 body{
   font-size: 62.5%;
@@ -37,16 +47,16 @@ body{
   max-width: 1300px;
 }
 .header-bg{
-  background-image: url("http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg");
+  background-image:url("http://i.imgur.com/9DPfrWQ.jpg");
   margin-top: -40px;
   background-size: cover;
-  height: 400px;
+  height: 500px;
   background-attachment: fixed;
 }
 .header{
   //position: absolute;
   margin-top: -43px;
-  height: 400px;
+  height: 500px;
   opacity: .8;
   background-color: $darkgray;
   font-family: $fijalla;
@@ -110,26 +120,36 @@ body{
     opacity: .8;
   }
 }
-.mid-nav{
+
+//: hsl(216,6,56);
+$arty:  url("http://i.imgur.com/1qS8TeY.jpg");
+$tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
+$highway: url("http://i.imgur.com/XQiNCZU.jpg");
+$bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
+.mid-nav, .midnav2, .midnav3{
   margin-top: 20px;
   font-family: $fijalla;
   font-size: 3.0em;
-  color: white;
+  color: black;
   margin-top: 0;
   text-align: center;
   height: 150px;
   opacity: .8;
   //border: 1px solid $darkgray;
-  background-color: $slate;
+  background-color: $lightslategray2;
+  //
+  //background-size: stretch;
+
   h2{
     margin-top: 20px;
   }
   &:hover{
+
     opacity: 1;
 box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 }
   a{
-    color: white;
+    color: black;
     //transition: border-bottom 0.2s ease;
   }
   a:hover{
@@ -141,6 +161,7 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 .hero-unit{
   font-size: 1.8em;
   font-family: $fijalla;
+  background-color: $slate;
 }
 //media query for top 3 section
 .col-group > div {
@@ -193,6 +214,14 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
       padding-top: 200px;
     }
   }
+
+  .header-bg{
+    background-image: url("http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg");
+    background-size: cover;
+  }
+
+
+
   .mid-nav{
     font-size:2.5em;
   }
