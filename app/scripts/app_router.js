@@ -16,6 +16,7 @@
       'add' : 'addRider',
       'signUp' : 'userSignUp',
       'login' : 'userLogin'
+      // 'rideCalc' : 'rideCalc'
 
     },
 
@@ -24,6 +25,10 @@
       //new App.Views.ListRiders({ collection: App.riders });
         new App.Views.HomeView();
     },
+
+    // rideCalc: function(){
+    //   new App.Views.rideCalcView();
+    // },
 
     matches: function(){
 
