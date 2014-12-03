@@ -17,30 +17,50 @@
       var t = this.get('name');
       collection = App.riders.models;
 
-      //rider = App.riders.model;
+
       //console.log(t + " has been added");
     },
 
      findDistance: function (rider) {
 
      var  a, c, dm, dk, mi, km;
+     var  a1, c1, dm1, dk1, mi1, km1;
+
      var Rm = 3961; var Rk = 6373;
-     var x2 = rider.attributes.home_latlong[0];
-     var y2 = rider.attributes.home_latlong[1];
-     var x1 = currentUser.attributes.home_latlong[0]
-     var y1=  currentUser.attributes.home_latlong[1]
+     //var coords_property;
+
+    //  if (location == 'home') {
+    //    coords_property = 'home_latlong';
+    //  } else {
+    //    coords_property = 'work_latlong';
+    //  }
+    var x2= rider.attributes.home_latlong[0];
+    var y2= rider.attributes.home_latlong[1];
+    var x1= currentUser.attributes.home_latlong[0];
+    var y1= currentUser.attributes.home_latlong[1];
+
+    var k2= rider.attributes.work_latlong[0];
+    var j2= rider.attributes.work_latlong[1];
+    var k1= currentUser.attributes.work_latlong[0];
+    var j1= currentUser.attributes.work_latlong[1];
+    //  var x2 = rider.get(coords_property)[0];
+    //  var y2 = rider.get(coords_property)[1];
+    //  var x1 = currentUser.get(coords_property)[0];
+    //  var y1=  currentUser.get(coords_property)[1];
 
      var deg2rad = function(deg) {
        rad = deg * Math.PI/180; // radians = degrees * pi/180
        return rad;
-
      }
 
     var dlat= deg2rad(x2) - deg2rad(x1);
     var dlon= deg2rad(y2) - deg2rad(y1);
 
+    var dlat1= deg2rad(k2) - deg2rad(k1);
+    var dlon1= deg2rad(j2) - deg2rad(j1);
+
     var round = function(x) {
-          return Math.round( x * 1000) / 1000;
+          return Math.round( x * 10) / 10;
     }
 
     // here's the heavy lifting
@@ -52,20 +72,34 @@
     mi = round(dm);
     km = round(dk);
 
-    console.log(rider.attributes.name + 'is ' + km + ' km away');
+    // here's the heavy lifting
+    a1  = Math.pow(Math.sin(dlat1/2),2) + Math.cos(k1) * Math.cos(j1) * Math.pow(Math.sin(dlon1/2),2);
+    c1  = 2 * Math.atan2(Math.sqrt(a1),Math.sqrt(1-a1)); // great circle distance in radians
+    dm1 = c1 * Rm; // great circle distance in miles
+    dk1 = c1 * Rk; // great circle distance in km
 
-    //   var lat1, lon1, lat2, lon2;
-    //
-    //   lat1 = deg2rad(this.get('home_latlong')[0]);
-    //   lon1 = this.get('home_latlong')[1];
-    //   lat2 = rider.get('home_latlong')[0];
-    //   ....
-    //   return {miles: mi, kilometers: km};
+
+    mi1 = round(dm1);
+    km1 = round(dk1);
+
+
+
+    //console.log(rider.attributes.user.id + ' is the user ID ');
+    return { username: rider.get('name'),
+             miles: mi,
+             work_miles: mi1,
+             kilometers: km,
+             work_kilometers: km1,
+             work: rider.get('work_address'),
+             userId: rider.attributes.user.id,
+             objectId: rider.id,
+             picture: rider.attributes.picture._url
+             };
       }
 
 
 
-// currentUser.findDistance2(collection[4])
+
   });
 
 }());
@@ -96,7 +130,8 @@
       'edit/:riderID' : 'editRider',
       'add' : 'addRider',
       'signUp' : 'userSignUp',
-      'login' : 'userLogin'
+      'login' : 'userLogin',
+       'matchesCalc' : 'matchesCalc'
 
     },
 
@@ -106,9 +141,43 @@
         new App.Views.HomeView();
     },
 
+    // rideCalc: function(){
+    //   new App.Views.rideCalcView();
+    // },
+
     matches: function(){
 
       new App.Views.PublicListRiders({ collection: App.riders });
+    },
+
+    matchesCalc: function(){
+
+      new App.Views.matchesView({collection: App.riders});
+      $('#test').html('hello hello');
+
+      currentUser = App.riders.find( function (a) {
+          return a.attributes.user.id == App.user.id;
+        });
+
+      var results = _.map(collection, function(other) {
+        return currentUser.findDistance(other);
+      });
+
+      function isBigEnough(element) {
+             return element.miles >  0 && element.miles < 12
+                     && element.work_miles < 12 ;
+          }
+
+      var homefilter = results.filter(isBigEnough);
+
+      console.log(homefilter);
+
+
+      var neighbors = _.each(homefilter, function(x) {
+       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+       });
+
+
     },
 
      myCommute: function () {
@@ -172,6 +241,62 @@
   });
 }());
 
+(function(){
+
+  App.Views.matchesView = Parse.View.extend({
+
+  //tagName: 'ul'  ,
+  //className: 'myMatches',
+    events: {
+       'click #matchesCalc' : 'matchesCalc'
+    },
+
+    initialize: function(){
+      this.render();
+
+      $('#riderList').html(this.$el);
+      collection = App.riders.models;
+
+    },
+
+    matchesCalc: function(){
+
+      var results = _.map(collection, function(other) {
+        return currentUser.findDistance(other);
+      });
+
+      //  var results2 = _.map(collection, function(other) {
+      //   return currentUser.findDistance(other, 'work');
+      //  });
+
+      console.log(results);
+
+      function isBigEnough(element) {
+             return element.miles >  0 && element.miles < 15
+                     && element.work_miles < 15 ;
+
+          }
+      var homefilter = results.filter(isBigEnough);
+
+      console.log(homefilter);
+
+      // var neighbors = _.each(homefilter, function(x) {
+      //   $('.matchresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+      // });
+
+
+    },
+
+    render: function(){
+      this.$el.empty();
+      this.$el.html($('#matchesTemp').html());
+    }
+
+
+
+  });
+}());
+
 (function () {
 
   App.Views.riderProfileListing = Parse.View.extend({
@@ -189,8 +314,6 @@
     initialize: function (options) {
       this.options = options;
       this.render();
-
-
 
       // Get our Element On Our Page
       $('#riderList').html(this.$el);
@@ -277,6 +400,8 @@
       // Update our Model Instance
       this.options.rider.set({
         name: $('#update_name').val(),
+        email: $('#update_email').val(),
+        info: $('#update_info').val(),
         home_address: $('#update_home_address').val(),
         work_address: $('#update_work_address').val()
       });
@@ -360,11 +485,14 @@
 
 
       var c = new App.Models.Rider({
-        name: $('#rider_name').val(),
+        //name: $('#rider_name').val(),
+        name: App.user.attributes.username,
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
+        info: $('#rider_info').val(),
         picture: parseFile,
-        user: App.user
+        user: App.user,
+        email: App.user.attributes.email
 
 
       });
@@ -452,7 +580,6 @@
           self.render();
 
         }
-        
 
       });
     },
@@ -466,7 +593,7 @@
       var local_collection = this.collection;
       if (this.options.sort != undefined) {
         // Setting up a localized collection to sort by our sort param
-         local_collection = _.sortBy(this.collection, function (model){
+       local_collection = _.sortBy(this.collection, function (model){
           return model[self.options.sort];
         });
       }
@@ -579,6 +706,7 @@
       e.preventDefault();
       var user = new Parse.User({
       username: $('#signUpUser').val(),
+      email: $('#signUpEmail').val(),
       password: $('#signUpPassword').val()
 
       });
@@ -647,6 +775,7 @@
   });
 }());
 
+
 Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq1sVIcw0Lu9dO9Bo5qZ5UqY");
 
 (function () {
@@ -659,12 +788,13 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
 
     App.router = new App.Routers.AppRouter();
 
-//
-// console.log(App.riders.models[0].attributes.home_latlong)
-// console.log(App.riders.models[1].attributes.home_latlong)
-// console.log(App.riders.models[2].attributes.home_latlong)
+    //adding this here hopefully it wont mess anything up but i dont have errors
+     currentUser = App.riders.find( function (a) {
+         return a.attributes.user.id == App.user.id;
+       });
 
   });
+
 
 var divs = $('.logo');
 $(window).scroll(function(){
@@ -675,15 +805,33 @@ $(window).scroll(function(){
    }
 });
 
-
-
-
-$('#distance_calc').on('click', function (e) {
-  e.preventDefault();
-
-  currentUser.findDistance2(collection[2]);
-
-});
+// 
+//
+// $('#distance_calc').on('click', function (e) {
+//   e.preventDefault();
+//
+//   var results = _.map(collection, function(other) {
+//     return currentUser.findDistance(other, 'home');
+//   });
+//
+//    var results2 = _.map(collection, function(other) {
+//     return currentUser.findDistance(other, 'work');
+//    });
+//    console.log(results);
+//   console.log('I live at ' + currentUser.attributes.home_address);
+//   var neighbors = _.each(results, function(x) {
+//     $('.matchresults').append("<li>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + "</li>");
+//   });
+//
+//   console.log('I work at ' + currentUser.attributes.work_address);
+//   var neighbors2 = _.each(results2, function(x) {
+//   //  console.log(x.username + ' work ' + ' is ' + x.miles + ' miles away');
+//     $('.matchresults2').append("<li>" + x.username + ' work ' + ' is ' + x.miles + ' miles away' + "</li>");
+//   });
+//
+//
+//
+// });
 
 
   $('#logOut').on('click', function (e) {
@@ -704,12 +852,14 @@ $('#distance_calc').on('click', function (e) {
       currUsr = '';
       $('#logOut').hide();
       $('#pattern').hide();
+
     } else {
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
 
     }
+
     $('#loggedIn').html(currUsr);
   };
 
@@ -717,10 +867,8 @@ $('#distance_calc').on('click', function (e) {
 
 App.addButton = function(){
   App.user = Parse.User.current();
-
   if (App.user.id === null){
     $('#adder').show();
-
   }
   else{
     $('#adder').hide();
@@ -730,7 +878,6 @@ App.addButton = function(){
 
 };
 
-//App.addButton();
 
 }());
 
@@ -739,7 +886,10 @@ var other_users = _.filter(App.users, {id: App.user.id});
 var results = _.map(other_users, function(other) {
   App.currentUser.find_distance(other);
 });
+*/
 
+
+/*
 function find_distance(other) {
 // Magic happens here.
   var distance = ...?
@@ -750,6 +900,7 @@ var neighbors = _.filter(results, function(x) {
   if(x.distance < 5) return true;
 });
 */
+
 var geocoder;
 var map;
 var Data = {};
@@ -773,49 +924,56 @@ currentUser = App.riders.find( function (a) {
   });
 
 
-var currentUserData = currentUser.attributes.home_latlong;
+//var currentUserData = currentUser.attributes.home_latlong;
 
-x1=((currentUserData)[0])
-y1=((currentUserData)[1])
 
 
 var Rm = 3961;
 var Rk = 6373;
-var otherUserData;
 
-    findDistance2 = function(otherUser) {
 
-    var dlat, dlon, a, c, dm, dk, mi, km;
-    /* define our other user*/
-    otherUserDataLat = otherUser.attributes.home_latlong[0];
-    otherUserDataLong = otherUser.attributes.home_latlong[1];
-    dlat= deg2rad(otherUserDataLat) - deg2rad(x1);
-    dlon= deg2rad(otherUserDataLong) - deg2rad(y1);
+// var results = _.map(collection, function(other) {
+//   currentUser.findDistance(other);
+// });
+// console.log(results);
 
-		// here's the heavy lifting
-		a  = Math.pow(Math.sin(dlat/2),2) + Math.cos(x1) * Math.cos(otherUserDataLat) * Math.pow(Math.sin(dlon/2),2);
-		c  = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); // great circle distance in radians
-		dm = c * Rm; // great circle distance in miles
-		dk = c * Rk; // great circle distance in km
+     }
 
-		// round the results down to the nearest 1/1000
-		mi = round(dm);
-		km = round(dk);
-    alert(mi + ' mi');
-	  console.log(km + ' km');
-}
-	// convert degrees to radians
-	function deg2rad(deg) {
-		rad = deg * Math.PI/180; // radians = degrees * pi/180
-		return rad;
-	}
-	// round to the nearest 1/1000
-	function round(x) {
-		return Math.round( x * 1000) / 1000;
-	}
+
+
+//     findDistance2 = function(otherUser) {
+//
+//     var dlat, dlon, a, c, dm, dk, mi, km;
+//     /* define our other user*/
+//     otherUserDataLat = otherUser.attributes.home_latlong[0];
+//     otherUserDataLong = otherUser.attributes.home_latlong[1];
+//     dlat= deg2rad(otherUserDataLat) - deg2rad(x1);
+//     dlon= deg2rad(otherUserDataLong) - deg2rad(y1);
+//
+// 		// here's the heavy lifting
+// 		a  = Math.pow(Math.sin(dlat/2),2) + Math.cos(x1) * Math.cos(otherUserDataLat) * Math.pow(Math.sin(dlon/2),2);
+// 		c  = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); // great circle distance in radians
+// 		dm = c * Rm; // great circle distance in miles
+// 		dk = c * Rk; // great circle distance in km
+//
+// 		// round the results down to the nearest 1/1000
+// 		mi = round(dm);
+// 		km = round(dk);
+//     alert(mi + ' mi');
+// 	  console.log(km + ' km');
+// }
+// 	// convert degrees to radians
+// 	function deg2rad(deg) {
+// 		rad = deg * Math.PI/180; // radians = degrees * pi/180
+// 		return rad;
+// 	}
+// 	// round to the nearest 1/1000
+// 	function round(x) {
+// 		return Math.round( x * 1000) / 1000;
+// 	}
 
 //end initialize
-    }
+
 
 
 google.maps.event.addDomListener(window, 'load', initialize);

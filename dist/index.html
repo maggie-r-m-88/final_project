@@ -44,14 +44,16 @@
 
     </div>
     <div class="mid-nav">
-      <h2><a href="#">Ride Requests</a></h2>
+      <h2><a href="#/matchesCalc">Match Calc</a></h2>
 
     </div>
   </div>
 </div>
 
   <div class="hero-unit">
- <button id="distance_calc">Distance Calc</button>
+ <!--<button id="distance_calc">Distance Calc</button>-->
+  <!--<ul class="matchresults"></ul>
+  <ul class="matchresults2"></ul>-->
       <div id="riderList">
 
       </div>
@@ -68,11 +70,23 @@
         </div>
         </script>
 
+<!--match calc view-->
+        <script type="text/template" id="matchesTemp">
+          <h2> Your Matches </h2>
+          <ul class="testresults">
+          </ul>
+      <!--   <button id="matchesCalc">View Matches</button>
+         <ul class="matchresults">
+
+         </ul>
+-->
+       </script>
 
         <script type="text/template" id="SignUpTemp">
         <div class="console">
         <form action="submit" id="signUp">
         <input type="text" id="signUpUser" placeholder="Name">
+        <input type="text" id="signUpEmail" placeholder="Email Address">
         <input type="password" id="signUpPassword" placeholder="Password"><br>
 
          <button id="signer">Sign Up</button>
@@ -95,10 +109,12 @@
       <!--adding a new commute-->
         <script type="text/template" id="addTemp">
         <form id="addRider">
-        <input type="text" id="rider_name" placeholder="Name" />
+        <!--<input type="text" id="rider_name" placeholder="Name" />-->
         <input type="file" id="profilePhotoFileUpload">
         <input type="text" id="rider_home" placeholder="Home Address" />
         <input type="text" id="rider_work" placeholder="Work Address" />
+
+        <textarea id="rider_info" placeholder="Additional Info" />
         <button>Add Rider</button>
         </form>
         <hr />
@@ -125,7 +141,8 @@
 
             <img class="bigprofilepic" src="  <%= picture.url %>">
             <%= name %>
-
+            <%= email %>
+            <%= info %>
 
       </div>
     </script>
@@ -153,6 +170,8 @@
               <img class="bigprofilepic" src="  <%= picture.url %>"><br>
             <hr>
               <input type="text" value="<%= name %>" id="update_name" />
+              <input type="text" value="<%= email %>" id="update_email" />
+              <input type="text" value="<%= info %>" id="update_info" ></textarea>
               <input type="text" value="<%= home_address %>" id="update_home_address" />
 <input type="text" value="<%= work_address %>" id="update_work_address" />
 
