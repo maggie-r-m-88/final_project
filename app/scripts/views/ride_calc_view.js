@@ -51,7 +51,7 @@
       //  <a href="#/allriders/<%= objectId %>">
       console.log('I live at ' + currentUser.attributes.home_address);
       var neighbors = _.each(results, function(x) {
-        $('.matchresults').append("<li>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work +"</a>" + "</li>");
+        $('.matchresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work +"</a>" + "</li>");
       });
 
 

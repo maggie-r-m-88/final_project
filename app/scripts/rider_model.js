@@ -65,7 +65,9 @@
              kilometers: km,
              work: rider.get('work_address'),
              userId: rider.attributes.user.id,
-             objectId: rider.id
+             objectId: rider.id,
+             picture: rider.attributes.picture._url
+
 
              };
       }

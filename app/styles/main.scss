@@ -264,8 +264,8 @@ width: 500px;
 }
 #riderList li{
   list-style-type: none;
-  width: 100px;
-  height: 180px;
+  width: 180px;
+  height: 250px;
   text-align: center;
   background-color: black;
   display: inline-block;
@@ -278,6 +278,10 @@ width: 500px;
     opacity: 1;
     box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
   }
+}
+.matchpic{
+  width: 180px;
+  height: 200px;
 }
 .profilepic{
 
@@ -302,20 +306,12 @@ width: 500px;
 
 }
 .matchresults li{
-  color: white;
-
+  border:2px solid yellow;
+  color: green;
+  width: 500px;
 }
 
-.matchresults2, .matchresults4{
-  list-style-type: none;
-  height: 201px;
-  background-color: white;
-  color: black;
 
-}
-.myMatches ul li{
-  list-style-type: none;
-  background-color: white;
-  color: black;
-
+.matcher{
+  background-color: blue;
 }
