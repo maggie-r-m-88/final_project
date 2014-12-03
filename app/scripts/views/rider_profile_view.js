@@ -16,8 +16,6 @@
       this.options = options;
       this.render();
 
-
-
       // Get our Element On Our Page
       $('#riderList').html(this.$el);
     },

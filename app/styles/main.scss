@@ -301,17 +301,20 @@ width: 500px;
   font-size: 1.7em;
 
 }
-.matchresults, .matchresults3{
-  list-style-type: none;
-  height: 201px;
-  background-color: $babyblue;
-  color: black;
+.matchresults li{
+  color: white;
 
 }
 
 .matchresults2, .matchresults4{
   list-style-type: none;
   height: 201px;
+  background-color: white;
+  color: black;
+
+}
+.myMatches ul li{
+  list-style-type: none;
   background-color: white;
   color: black;
 

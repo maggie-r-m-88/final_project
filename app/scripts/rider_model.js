@@ -17,7 +17,7 @@
       var t = this.get('name');
       collection = App.riders.models;
 
-      //rider = App.riders.model;
+
       //console.log(t + " has been added");
     },
 
@@ -41,7 +41,6 @@
      var deg2rad = function(deg) {
        rad = deg * Math.PI/180; // radians = degrees * pi/180
        return rad;
-
      }
 
     var dlat= deg2rad(x2) - deg2rad(x1);
@@ -59,12 +58,16 @@
 
     mi = round(dm);
     km = round(dk);
+     console.log(rider.id + 'is the object ID');
+    //console.log(rider.attributes.user.id + ' is the user ID ');
+    return { username: rider.get('name'),
+             miles: mi,
+             kilometers: km,
+             work: rider.get('work_address'),
+             userId: rider.attributes.user.id,
+             objectId: rider.id
 
-
-    //console.log(rider.attributes.name + 'is ' + km + ' km away');
-    return { username: rider.get('name'), miles: mi, kilometers: km };
-  //  $('.matchresults').append("<li> + rider.attributes.name + 'is ' + km + ' km away' </li>");
-
+             };
       }
 
 

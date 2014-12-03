@@ -15,8 +15,8 @@
       'edit/:riderID' : 'editRider',
       'add' : 'addRider',
       'signUp' : 'userSignUp',
-      'login' : 'userLogin'
-      // 'rideCalc' : 'rideCalc'
+      'login' : 'userLogin',
+       'matchesCalc' : 'matchesCalc'
 
     },
 
@@ -33,6 +33,11 @@
     matches: function(){
 
       new App.Views.PublicListRiders({ collection: App.riders });
+    },
+
+    matchesCalc: function(){
+      new App.Views.matchesView({collection: App.riders});
+      //new App.Views.matchesView();
     },
 
      myCommute: function () {
