@@ -58,7 +58,7 @@
 
     mi = round(dm);
     km = round(dk);
-     console.log(rider.id + 'is the object ID');
+    
     //console.log(rider.attributes.user.id + ' is the user ID ');
     return { username: rider.get('name'),
              miles: mi,
