@@ -20,6 +20,7 @@
       e.preventDefault();
       var user = new Parse.User({
       username: $('#signUpUser').val(),
+      email: $('#signUpEmail').val(),
       password: $('#signUpPassword').val()
 
       });

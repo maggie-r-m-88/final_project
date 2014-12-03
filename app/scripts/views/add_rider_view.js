@@ -30,11 +30,14 @@
 
 
       var c = new App.Models.Rider({
-        name: $('#rider_name').val(),
+        //name: $('#rider_name').val(),
+        name: App.user.attributes.username,
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
+        info: $('#rider_info').val(),
         picture: parseFile,
-        user: App.user
+        user: App.user,
+        email: App.user.attributes.email
 
 
       });

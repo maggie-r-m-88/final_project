@@ -38,6 +38,8 @@
       // Update our Model Instance
       this.options.rider.set({
         name: $('#update_name').val(),
+        email: $('#update_email').val(),
+        info: $('#update_info').val(),
         home_address: $('#update_home_address').val(),
         work_address: $('#update_work_address').val()
       });
