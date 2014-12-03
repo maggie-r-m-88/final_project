@@ -30,7 +30,7 @@
 
       function isBigEnough(element) {
              return element.miles >  0 && element.miles < 15
-                    && element.work_miles > 0 && element.work_miles < 15 ;
+                     && element.work_miles < 15 ;
 
           }
       var homefilter = results.filter(isBigEnough);
@@ -47,10 +47,6 @@
     //    console.log(x.username + ' work ' + ' is ' + x.miles + ' miles away');
         // $('.matchresults4').append("<li>" + x.username + ' work ' + ' is ' + x.miles + ' miles away' + "</li>");
     //  });
-
-
-
-
 
     },
 

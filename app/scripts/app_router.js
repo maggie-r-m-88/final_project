@@ -36,8 +36,33 @@
     },
 
     matchesCalc: function(){
+
       new App.Views.matchesView({collection: App.riders});
-      //new App.Views.matchesView();
+      $('#test').html('hello hello');
+
+      currentUser = App.riders.find( function (a) {
+          return a.attributes.user.id == App.user.id;
+        });
+
+      var results = _.map(collection, function(other) {
+        return currentUser.findDistance(other);
+      });
+
+      function isBigEnough(element) {
+             return element.miles >  0 && element.miles < 12
+                     && element.work_miles < 12 ;
+          }
+
+      var homefilter = results.filter(isBigEnough);
+
+      console.log(homefilter);
+
+
+      var neighbors = _.each(homefilter, function(x) {
+       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+       });
+
+
     },
 
      myCommute: function () {

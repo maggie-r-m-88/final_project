@@ -50,7 +50,7 @@
       var local_collection = this.collection;
       if (this.options.sort != undefined) {
         // Setting up a localized collection to sort by our sort param
-         local_collection = _.sortBy(this.collection, function (model){
+       local_collection = _.sortBy(this.collection, function (model){
           return model[self.options.sort];
         });
       }
