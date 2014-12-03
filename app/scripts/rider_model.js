@@ -60,7 +60,7 @@
     var dlon1= deg2rad(j2) - deg2rad(j1);
 
     var round = function(x) {
-          return Math.round( x * 1000) / 1000;
+          return Math.round( x * 10) / 10;
     }
 
     // here's the heavy lifting
@@ -94,8 +94,6 @@
              userId: rider.attributes.user.id,
              objectId: rider.id,
              picture: rider.attributes.picture._url
-
-
              };
       }
 

@@ -37,16 +37,10 @@
 
       console.log(homefilter);
 
+      // var neighbors = _.each(homefilter, function(x) {
+      //   $('.matchresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+      // });
 
-      var neighbors = _.each(homefilter, function(x) {
-        $('.matchresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
-      });
-
-    //  console.log('I work at ' + currentUser.attributes.work_address);
-    //  var neighbors2 = _.each(results2, function(x) {
-    //    console.log(x.username + ' work ' + ' is ' + x.miles + ' miles away');
-        // $('.matchresults4').append("<li>" + x.username + ' work ' + ' is ' + x.miles + ' miles away' + "</li>");
-    //  });
 
     },
 
@@ -56,8 +50,6 @@
     }
 
 
-
-    //}
 
   });
 }());
