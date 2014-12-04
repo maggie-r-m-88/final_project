@@ -18,6 +18,8 @@
 
       // Get our Element On Our Page
       $('#riderList').html(this.$el);
+      var user_email = App.user.attributes.email;
+      console.log(user_email);
     },
 
     render: function () {

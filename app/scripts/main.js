@@ -14,7 +14,6 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
      currentUser = App.riders.find( function (a) {
          return a.attributes.user.id == App.user.id;
        });
-
   });
 
 
@@ -27,7 +26,7 @@ $(window).scroll(function(){
    }
 });
 
-// 
+//
 //
 // $('#distance_calc').on('click', function (e) {
 //   e.preventDefault();
@@ -75,10 +74,12 @@ $(window).scroll(function(){
       $('#logOut').hide();
       $('#pattern').hide();
 
+
     } else {
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
+    
 
     }
 
