@@ -16,9 +16,26 @@
   </head>
   <body>
     <div class="body-container">
+      <div id="pattern" class="pattern">
+      <div class="col-group">
+        <div class="mid-nav">
+          <h2><a href="#/matches">Find a Match</a></h2>
+
+        </div>
+        <div class="mid-nav">
+        <h2><a href="#/myCommute">My Commute</a></h2>
+
+        </div>
+        <div class="mid-nav">
+          <h2><a href="#/matchesCalc">Match Calc</a></h2>
+
+        </div>
+      </div>
+      </div>
         <div class="header-bg">
 
           <div class="header">
+
 
           <h1 class="logo">  ATL Rideshare </h1>
           <h2 class="topnavlinks"><a href="#/login" id="login-link"> Login</a> | <a href="#/signUp" >Sign Up</a></h2>
@@ -33,22 +50,7 @@
     <!--<div class="topnav">
     Home
   </div>-->
-  <div id="pattern" class="pattern">
-  <div class="col-group">
-    <div class="mid-nav">
-      <h2><a href="#/matches">Find a Match</a></h2>
 
-    </div>
-    <div class="mid-nav">
-    <h2><a href="#/myCommute">My Commute</a></h2>
-
-    </div>
-    <div class="mid-nav">
-      <h2><a href="#/matchesCalc">Match Calc</a></h2>
-
-    </div>
-  </div>
-</div>
 
   <div class="hero-unit">
  <!--<button id="distance_calc">Distance Calc</button>-->
@@ -59,7 +61,7 @@
       </div>
   </div>
 
-       <div id="map-canvas"></div>
+
         <hr>
 </div><!--end of body container-->
         <script type="text/template" id="homeTemp">
@@ -73,8 +75,13 @@
 <!--match calc view-->
         <script type="text/template" id="matchesTemp">
           <h2> Your Matches </h2>
+          <p>Select Mile Radius:
+          <input id="filternumber" value="10"></p>
+        <!--  <br><input id="filterwork" placeholder="Work Mi Radius"><br>-->
+          <button id="filter">Filter </button><hr/>
           <ul class="testresults">
           </ul>
+          <div id="map-canvas"></div>
       <!--   <button id="matchesCalc">View Matches</button>
          <ul class="matchresults">
 
@@ -140,11 +147,26 @@
       <div id="<%= objectId %>" class="bigProfile">
 
             <img class="bigprofilepic" src="  <%= picture.url %>">
-            <%= name %>
-            <%= email %>
-            <%= info %>
+            <div class="content">
+            <h2><%= name %></h2>
+            <hr/>
+            <p><%= info %></p>
 
-      </div>
+            <form action="MAILTO:<%= email %>" method="post" enctype="text/plain">
+               Name:<br>
+              <input type="text" name="name" value="<%= App.user.attributes.username %>"><br>
+               E-mail:<br>
+              <input type="text" name="mail" value="<%= App.user.attributes.email %>"><br>
+               Comment:<br>
+               <input type="text" name="comment" value="your comment" size="50"><br><br>
+               <input type="submit" value="Send">
+               <input type="reset" value="Reset">
+            </form>
+
+
+            </div><!--end of content-->
+
+      </div><!--end of bigProfile-->
     </script>
 
     <!--this shows your Commutes/link to edit your profile-->

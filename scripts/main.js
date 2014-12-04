@@ -155,6 +155,9 @@
       new App.Views.matchesView({collection: App.riders});
       $('#test').html('hello hello');
 
+      toy = $('#toy').val();
+
+
       currentUser = App.riders.find( function (a) {
           return a.attributes.user.id == App.user.id;
         });
@@ -164,14 +167,16 @@
       });
 
       function isBigEnough(element) {
-             return element.miles >  0 && element.miles < 12
-                     && element.work_miles < 12 ;
+             return element.miles >  0 && element.miles < 10
+                     && element.work_miles < 10 ;
           }
 
       var homefilter = results.filter(isBigEnough);
 
       console.log(homefilter);
-
+      if (homefilter.length === 0) {
+        $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");
+      };
 
       var neighbors = _.each(homefilter, function(x) {
        $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
@@ -248,7 +253,8 @@
   //tagName: 'ul'  ,
   //className: 'myMatches',
     events: {
-       'click #matchesCalc' : 'matchesCalc'
+       'click #matchesCalc' : 'matchesCalc',
+       'click #filter' : 'filter'
     },
 
     initialize: function(){
@@ -257,32 +263,102 @@
       $('#riderList').html(this.$el);
       collection = App.riders.models;
 
+    //google maps template initialize//
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+      var mapOptions = {
+        zoom: 10,
+        center: latlng
+      }
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      collection = App.riders.models;
+
+    /**********define our current user*********** this is global*******/
+    currentUser = App.riders.find( function (a) {
+        return a.attributes.user.id == App.user.id;
+      });
+
+
+         }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    geocoder = new google.maps.Geocoder();
+
+
+    window.getCoordinates = function ( address, callback) {
+      var coordinates;
+
+      geocoder.geocode({ address: address}, function (results, status){
+         coords_obj = results[0].geometry.location;
+         coordinates = [coords_obj.k, coords_obj.B];
+         callback(coordinates);
+      })
+
+    }
+    //end google maps intialize
+
+
+
+
+
+
+
     },
 
-    matchesCalc: function(){
+    filter: function(filternumber){
+      filternumber = $('#filternumber').val();
+      //filterwork = $('#filterwork').val();
+
+    //  if (filternumber == ''){
+    //    filternumber === 10
+    //  }
+
+      $('.testresults').empty();
 
       var results = _.map(collection, function(other) {
         return currentUser.findDistance(other);
       });
 
-      //  var results2 = _.map(collection, function(other) {
-      //   return currentUser.findDistance(other, 'work');
-      //  });
-
-      console.log(results);
-
       function isBigEnough(element) {
-             return element.miles >  0 && element.miles < 15
-                     && element.work_miles < 15 ;
+             return element.miles >  0 && element.miles < filternumber
+                     && element.work_miles < filternumber ;
 
           }
       var homefilter = results.filter(isBigEnough);
 
-      console.log(homefilter);
+      if (homefilter.length === 0) {
+        $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");
+      };
 
-      // var neighbors = _.each(homefilter, function(x) {
-      //   $('.matchresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
-      // });
+     var neighbors = _.each(homefilter, function(x) {
+         $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+       });
+
+
+    }
+    ,
+    matchesCalc: function(){
+
+    //   var results = _.map(collection, function(other) {
+    //     return currentUser.findDistance(other);
+    //   });
+     //
+     //
+    //   function isBigEnough(element) {
+    //          return element.miles >  0 && element.miles < 15
+    //                  && element.work_miles < 15 ;
+     //
+    //       }
+    //   var homefilter = results.filter(isBigEnough);
+     //
+    //   console.log(homefilter);
+     //
+    //  var neighbors = _.each(homefilter, function(x) {
+    //      $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+    //    });
 
 
     },
@@ -317,6 +393,8 @@
 
       // Get our Element On Our Page
       $('#riderList').html(this.$el);
+      var user_email = App.user.attributes.email;
+      console.log(user_email);
     },
 
     render: function () {
@@ -792,7 +870,6 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
      currentUser = App.riders.find( function (a) {
          return a.attributes.user.id == App.user.id;
        });
-
   });
 
 
@@ -805,7 +882,7 @@ $(window).scroll(function(){
    }
 });
 
-// 
+//
 //
 // $('#distance_calc').on('click', function (e) {
 //   e.preventDefault();
@@ -853,10 +930,12 @@ $(window).scroll(function(){
       $('#logOut').hide();
       $('#pattern').hide();
 
+
     } else {
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
+    
 
     }
 
@@ -899,6 +978,10 @@ function find_distance(other) {
 var neighbors = _.filter(results, function(x) {
   if(x.distance < 5) return true;
 });
+// var results = _.map(collection, function(other) {
+//   currentUser.findDistance(other);
+// });
+// console.log(results);
 */
 
 var geocoder;
@@ -907,88 +990,40 @@ var Data = {};
 var CurrentUser;
 var currentUser;
 var findDistance;
-function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-  var mapOptions = {
-    zoom: 8,
-    center: latlng
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  collection = App.riders.models;
-
-/**********define our current user*********** this is global*******/
-currentUser = App.riders.find( function (a) {
-    return a.attributes.user.id == App.user.id;
-  });
-
-
-//var currentUserData = currentUser.attributes.home_latlong;
-
-
-
-var Rm = 3961;
-var Rk = 6373;
-
-
-// var results = _.map(collection, function(other) {
-//   currentUser.findDistance(other);
-// });
-// console.log(results);
-
-     }
-
-
-
-//     findDistance2 = function(otherUser) {
+// function initialize() {
+//   geocoder = new google.maps.Geocoder();
+//   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+//   var mapOptions = {
+//     zoom: 10,
+//     center: latlng
+//   }
+//   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 //
-//     var dlat, dlon, a, c, dm, dk, mi, km;
-//     /* define our other user*/
-//     otherUserDataLat = otherUser.attributes.home_latlong[0];
-//     otherUserDataLong = otherUser.attributes.home_latlong[1];
-//     dlat= deg2rad(otherUserDataLat) - deg2rad(x1);
-//     dlon= deg2rad(otherUserDataLong) - deg2rad(y1);
+//   collection = App.riders.models;
 //
-// 		// here's the heavy lifting
-// 		a  = Math.pow(Math.sin(dlat/2),2) + Math.cos(x1) * Math.cos(otherUserDataLat) * Math.pow(Math.sin(dlon/2),2);
-// 		c  = 2 * Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); // great circle distance in radians
-// 		dm = c * Rm; // great circle distance in miles
-// 		dk = c * Rk; // great circle distance in km
+// /**********define our current user*********** this is global*******/
+// currentUser = App.riders.find( function (a) {
+//     return a.attributes.user.id == App.user.id;
+//   });
 //
-// 		// round the results down to the nearest 1/1000
-// 		mi = round(dm);
-// 		km = round(dk);
-//     alert(mi + ' mi');
-// 	  console.log(km + ' km');
+//
+//      }
+//
+// google.maps.event.addDomListener(window, 'load', initialize);
+//
+// geocoder = new google.maps.Geocoder();
+//
+//
+// window.getCoordinates = function ( address, callback) {
+//   var coordinates;
+//
+//   geocoder.geocode({ address: address}, function (results, status){
+//      coords_obj = results[0].geometry.location;
+//      coordinates = [coords_obj.k, coords_obj.B];
+//      callback(coordinates);
+//   })
+//
 // }
-// 	// convert degrees to radians
-// 	function deg2rad(deg) {
-// 		rad = deg * Math.PI/180; // radians = degrees * pi/180
-// 		return rad;
-// 	}
-// 	// round to the nearest 1/1000
-// 	function round(x) {
-// 		return Math.round( x * 1000) / 1000;
-// 	}
-
-//end initialize
-
-
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-geocoder = new google.maps.Geocoder();
-
-window.getCoordinates = function ( address, callback) {
-  var coordinates;
-
-  geocoder.geocode({ address: address}, function (results, status){
-     coords_obj = results[0].geometry.location;
-     coordinates = [coords_obj.k, coords_obj.B];
-     callback(coordinates);
-  })
-
-}
 
 
