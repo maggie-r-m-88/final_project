@@ -14,17 +14,25 @@
 
     initialize: function (options) {
       this.options = options;
+
       this.render();
 
       // Get our Element On Our Page
       $('#riderList').html(this.$el);
-      var user_email = App.user.attributes.email;
-      console.log(user_email);
+
+    //  var user_email = App.user.attributes.email;
+    //  console.log(user_email);
+
     },
 
     render: function () {
 
       this.$el.empty();
+
+      // var currentUser = App.riders.find( function (a) {
+      //       return a.attributes.user.id == App.user.id;
+      //     });
+      //     console.log(currentUser.attributes.info);
 
       this.$el.html(this.template(this.options.rider.toJSON()));
 

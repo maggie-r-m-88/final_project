@@ -95,6 +95,11 @@
              objectId: rider.id,
              picture: rider.attributes.picture._url
              };
+      },
+
+      sendMessage: function (rider) {
+        var collection = App.riders.models;
+        console.log( 'Hello ' + rider.attributes.name + ' I am ' + currentUser.attributes.name);
       }
 
 

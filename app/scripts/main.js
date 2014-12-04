@@ -14,6 +14,7 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
      currentUser = App.riders.find( function (a) {
          return a.attributes.user.id == App.user.id;
        });
+       var collection = App.riders.models
   });
 
 
@@ -79,7 +80,7 @@ $(window).scroll(function(){
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
-    
+
 
     }
 

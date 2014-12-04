@@ -1,12 +1,4 @@
 /*
-var other_users = _.filter(App.users, {id: App.user.id});
-var results = _.map(other_users, function(other) {
-  App.currentUser.find_distance(other);
-});
-*/
-
-
-/*
 function find_distance(other) {
 // Magic happens here.
   var distance = ...?
