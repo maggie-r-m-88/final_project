@@ -53,6 +53,7 @@
 
 
   <div class="hero-unit">
+
  <!--<button id="distance_calc">Distance Calc</button>-->
   <!--<ul class="matchresults"></ul>
   <ul class="matchresults2"></ul>-->
@@ -152,7 +153,11 @@
             <hr/>
             <p><%= info %></p>
 
-            <form action="MAILTO:<%= email %>" method="post" enctype="text/plain">
+
+
+            <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.user.attributes.username %>&body=Hi, would you be interested in carpooling with me?%0D Thanks! ">Email me</a>
+            <!--<%= App.user.attributes.username %> %0D<%=App.user.attributes.email %> -->
+            <!--<form action="MAILTO:<%= email %>" method="post" enctype="text/plain">
                Name:<br>
               <input type="text" name="name" value="<%= App.user.attributes.username %>"><br>
                E-mail:<br>
@@ -161,7 +166,7 @@
                <input type="text" name="comment" value="your comment" size="50"><br><br>
                <input type="submit" value="Send">
                <input type="reset" value="Reset">
-            </form>
+            </form>-->
 
 
             </div><!--end of content-->
