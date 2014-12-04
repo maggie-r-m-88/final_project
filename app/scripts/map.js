@@ -22,36 +22,35 @@ var currentUser;
 var findDistance;
 
 // function initialize() {
-//   geocoder = new google.maps.Geocoder();
-//   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-//   var mapOptions = {
-//     zoom: 10,
-//     center: latlng
-//   }
-//   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+//    geocoder = new google.maps.Geocoder();
+//    var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+//    var mapOptions = {
+//      zoom: 10,
+//      center: latlng
+//    }
+//    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 //
-//   collection = App.riders.models;
+//    collection = App.riders.models;
 //
 // /**********define our current user*********** this is global*******/
 // currentUser = App.riders.find( function (a) {
 //     return a.attributes.user.id == App.user.id;
 //   });
 //
-//
-//      }
+//       }
 //
 // google.maps.event.addDomListener(window, 'load', initialize);
-//
-// geocoder = new google.maps.Geocoder();
-//
-//
-// window.getCoordinates = function ( address, callback) {
-//   var coordinates;
-//
-//   geocoder.geocode({ address: address}, function (results, status){
-//      coords_obj = results[0].geometry.location;
-//      coordinates = [coords_obj.k, coords_obj.B];
-//      callback(coordinates);
-//   })
-//
-// }
+
+ geocoder = new google.maps.Geocoder();
+
+
+window.getCoordinates = function ( address, callback) {
+  var coordinates;
+
+  geocoder.geocode({ address: address}, function (results, status){
+     coords_obj = results[0].geometry.location;
+     coordinates = [coords_obj.k, coords_obj.B];
+     callback(coordinates);
+  })
+
+}

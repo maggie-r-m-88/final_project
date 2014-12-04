@@ -25,11 +25,7 @@ $babyblue: hsl(187,15,61);
 $lightslategray2: hsl(216,6,56);
 $silver3: hsl(67,5,71);
 
-$arty:  url("http://i.imgur.com/1qS8TeY.jpg");
-$tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
-$highway: url("http://i.imgur.com/XQiNCZU.jpg");
-$bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
-$sketchy: url("http://i.imgur.com/fshxb6E.jpg");
+
 // Custom Styles
 body{
   font-size: 62.5%;
@@ -125,10 +121,10 @@ body{
 }
 
 //: hsl(216,6,56);
-$arty:  url("http://i.imgur.com/1qS8TeY.jpg");
-$tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
-$highway: url("http://i.imgur.com/XQiNCZU.jpg");
-$bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
+// $arty:  url("http://i.imgur.com/1qS8TeY.jpg");
+// $tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
+// $highway: url("http://i.imgur.com/XQiNCZU.jpg");
+// $bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
 .mid-nav, .midnav2, .midnav3{
   margin-top: 20px;
   font-family: $fijalla;
@@ -269,7 +265,7 @@ html, body, #map-canvas {
   //height: 300px;
 //  width: 500px;
 height: 300px;
-display:none;
+//display:none;
 width: 500px;
   //border: 2px solid blue;
 }

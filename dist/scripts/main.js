@@ -95,6 +95,11 @@
              objectId: rider.id,
              picture: rider.attributes.picture._url
              };
+      },
+
+      sendMessage: function (rider) {
+        var collection = App.riders.models;
+        console.log( 'Hello ' + rider.attributes.name + ' I am ' + currentUser.attributes.name);
       }
 
 
@@ -389,17 +394,25 @@
 
     initialize: function (options) {
       this.options = options;
+
       this.render();
 
       // Get our Element On Our Page
       $('#riderList').html(this.$el);
-      var user_email = App.user.attributes.email;
-      console.log(user_email);
+
+    //  var user_email = App.user.attributes.email;
+    //  console.log(user_email);
+
     },
 
     render: function () {
 
       this.$el.empty();
+
+      // var currentUser = App.riders.find( function (a) {
+      //       return a.attributes.user.id == App.user.id;
+      //     });
+      //     console.log(currentUser.attributes.info);
 
       this.$el.html(this.template(this.options.rider.toJSON()));
 
@@ -870,6 +883,7 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
      currentUser = App.riders.find( function (a) {
          return a.attributes.user.id == App.user.id;
        });
+       var collection = App.riders.models
   });
 
 
@@ -935,7 +949,7 @@ $(window).scroll(function(){
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
-    
+
 
     }
 
@@ -959,14 +973,6 @@ App.addButton = function(){
 
 
 }());
-
-/*
-var other_users = _.filter(App.users, {id: App.user.id});
-var results = _.map(other_users, function(other) {
-  App.currentUser.find_distance(other);
-});
-*/
-
 
 /*
 function find_distance(other) {

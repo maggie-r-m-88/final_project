@@ -52,12 +52,6 @@
     }
     //end google maps intialize
 
-
-
-
-
-
-
     },
 
     filter: function(filternumber){
@@ -74,6 +68,8 @@
         return currentUser.findDistance(other);
       });
 
+
+      //sort by will go here
       function isBigEnough(element) {
              return element.miles >  0 && element.miles < filternumber
                      && element.work_miles < filternumber ;
