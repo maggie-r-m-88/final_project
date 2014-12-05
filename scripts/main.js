@@ -9,7 +9,13 @@
     defaults: {
       name: '',
       work_address: '',
-      home_address: ''
+      home_address: '',
+      home_neighborhood: '',
+      work_neighborhood: '',
+      info: '',
+      linked_in: '',
+      twitter: '',
+      employer: ''
 
     },
 
@@ -27,13 +33,7 @@
      var  a1, c1, dm1, dk1, mi1, km1;
 
      var Rm = 3961; var Rk = 6373;
-     //var coords_property;
 
-    //  if (location == 'home') {
-    //    coords_property = 'home_latlong';
-    //  } else {
-    //    coords_property = 'work_latlong';
-    //  }
     var x2= rider.attributes.home_latlong[0];
     var y2= rider.attributes.home_latlong[1];
     var x1= currentUser.attributes.home_latlong[0];
@@ -43,10 +43,7 @@
     var j2= rider.attributes.work_latlong[1];
     var k1= currentUser.attributes.work_latlong[0];
     var j1= currentUser.attributes.work_latlong[1];
-    //  var x2 = rider.get(coords_property)[0];
-    //  var y2 = rider.get(coords_property)[1];
-    //  var x1 = currentUser.get(coords_property)[0];
-    //  var y1=  currentUser.get(coords_property)[1];
+
 
      var deg2rad = function(deg) {
        rad = deg * Math.PI/180; // radians = degrees * pi/180
@@ -90,6 +87,7 @@
              work_miles: mi1,
              kilometers: km,
              work_kilometers: km1,
+             work_latlong: rider.get('work_latlong'),
              work: rider.get('work_address'),
              userId: rider.attributes.user.id,
              objectId: rider.id,
@@ -129,6 +127,7 @@
 
     routes: {
       '' : 'home',
+      'hoodSearch' : 'hoods',
       'matches': 'matches',
       'allriders/:riderID': 'riderProfile',
       'myCommute' : 'myCommute',
@@ -146,9 +145,12 @@
         new App.Views.HomeView();
     },
 
-    // rideCalc: function(){
-    //   new App.Views.rideCalcView();
+    // hoods: function(){
+    //
+    //   new App.Views.HomeSearchView();
+    //
     // },
+
 
     matches: function(){
 
@@ -171,14 +173,30 @@
         return currentUser.findDistance(other);
       });
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
+
+      var sorted = results.sort(dynamicSort("miles"));
+           console.log(sorted);
+
       function isBigEnough(element) {
              return element.miles >  0 && element.miles < 10
                      && element.work_miles < 10 ;
           }
 
-      var homefilter = results.filter(isBigEnough);
+      var homefilter = sorted.filter(isBigEnough);
 
-      console.log(homefilter);
+    //  console.log(homefilter);
       if (homefilter.length === 0) {
         $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");
       };
@@ -269,28 +287,28 @@
       collection = App.riders.models;
 
     //google maps template initialize//
-    function initialize() {
-      geocoder = new google.maps.Geocoder();
-      var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-      var mapOptions = {
-        zoom: 10,
-        center: latlng
-      }
-      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-      collection = App.riders.models;
-
-    /**********define our current user*********** this is global*******/
-    currentUser = App.riders.find( function (a) {
-        return a.attributes.user.id == App.user.id;
-      });
-
-
-         }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-    geocoder = new google.maps.Geocoder();
+    // function initialize() {
+    //   geocoder = new google.maps.Geocoder();
+    //   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+    //   var mapOptions = {
+    //     zoom: 10,
+    //     center: latlng
+    //   }
+    //   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    //
+    //   collection = App.riders.models;
+    //
+    // /**********define our current user*********** this is global*******/
+    // currentUser = App.riders.find( function (a) {
+    //     return a.attributes.user.id == App.user.id;
+    //   });
+    //
+    //
+    //      }
+    //
+    // google.maps.event.addDomListener(window, 'load', initialize);
+    // 
+    // geocoder = new google.maps.Geocoder();
 
 
     window.getCoordinates = function ( address, callback) {
@@ -309,11 +327,6 @@
 
     filter: function(filternumber){
       filternumber = $('#filternumber').val();
-      //filterwork = $('#filterwork').val();
-
-    //  if (filternumber == ''){
-    //    filternumber === 10
-    //  }
 
       $('.testresults').empty();
 
@@ -321,6 +334,20 @@
         return currentUser.findDistance(other);
       });
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
+      var sorted = results.sort(dynamicSort("miles"));
+           console.log(sorted);
 
       //sort by will go here
       function isBigEnough(element) {
@@ -328,8 +355,8 @@
                      && element.work_miles < filternumber ;
 
           }
-      var homefilter = results.filter(isBigEnough);
-
+      var homefilter = sorted.filter(isBigEnough);
+      console.log(homefilter);
       if (homefilter.length === 0) {
         $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");
       };
@@ -343,23 +370,6 @@
     ,
     matchesCalc: function(){
 
-    //   var results = _.map(collection, function(other) {
-    //     return currentUser.findDistance(other);
-    //   });
-     //
-     //
-    //   function isBigEnough(element) {
-    //          return element.miles >  0 && element.miles < 15
-    //                  && element.work_miles < 15 ;
-     //
-    //       }
-    //   var homefilter = results.filter(isBigEnough);
-     //
-    //   console.log(homefilter);
-     //
-    //  var neighbors = _.each(homefilter, function(x) {
-    //      $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
-    //    });
 
 
     },
@@ -405,10 +415,10 @@
 
       this.$el.empty();
 
-      // var currentUser = App.riders.find( function (a) {
-      //       return a.attributes.user.id == App.user.id;
-      //     });
-      //     console.log(currentUser.attributes.info);
+      App.currentUser = App.riders.find( function (a) {
+            return a.attributes.user.id == App.user.id;
+          });
+       console.log(App.currentUser.attributes.info);
 
       this.$el.html(this.template(this.options.rider.toJSON()));
 
@@ -490,7 +500,9 @@
         email: $('#update_email').val(),
         info: $('#update_info').val(),
         home_address: $('#update_home_address').val(),
-        work_address: $('#update_work_address').val()
+        work_address: $('#update_work_address').val(),
+        home_neighborhood: $('#update_home_hood').val(),
+        work_neighborhood: $('#update_work_hood').val()
       });
 
 
@@ -577,10 +589,13 @@
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
         info: $('#rider_info').val(),
+        home_neighborhood:$('#rider_home_neighborhood').val(),
+        work_neighborhood:$('#rider_work_neighborhood').val(),
         picture: parseFile,
+        employer: $('#rider_employer').val(),
+        linked_in: $('#rider_linked_in').val(),
         user: App.user,
         email: App.user.attributes.email
-
 
       });
 
@@ -862,6 +877,32 @@
   });
 }());
 
+// (function(){
+//
+//   App.Views.HoodSearchView = Parse.View.extend({
+//     //classNAme???
+//     events: {
+//
+//     },
+//
+//     initialize: function(){
+//       this.render();
+//
+//       $('#homeSearch').html(this.$el);
+//
+//     },
+//
+//     render: function(){
+//       this.$el.empty();
+//       this.$el.html($('#homeTemp').html());
+//     }
+//
+//
+//
+//
+//   });
+// }());
+
 
 Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq1sVIcw0Lu9dO9Bo5qZ5UqY");
 
@@ -875,10 +916,6 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
 
     App.router = new App.Routers.AppRouter();
 
-    //adding this here hopefully it wont mess anything up but i dont have errors
-    //  currentUser = App.riders.find( function (a) {
-    //      return a.attributes.user.id == App.user.id;
-    //    });
         var collection = App.riders.models
   });
 
@@ -918,8 +955,6 @@ $(window).scroll(function(){
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
-
-
     }
 
     //$('#loggedIn').html(currUsr);
@@ -936,10 +971,50 @@ App.addButton = function(){
     $('#adder').hide();
   }
 
-
-
 };
 
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+  var mapOptions = {
+    zoom: 10,
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  geocoder = new google.maps.Geocoder();
+
+}
+
+  window.getCoordinates = function ( address, callback) {
+    var coordinates;
+
+    geocoder.geocode({ address: address}, function (results, status){
+       coords_obj = results[0].geometry.location;
+       coordinates = [coords_obj.k, coords_obj.B];
+       callback(coordinates);
+    });
+  }
+
+$('#homeSearchButton').on('click', function(){
+ $('.hoodResults').empty();
+ var home_hood =  $('#home_hood').val();
+ var work_hood =  $('#work_hood').val();
+
+   var collection = App.riders.models;
+   var found = _.filter(collection, function(item){
+    return item.get('home_neighborhood') === home_hood &&
+           item.get('work_neighborhood') === work_hood
+});
+     console.log(found)
+ var neighbors = _.each(found, function(x) {
+     $('.hoodResults').append("<li>" +  "<img class='hoodprofile' src='" + x.attributes.picture._url + "'/>" + "</li>");
+   });
+
+
+}); //homeSearch  neighborhooods thing-->
 
 }());
 
