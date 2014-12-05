@@ -35,10 +35,13 @@
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
         info: $('#rider_info').val(),
+        home_neighborhood:$('#rider_home_neighborhood').val(),
+        work_neighborhood:$('#rider_work_neighborhood').val(),
         picture: parseFile,
+        employer: $('#rider_employer').val(),
+        linked_in: $('#rider_linked_in').val(),
         user: App.user,
         email: App.user.attributes.email
-
 
       });
 

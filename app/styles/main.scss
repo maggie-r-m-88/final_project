@@ -5,7 +5,8 @@
 
 $fijalla: 'Fjalla One', sans-serif;
 $roboto:'Roboto Condensed', sans-serif;
-$oswald: 'Oswald', sans-serif;
+
+//'Oswald', sans-serif;
 //colors
 
 $khaki: hsl(36,90,75);
@@ -47,13 +48,13 @@ body{
  margin-top: -50px;
   background-size: cover;
   //height: 500px;
-  //background-attachment: fixed;
+  background-attachment: fixed;
 }
 .header{
   //position: absolute;
   margin-top: -53px;
   //height: 500px;
-  opacity: .8;
+  opacity: .85;
   background-color: $darkgray;
   font-family: $fijalla;
   .logo h1{
@@ -207,18 +208,24 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 
 @media screen and (min-width: 50em) {
   .header, .header-bg{
+
   height: 510px;
+
     h1{
       font-size: 7.0em;
-      padding-top: 200px;
+    color: black;
+      padding-top: 50px;
     }
   }
 
   .header-bg{
     background-image: url("http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg");
+  //  background-image: url("http://gokms.com/wp-content/uploads/2014/06/Atlanta-At-Night-Hd.jpg");
+  //background-image: url("http://i.imgur.com/knYc6Lp.png");
     background-size: cover;
-  }
+    opacity: 1;
 
+ }
   .mid-nav{
     font-size:2.5em;
   }
@@ -341,4 +348,52 @@ width: 500px;
   height: 120px;
   width:100px;
   opacity: 1;
+}
+#home_hood, #work_hood{
+  color: green;
+  height:100px;
+  padding: 20px;
+
+}
+
+input[name=home_hood] {
+    font-family: Arial;
+	font-size: 2.3em;
+	width: 350px;
+    height: 90px;
+	font-weight: bold;
+}
+
+input[name=work_hood] {
+    font-family: Arial;
+	font-size: 2.0em;
+	width: 300px;
+    height: 90px;
+	font-weight: bold;
+}
+
+input[type=submit] {
+	width: 300px;
+	height: 100px;
+	font-family: Arial;
+	font-size: 36px;
+	background: #DF0101; /* red */
+	box-shadow: #6E7849 1px 1px 10px;
+	color: white;
+}
+#homeSearch{
+  background-color: black;
+  color: white;
+  opacity: .9;
+  width: 50%;
+  margin-left: 25%;
+}
+#homeSearchButton{
+  background-color: $silver2;
+  color: black;
+}
+.hoodResults li{
+  list-style-type: none;
+  display: inline-block;
+  padding: 5px;
 }

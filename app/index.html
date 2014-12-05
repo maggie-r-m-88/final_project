@@ -49,8 +49,18 @@
           <h2 class="topnavlinks">
 
               <div id="homeSearch">
-              I'm commuting from : <!--<input id="home_hood" placeholder="Neighborhood in Atl">--><br>
-              <select id="home_hood" name="home_hood">
+                <!-- <form ID = "Form">
+         <!-- Standard input text boxes
+         <input type="Text" name="FirstName" placeholder="First Name"> <br>
+         <input type="Text" name="Surname" placeholder="Surname"> <br>
+
+
+         <input type="submit" value="Submit" name="Submit">
+   </form>   Submit button -->
+
+
+              I'm commuting from : <br>
+            <select id="home_hood" name="home_hood">
                       <option value="Buckhead">Buckhead</option>
                       <option value="Chamblee">Chamblee</option>
                       <option value="College Park">College Park</option>
@@ -74,7 +84,13 @@
               </select>
 
               <button id="homeSearchButton">See Commuters</button><br>
+            </form>
+
               <ul class="hoodResults">
+
+
+
+              <!--<div id="map-canvas"></div> -->
               </ul>
 
               </div>
@@ -92,7 +108,7 @@
 
 
   <div class="hero-unit">
-      <div id="riderList">
+     <div id="riderList"></div>
 
       </div>
   </div>
@@ -116,7 +132,7 @@
           <button id="filter">Filter </button><hr/>
           <ul class="testresults">
           </ul>
-          <div id="map-canvas"></div>
+
       <!--   <button id="matchesCalc">View Matches</button>
          <ul class="matchresults">
 
@@ -154,8 +170,13 @@
         <!--<input type="text" id="rider_name" placeholder="Name" />-->
         <input type="file" id="profilePhotoFileUpload">
         <input type="text" id="rider_home" placeholder="Home Address" />
+        <input type="text" id="rider_home_neighborhood" placeholder="Neighborhood" />
         <input type="text" id="rider_work" placeholder="Work Address" />
-
+        <input type="text" id="rider_work_neighborhood" placeholder="Neighborhood" />
+        <br>
+        <input type="text" id="rider_employer" placeholder="Employer" />
+        <input type="text" id="rider_linked_in" placeholder="Linked In" />
+        <!--<input type="text" id="rider_twitter" placeholder="Twitter" />-->
         <textarea id="rider_info" placeholder="Additional Info" />
         <button>Add Rider</button>
         </form>
@@ -169,6 +190,7 @@
         <a href="#/allriders/<%= objectId %>">
         <img class="profilepic" src="  <%= picture.url %>">
         <%= name %>
+
         </div>
 
         </a>
@@ -185,8 +207,9 @@
             <hr/>
             <p><%= info %></p>
 
-            <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.user.attributes.username %>&body=Hi, would you be interested in carpooling with me?%0D Thanks! ">Email me</a>
-            <!--<%= App.user.attributes.username %> %0D<%=App.user.attributes.email %> -->
+
+            <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.user.attributes.username %>&body=Hi, would you be interested in carpooling with me?%0D   <%= App.currentUser.attributes.info%> %0D  Thanks! %0D <%=App.currentUser.attributes.name %> ">Email me</a>
+            <!--<%= App.user.attributes .username %> %0D<%=App.user.attributes.email %> -->
 
             </div><!--end of content-->
 
@@ -221,7 +244,7 @@
 <input type="text" value="<%= work_address %>" id="update_work_address" />
 
                <hr>
-               <select id="update_home_hood" name="home_hood">
+        <!--    <select id="update_home_hood" name="update_home_hood">
                        <option value="Buckhead">Buckhead</option>
                        <option value="Chamblee">Chamblee</option>
                        <option value="College Park">College Park</option>
@@ -232,7 +255,7 @@
                        <option value="Norcross">Norcross</option>
                </select>
 
-               <select id="update_work_hood" name="work_hood">
+               <select id="update_work_hood" name="update_work_hood" value="<% work_neighborhood">
                        <option value="Buckhead">Buckhead</option>
                        <option value="Chamblee">Chamblee</option>
                        <option value="College Park">College Park</option>
@@ -241,7 +264,7 @@
                        <option value="Marietta">Marietta</option>
                        <option value="Midtown">Midtown</option>
                        <option value="Norcross">Norcross</option>
-               </select>
+               </select>-->
 
               <button>Update </button>
               <button id="delete">Delete</button>

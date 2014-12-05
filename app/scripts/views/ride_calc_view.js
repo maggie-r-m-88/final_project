@@ -16,28 +16,28 @@
       collection = App.riders.models;
 
     //google maps template initialize//
-    function initialize() {
-      geocoder = new google.maps.Geocoder();
-      var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-      var mapOptions = {
-        zoom: 10,
-        center: latlng
-      }
-      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-      collection = App.riders.models;
-
-    /**********define our current user*********** this is global*******/
-    currentUser = App.riders.find( function (a) {
-        return a.attributes.user.id == App.user.id;
-      });
-
-
-         }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-    geocoder = new google.maps.Geocoder();
+    // function initialize() {
+    //   geocoder = new google.maps.Geocoder();
+    //   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+    //   var mapOptions = {
+    //     zoom: 10,
+    //     center: latlng
+    //   }
+    //   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    //
+    //   collection = App.riders.models;
+    //
+    // /**********define our current user*********** this is global*******/
+    // currentUser = App.riders.find( function (a) {
+    //     return a.attributes.user.id == App.user.id;
+    //   });
+    //
+    //
+    //      }
+    //
+    // google.maps.event.addDomListener(window, 'load', initialize);
+    // 
+    // geocoder = new google.maps.Geocoder();
 
 
     window.getCoordinates = function ( address, callback) {
@@ -85,7 +85,7 @@ function dynamicSort(property) {
 
           }
       var homefilter = sorted.filter(isBigEnough);
-
+      console.log(homefilter);
       if (homefilter.length === 0) {
         $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");
       };

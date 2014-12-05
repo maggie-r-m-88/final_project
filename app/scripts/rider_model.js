@@ -9,7 +9,13 @@
     defaults: {
       name: '',
       work_address: '',
-      home_address: ''
+      home_address: '',
+      home_neighborhood: '',
+      work_neighborhood: '',
+      info: '',
+      linked_in: '',
+      twitter: '',
+      employer: ''
 
     },
 
@@ -37,7 +43,7 @@
     var j2= rider.attributes.work_latlong[1];
     var k1= currentUser.attributes.work_latlong[0];
     var j1= currentUser.attributes.work_latlong[1];
-  
+
 
      var deg2rad = function(deg) {
        rad = deg * Math.PI/180; // radians = degrees * pi/180
@@ -81,6 +87,7 @@
              work_miles: mi1,
              kilometers: km,
              work_kilometers: km1,
+             work_latlong: rider.get('work_latlong'),
              work: rider.get('work_address'),
              userId: rider.attributes.user.id,
              objectId: rider.id,

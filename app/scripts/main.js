@@ -10,10 +10,6 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
 
     App.router = new App.Routers.AppRouter();
 
-    //adding this here hopefully it wont mess anything up but i dont have errors
-    //  currentUser = App.riders.find( function (a) {
-    //      return a.attributes.user.id == App.user.id;
-    //    });
         var collection = App.riders.models
   });
 
@@ -53,8 +49,6 @@ $(window).scroll(function(){
       currUsr = 'Welcome ' + App.user.attributes.username;
        $('#pattern').show();
        $('.topnavlinks').hide();
-
-
     }
 
     //$('#loggedIn').html(currUsr);
@@ -73,6 +67,30 @@ App.addButton = function(){
 
 };
 
+function initialize() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+  var mapOptions = {
+    zoom: 10,
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  geocoder = new google.maps.Geocoder();
+
+}
+
+  window.getCoordinates = function ( address, callback) {
+    var coordinates;
+
+    geocoder.geocode({ address: address}, function (results, status){
+       coords_obj = results[0].geometry.location;
+       coordinates = [coords_obj.k, coords_obj.B];
+       callback(coordinates);
+    });
+  }
 
 $('#homeSearchButton').on('click', function(){
  $('.hoodResults').empty();
@@ -90,7 +108,6 @@ $('#homeSearchButton').on('click', function(){
    });
 
 
-
-}); //homeSearch  neighborhooods thing
+}); //homeSearch  neighborhooods thing-->
 
 }());

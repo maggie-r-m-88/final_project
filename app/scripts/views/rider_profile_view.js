@@ -29,10 +29,10 @@
 
       this.$el.empty();
 
-      // var currentUser = App.riders.find( function (a) {
-      //       return a.attributes.user.id == App.user.id;
-      //     });
-      //     console.log(currentUser.attributes.info);
+      App.currentUser = App.riders.find( function (a) {
+            return a.attributes.user.id == App.user.id;
+          });
+       console.log(App.currentUser.attributes.info);
 
       this.$el.html(this.template(this.options.rider.toJSON()));
 
