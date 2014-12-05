@@ -56,11 +56,6 @@
 
     filter: function(filternumber){
       filternumber = $('#filternumber').val();
-      //filterwork = $('#filterwork').val();
-
-    //  if (filternumber == ''){
-    //    filternumber === 10
-    //  }
 
       $('.testresults').empty();
 
@@ -79,7 +74,6 @@ function dynamicSort(property) {
         return result * sortOrder;
     }
 }
-
 
       var sorted = results.sort(dynamicSort("miles"));
            console.log(sorted);
@@ -105,23 +99,6 @@ function dynamicSort(property) {
     ,
     matchesCalc: function(){
 
-    //   var results = _.map(collection, function(other) {
-    //     return currentUser.findDistance(other);
-    //   });
-     //
-     //
-    //   function isBigEnough(element) {
-    //          return element.miles >  0 && element.miles < 15
-    //                  && element.work_miles < 15 ;
-     //
-    //       }
-    //   var homefilter = results.filter(isBigEnough);
-     //
-    //   console.log(homefilter);
-     //
-    //  var neighbors = _.each(homefilter, function(x) {
-    //      $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
-    //    });
 
 
     },

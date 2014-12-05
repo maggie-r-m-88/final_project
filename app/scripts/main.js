@@ -71,9 +71,26 @@ App.addButton = function(){
     $('#adder').hide();
   }
 
-
-
 };
 
+
+$('#homeSearchButton').on('click', function(){
+ $('.hoodResults').empty();
+ var home_hood =  $('#home_hood').val();
+ var work_hood =  $('#work_hood').val();
+
+   var collection = App.riders.models;
+   var found = _.filter(collection, function(item){
+    return item.get('home_neighborhood') === home_hood &&
+           item.get('work_neighborhood') === work_hood
+});
+     console.log(found)
+ var neighbors = _.each(found, function(x) {
+     $('.hoodResults').append("<li>" +  "<img class='hoodprofile' src='" + x.attributes.picture._url + "'/>" + "</li>");
+   });
+
+
+
+}); //homeSearch  neighborhooods thing
 
 }());

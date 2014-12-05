@@ -9,6 +9,7 @@
 
     routes: {
       '' : 'home',
+      'hoodSearch' : 'hoods',
       'matches': 'matches',
       'allriders/:riderID': 'riderProfile',
       'myCommute' : 'myCommute',
@@ -25,6 +26,12 @@
       //new App.Views.ListRiders({ collection: App.riders });
         new App.Views.HomeView();
     },
+
+    // hoods: function(){
+    //
+    //   new App.Views.HomeSearchView();
+    //
+    // },
 
 
     matches: function(){
