@@ -26,9 +26,6 @@
         new App.Views.HomeView();
     },
 
-    // rideCalc: function(){
-    //   new App.Views.rideCalcView();
-    // },
 
     matches: function(){
 
@@ -51,14 +48,30 @@
         return currentUser.findDistance(other);
       });
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
+
+      var sorted = results.sort(dynamicSort("miles"));
+           console.log(sorted);
+
       function isBigEnough(element) {
              return element.miles >  0 && element.miles < 10
                      && element.work_miles < 10 ;
           }
 
-      var homefilter = results.filter(isBigEnough);
+      var homefilter = sorted.filter(isBigEnough);
 
-      console.log(homefilter);
+    //  console.log(homefilter);
       if (homefilter.length === 0) {
         $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");
       };

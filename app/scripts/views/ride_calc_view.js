@@ -68,6 +68,21 @@
         return currentUser.findDistance(other);
       });
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
+
+      var sorted = results.sort(dynamicSort("miles"));
+           console.log(sorted);
 
       //sort by will go here
       function isBigEnough(element) {
@@ -75,7 +90,7 @@
                      && element.work_miles < filternumber ;
 
           }
-      var homefilter = results.filter(isBigEnough);
+      var homefilter = sorted.filter(isBigEnough);
 
       if (homefilter.length === 0) {
         $('.testresults').append("<li>" + 'No Current Matches Found' + "</li>");

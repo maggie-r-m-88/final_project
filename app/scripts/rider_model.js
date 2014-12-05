@@ -27,13 +27,7 @@
      var  a1, c1, dm1, dk1, mi1, km1;
 
      var Rm = 3961; var Rk = 6373;
-     //var coords_property;
 
-    //  if (location == 'home') {
-    //    coords_property = 'home_latlong';
-    //  } else {
-    //    coords_property = 'work_latlong';
-    //  }
     var x2= rider.attributes.home_latlong[0];
     var y2= rider.attributes.home_latlong[1];
     var x1= currentUser.attributes.home_latlong[0];
@@ -43,10 +37,7 @@
     var j2= rider.attributes.work_latlong[1];
     var k1= currentUser.attributes.work_latlong[0];
     var j1= currentUser.attributes.work_latlong[1];
-    //  var x2 = rider.get(coords_property)[0];
-    //  var y2 = rider.get(coords_property)[1];
-    //  var x1 = currentUser.get(coords_property)[0];
-    //  var y1=  currentUser.get(coords_property)[1];
+  
 
      var deg2rad = function(deg) {
        rad = deg * Math.PI/180; // radians = degrees * pi/180
