@@ -202,7 +202,7 @@ function dynamicSort(property) {
       };
 
       var neighbors = _.each(homefilter, function(x) {
-       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + "<br>" + 'Home : ' + x.miles + 'mi'  + x.work_miles + ' mi' + "</a>" + "</li>");
+       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + "<h3>" + x.username + "</h3>" + 'Home: ' + x.miles + 'mi'+ "<br>" +'Work: ' +  x.work_miles + 'mi' +  "</a>" + "</li>");
        });
 
 
@@ -307,7 +307,7 @@ function dynamicSort(property) {
     //      }
     //
     // google.maps.event.addDomListener(window, 'load', initialize);
-    // 
+    //
     // geocoder = new google.maps.Geocoder();
 
 
@@ -362,8 +362,8 @@ function dynamicSort(property) {
       };
 
      var neighbors = _.each(homefilter, function(x) {
-         $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
-       });
+         $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + "<h3>" + x.username + "</h3>" + 'Home: ' + x.miles + 'mi'+ "<br>" +'Work: ' +  x.work_miles + 'mi' +  "</a>" + "</li>");
+         });
 
 
     }
@@ -389,7 +389,7 @@ function dynamicSort(property) {
   App.Views.riderProfileListing = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'riderprofileSingle',
+    className: 'allRiders',
 
     events: {
       // 'submit #updateRider' : 'updateRider',
@@ -462,7 +462,7 @@ function dynamicSort(property) {
   App.Views.SingleRider = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'riderSingle',
+    className: 'allRiders',
 
     events: {
       'submit #updateRider' : 'updateRider',
@@ -523,7 +523,7 @@ function dynamicSort(property) {
 
         //save object
         x.save();
-        App.router.navigate('', {trigger: true});
+        App.router.navigate('#/myCommute', {trigger: true});
       });
 
 
@@ -982,34 +982,6 @@ var marker_array = [
     ['erin', 33.8460287, -84.3718806]
   ];
 
-// function showMap() {
-//   geocoder = new google.maps.Geocoder();
-//   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-//   var mapOptions = {
-//     zoom: 14,
-//     center: latlng
-//   }
-//   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-//
-//   var markers = [
-//       ['maggie', 33.848688, -84.37332900000001],
-//       ['tim', 33.848688, -84.37332900000001],
-//       ['erin', 33.8460287, -84.3718806]
-//     ];
-//
-//    var markersset = _.each(test, function (x) {
-//
-//     var latlng = new google.maps.LatLng(x[1], x[2]);
-//     new google.maps.Marker({
-//     position: latlng,
-//     map: map
-//             });
-//
-//         });
-//
-//
-// } //this is the end of initialize
- //showMap();
 
 
   window.getCoordinates = function ( address, callback) {
@@ -1060,26 +1032,13 @@ $('#homeSearchButton').on('click', function(){
 
             });
 
-
     }
-
-
-
 
     showMap();
 
- //
- // var neighbors = _.each(found, function(x) {
- //     $('.hoodResults').append("<li>" +  "<img class='hoodprofile' src='" + x.attributes.picture._url + "'/>" + "</li>");
-  //  });
+}); //homeSearch  neighborhooods thing
 
 
-
-
-
-
-
-}); //homeSearch  neighborhooods thing-->
 
 }());
 
