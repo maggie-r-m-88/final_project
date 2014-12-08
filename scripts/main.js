@@ -202,7 +202,7 @@ function dynamicSort(property) {
       };
 
       var neighbors = _.each(homefilter, function(x) {
-       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + ' house ' + ' is ' + x.miles + ' miles away' + x.work_miles + 'work mi away' + "</a>" + "</li>");
+       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + x.username + "<br>" + 'Home : ' + x.miles + 'mi'  + x.work_miles + ' mi' + "</a>" + "</li>");
        });
 
 
@@ -563,7 +563,7 @@ function dynamicSort(property) {
     initialize: function () {
       this.render();
 
-      $('#riderList').html(this.$el);
+      $('#homeSearch').html(this.$el);
     },
 
     render: function () {
@@ -584,8 +584,8 @@ function dynamicSort(property) {
 
 
       var c = new App.Models.Rider({
-        //name: $('#rider_name').val(),
-        name: App.user.attributes.username,
+        name: $('#rider_name').val(),
+        //name: App.user.attributes.name,
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
         info: $('#rider_info').val(),
@@ -797,7 +797,7 @@ function dynamicSort(property) {
     initialize: function(){
       this.render();
 
-      $('#riderList').html(this.$el);
+      $('#homeSearch').html(this.$el);
     },
 
     render: function(){
@@ -807,10 +807,10 @@ function dynamicSort(property) {
     addUser: function(e){
       e.preventDefault();
       var user = new Parse.User({
-      username: $('#signUpUser').val(),
+      username: $('#signUpEmail').val(),
       email: $('#signUpEmail').val(),
       password: $('#signUpPassword').val()
-
+      //name: $('#signUpN')
       });
       user.signUp(null, {
         success: function(user) {
@@ -840,7 +840,7 @@ function dynamicSort(property) {
     initialize: function(){
       this.render();
 
-      $('#riderList').html(this.$el);
+      $('#homeSearch').html(this.$el);
 
     },
 
@@ -852,7 +852,8 @@ function dynamicSort(property) {
     userLogin: function(e) {
       e.preventDefault();
 
-      var username = $('#username').val();
+      var username = $('#email').val();
+      //var email = $('#email').val();
       var password = $('#password').val();
 
 
@@ -920,14 +921,14 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
   });
 
 
-var divs = $('.logo');
-$(window).scroll(function(){
-   if($(window).scrollTop()<100){
-         divs.stop(true,true).fadeIn("slow");
-   } else {
-         divs.stop(true,true).fadeOut("slow");
-   }
-});
+// var divs = $('.logo');
+// $(window).scroll(function(){
+//    if($(window).scrollTop()<100){
+//          divs.stop(true,true).fadeIn("slow");
+//    } else {
+//          divs.stop(true,true).fadeOut("slow");
+//    }
+// });
 
 
 
@@ -973,20 +974,43 @@ App.addButton = function(){
 
 };
 
-function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-  var mapOptions = {
-    zoom: 10,
-    center: latlng
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+var geocoder;
+var map;
+var marker_array = [
+    ['maggie', 33.848688, -84.37332900000001],
+    ['tim', 33.848688, -84.37332900000001],
+    ['erin', 33.8460287, -84.3718806]
+  ];
 
-  google.maps.event.addDomListener(window, 'load', initialize);
+// function showMap() {
+//   geocoder = new google.maps.Geocoder();
+//   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+//   var mapOptions = {
+//     zoom: 14,
+//     center: latlng
+//   }
+//   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+//
+//   var markers = [
+//       ['maggie', 33.848688, -84.37332900000001],
+//       ['tim', 33.848688, -84.37332900000001],
+//       ['erin', 33.8460287, -84.3718806]
+//     ];
+//
+//    var markersset = _.each(test, function (x) {
+//
+//     var latlng = new google.maps.LatLng(x[1], x[2]);
+//     new google.maps.Marker({
+//     position: latlng,
+//     map: map
+//             });
+//
+//         });
+//
+//
+// } //this is the end of initialize
+ //showMap();
 
-  geocoder = new google.maps.Geocoder();
-
-}
 
   window.getCoordinates = function ( address, callback) {
     var coordinates;
@@ -1009,9 +1033,50 @@ $('#homeSearchButton').on('click', function(){
            item.get('work_neighborhood') === work_hood
 });
      console.log(found)
- var neighbors = _.each(found, function(x) {
-     $('.hoodResults').append("<li>" +  "<img class='hoodprofile' src='" + x.attributes.picture._url + "'/>" + "</li>");
-   });
+
+     var found_points = _.map(found, function(item){
+      return item.get('work_latlong')
+
+  });
+   console.log(found_points);
+
+
+    function showMap() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
+      var mapOptions = {
+        zoom: 12,
+        center: latlng
+      }
+      map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+       var markersset = _.each(found_points, function (x) {
+
+        var latlng = new google.maps.LatLng(x[0], x[1]);
+        new google.maps.Marker({
+        position: latlng,
+        map: map
+                });
+
+            });
+
+
+    }
+
+
+
+
+    showMap();
+
+ //
+ // var neighbors = _.each(found, function(x) {
+ //     $('.hoodResults').append("<li>" +  "<img class='hoodprofile' src='" + x.attributes.picture._url + "'/>" + "</li>");
+  //  });
+
+
+
+
+
 
 
 }); //homeSearch  neighborhooods thing-->
