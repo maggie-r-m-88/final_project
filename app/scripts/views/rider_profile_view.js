@@ -3,7 +3,7 @@
   App.Views.riderProfileListing = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'riderprofileSingle',
+    className: 'allRiders',
 
     events: {
       // 'submit #updateRider' : 'updateRider',

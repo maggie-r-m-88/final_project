@@ -332,7 +332,8 @@ $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
 html, body, #map-canvas {
         height: 100%;
         margin: 0px;
-        padding: 0px
+        padding: 0px;
+        
       }
       #panel {
         position: absolute;
@@ -355,29 +356,32 @@ margin-left: 10%;
 }
 #riderList li{
   list-style-type: none;
-  width: 180px;
+  width: 200px;
   height: 250px;
   text-align: center;
   background-color: black;
   display: inline-block;
   margin: 5px;
+  font-size: 1.3em;
   color: white;
   opacity: .8;
+  transition: height 0.3s ease;
   a{
     color: white;
   }
   &:hover{
+    height:300px;
     opacity: 1;
     box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
   }
 }
 .matchpic{
-  width: 180px;
+  width: 200px;
   height: 200px;
+
 }
 .profilepic{
 
-  //margin-top: -22px;
   width: 100px;
   height: 150px;
 
@@ -689,6 +693,9 @@ input[type=submit] {
     padding: 20px;
     height: 280px;
   }
+  .entypo-switch{
+    padding: 5px;
+  }
   img:hover{
     opacity: 1;
   }
@@ -731,6 +738,8 @@ input[type=submit] {
       color: $indianred;
       padding: 6px;
       font-size: 1.3em;
+
+
     }
     button:hover{
       color: black;
@@ -741,6 +750,7 @@ input[type=submit] {
       color: white;
       margin-left: 10px;
       padding: 6px;
+      transition: color 0.2s ease;
 
     }
     #delete:hover{

@@ -222,12 +222,12 @@
 
     <!--individual profile of riders-->
     <script type="text/template" id="riderprofileTemp">
-      <div id="<%= objectId %>" class="bigProfile">
+      <div id="<%= objectId %>" class="myProfile">
              <div class="photo_section">
             <img class="bigprofilepic" src="  <%= picture.url %>">
-            <a href="#"><span class="entypo-switch"></span></a>
+
              </div>
-          <div class="profile_details">
+          <div class="more_details">
 
            <h2 class="profile_name"><%= name %> </h2>
 
@@ -239,7 +239,8 @@
 
           </p><hr/>
 <p class="info"><%= info %></p>
-
+     <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.currentUser.attributes.name %>&body=Hi, would you be interested in carpooling with me?%0D %0D
+<%=App.currentUser.attributes.info %> %0D %0D Thanks, %0D <%= App.currentUser.attributes.name %> %0D<%=App.user.attributes.email %> "><button><span class="entypo-forward"></span> Connect</button></a>
 
           <!--<p class="profile_neighborhood"><%= home_neighborhood %></p>-->
 
