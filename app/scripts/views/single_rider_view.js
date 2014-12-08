@@ -3,7 +3,7 @@
   App.Views.SingleRider = Parse.View.extend({
 
     tagName: 'ul',
-    className: 'riderSingle',
+    className: 'allRiders',
 
     events: {
       'submit #updateRider' : 'updateRider',
@@ -64,7 +64,7 @@
 
         //save object
         x.save();
-        App.router.navigate('', {trigger: true});
+        App.router.navigate('#/myCommute', {trigger: true});
       });
 
 
