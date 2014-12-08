@@ -106,6 +106,7 @@ $arty:  url("http://i.imgur.com/1qS8TeY.jpg");
 $tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
 $highway: url("http://i.imgur.com/XQiNCZU.jpg");
 $bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
+$map: url("http://i.imgur.com/QI4vPAt.jpg");
 .homeview img{
 
   margin-left: 20%;
@@ -117,27 +118,35 @@ $bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
 }
 
 .console{
+  margin-top: 20px;
   height: 190px;
-  background-color: $slate;
+  background-image: $map;
   #login, #signUp{
     padding-top: 20px;
   }
   input, button{
-  margin-left: 10%;
+    border-radius: 5px;
+    opacity: .8;
+  //margin-left: 1%;
   margin-top: 15px;
   width: 80%;
   height: 30px;
+  font-family: Helvetica;
   padding: 5px;
   border: none;
   }
   button{
     margin-top: 20px;
-    opacity: 1;
+    opacity: .9;
     height: 40px;
   }
   button:hover{
-  opacity: 1;
-  color: white;
+  opacity: .8;
+  border: 1px solid white;
+  
+  }
+  #addRider{
+    padding-top: 20px;
   }
 }
 
