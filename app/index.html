@@ -145,11 +145,13 @@
 
 <!--match calc view-->
         <script type="text/template" id="matchesTemp">
-          <h2> Your Matches </h2>
+        <div id="filter_console">
+          <h2> Your Ride Matches </h2><br/><hr/>
           <p>Select Mile Radius:
           <input id="filternumber" value="10"></p>
         <!--  <br><input id="filterwork" placeholder="Work Mi Radius"><br>-->
-          <button id="filter">Filter </button><hr/>
+          <button id="filter">Filter </button><br>
+          </div>
           <ul class="testresults">
           </ul>
 
@@ -238,19 +240,14 @@
 
 
           </p><hr/>
-<p class="info"><%= info %></p>
+<p class="info"><%= info %></p><br>
      <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.currentUser.attributes.name %>&body=Hi, would you be interested in carpooling with me?%0D %0D
 <%=App.currentUser.attributes.info %> %0D %0D Thanks, %0D <%= App.currentUser.attributes.name %> %0D<%=App.user.attributes.email %> "><button><span class="entypo-forward"></span> Connect</button></a>
 
-          <!--<p class="profile_neighborhood"><%= home_neighborhood %></p>-->
 
           </div><!--end of profile details-->
 
 
-
-            <!--<%= App.user.attributes .username %> %0D<%=App.user.attributes.email %> -->
-
-          <!--end of content   </div>-->
 
       </div><!--end of bigProfile-->
     </script>
@@ -270,7 +267,7 @@
         <p> <%= employer %> <a class="linkedin" href="<%= linked_in %>">
             <span class="brandico-linkedin-rect"></span></a></p>
             <hr />
-        <p> <%= info %> </p>
+        <p> <%= info %> </p><br>
         <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
         </div>
       </div>

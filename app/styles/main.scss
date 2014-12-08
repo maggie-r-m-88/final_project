@@ -333,7 +333,7 @@ html, body, #map-canvas {
         height: 100%;
         margin: 0px;
         padding: 0px;
-        
+
       }
       #panel {
         position: absolute;
@@ -354,25 +354,143 @@ width: 80%;
 margin-left: 10%;
   //border: 2px solid blue;
 }
+#filter_console{
+
+  h2{
+    font-size: 1.2em;
+    text-align: center;
+  }
+  p{
+    margin-left: 10%;
+  }
+  button{
+    color: $indianred;
+    padding: 4px;
+    margin-left: 10%;
+  }
+  button:hover{
+  color: black;
+  }
+  input{
+    border: none;
+    background-color: #eee;
+    padding: 5px;
+  }
+}
 #riderList li{
   list-style-type: none;
-  width: 200px;
-  height: 250px;
+//  width: 200px;
+// height: 250px;
   text-align: center;
   background-color: black;
   display: inline-block;
   margin: 5px;
   font-size: 1.3em;
   color: white;
+  position: relative;
   opacity: .8;
-  transition: height 0.3s ease;
+  box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
+
+  transition: opacity 0.3s ease;
   a{
     color: white;
   }
   &:hover{
-    height:300px;
+    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
     opacity: 1;
-    box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
+
+  }
+  .stats{
+    color:#eee;
+    font-weight: bold;
+    margin-top: 177px;
+    margin-left: 20px;
+  padding: 5px;
+  opacity: .9;
+  border-radius: 10px;
+    text-align: right;
+
+  height: 75px;
+    position: absolute;
+  }
+  .stats:hover{
+    opacity: 1;
+  }
+}
+.matchpic{
+  width: 200px;
+  height: 90px;
+
+}
+.profilepic{
+
+  width: 100px;
+  height: 150px;
+
+}
+
+@media screen and (min-width: 50em) {
+#filter_console{
+
+  h2{
+    font-size: 1.2em;
+    text-align: center;
+  }
+  p{
+    margin-left: 10%;
+  }
+  button{
+    color: $indianred;
+    padding: 4px;
+    margin-left: 10%;
+  }
+  button:hover{
+  color: black;
+  }
+  input{
+    border: none;
+    background-color: #eee;
+    padding: 5px;
+  }
+}
+#riderList li{
+  list-style-type: none;
+  width: 200px;
+  height: 90px;
+  text-align: center;
+  background-color: black;
+  display: inline-block;
+  margin: 5px;
+  font-size: 1.3em;
+  color: white;
+  position: relative;
+  opacity: .8;
+  box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
+
+  transition: opacity 0.3s ease;
+  a{
+    color: white;
+  }
+  &:hover{
+    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    opacity: 1;
+
+  }
+  .stats{
+    color:#eee;
+    font-weight: bold;
+    margin-top: 177px;
+    margin-left: 20px;
+  padding: 5px;
+  opacity: .9;
+  border-radius: 10px;
+    text-align: right;
+
+  height: 75px;
+    position: absolute;
+  }
+  .stats:hover{
+    opacity: 1;
   }
 }
 .matchpic{
@@ -386,6 +504,11 @@ margin-left: 10%;
   height: 150px;
 
 }
+}
+
+
+
+
 @media screen and (min-width: 50em) {
 ///individual profile styling goes here//
 .bigProfile{
@@ -686,6 +809,11 @@ input[type=submit] {
   margin-bottom:50px;
   padding-top: 10px;
   margin-left: 5%;
+  position: relative;
+ .stats {
+   border: 2px solid yellow;
+   position: absolute;
+ }
   img{
     float: left;
     opacity: .9;
@@ -724,6 +852,7 @@ input[type=submit] {
 
       font-size: 1.3em;
     }
+
     .brandico-linkedin-rect{
       color: hsl(199,100,35);
     }
@@ -734,10 +863,12 @@ input[type=submit] {
     #update_info{
     width: 600px;
     }
+
     button{
       color: $indianred;
       padding: 6px;
       font-size: 1.3em;
+
 
 
     }

@@ -13,15 +13,7 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
         var collection = App.riders.models
   });
 
-
-// var divs = $('.logo');
-// $(window).scroll(function(){
-//    if($(window).scrollTop()<100){
-//          divs.stop(true,true).fadeIn("slow");
-//    } else {
-//          divs.stop(true,true).fadeOut("slow");
-//    }
-// });
+$('.logo').fadeIn(300);
 
 
 

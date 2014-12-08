@@ -84,7 +84,7 @@ function dynamicSort(property) {
       };
 
       var neighbors = _.each(homefilter, function(x) {
-       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<img class='matchpic' src='" + x.picture + "'/>" + "<h3>" + x.username + "</h3>" + 'Home: ' + x.miles + 'mi'+ "<br>" +'Work: ' +  x.work_miles + 'mi' +  "</a>" + "</li>");
+       $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<p class='stats'>"+'Home:  ' + x.miles +'mi' +'    '+ 'Work:  ' +  x.work_miles + 'mi' + "</p>" + "<img class='matchpic' src='" + x.picture + "'/>" + "<h3>" + x.username + "</h3>" +   "</a>" + "</li>");
        });
 
 
