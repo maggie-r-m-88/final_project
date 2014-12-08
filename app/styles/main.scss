@@ -2,10 +2,26 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One|Roboto+Condensed:400,700|Oswald:400,700,300);
+@import url(http://weloveiconfonts.com/api/?family=brandico);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
 
 $fijalla: 'Fjalla One', sans-serif;
 $roboto:'Roboto Condensed', sans-serif;
 
+
+/* brandico */
+[class*="brandico-"]:before {
+  font-family: 'brandico', sans-serif;
+}
+/* fontawesome */
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
 //'Oswald', sans-serif;
 //colors
 
@@ -40,12 +56,13 @@ body{
   }
 }
 .body-container{
-  //border: 2px solid green;
+
   max-width: 1300px;
 }
 .header-bg{
-  background-image:url("http://i.imgur.com/9DPfrWQ.jpg");
+  //background-image:url("http://i.imgur.com/9DPfrWQ.jpg");
  margin-top: -50px;
+
   background-size: cover;
   //height: 500px;
   background-attachment: fixed;
@@ -54,16 +71,19 @@ body{
   //position: absolute;
   margin-top: -53px;
   //height: 500px;
-  opacity: .85;
-  background-color: $darkgray;
+  opacity: .95;
+  //background-color: $darkgray;
   font-family: $fijalla;
   .logo h1{
     display: none;
+
+
   }
   h1{
   //display: none;
   padding-top: 100px;
   text-align: center;
+
   font-size: 6.0em;
   //color: $indianred;
   }
@@ -81,20 +101,19 @@ body{
   }
 
 }
-.homeview{
-  background-color: black;
-  text-align: center;
-  color: white;
-  height: 50px;
-  font-size: 1.0em;
-  ul{
-    padding-top: 10px;
-  }
-  a{
 
-    font-size: 1.0em;
-    color: white;
-  }
+$arty:  url("http://i.imgur.com/1qS8TeY.jpg");
+$tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
+$highway: url("http://i.imgur.com/XQiNCZU.jpg");
+$bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
+.homeview img{
+
+  margin-left: 20%;
+  width:60%;
+  height: 350px;
+  //border: 2px solid blue;
+  font-size: 2.0em;
+
 }
 
 .console{
@@ -117,15 +136,13 @@ body{
     height: 40px;
   }
   button:hover{
-    opacity: .8;
+  opacity: 1;
+  color: white;
   }
 }
 
 //: hsl(216,6,56);
-// $arty:  url("http://i.imgur.com/1qS8TeY.jpg");
-// $tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
-// $highway: url("http://i.imgur.com/XQiNCZU.jpg");
-// $bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
+
 .mid-nav, .midnav2, .midnav3{
   margin-top: 20px;
   font-family: $fijalla;
@@ -136,7 +153,7 @@ body{
   height: 150px;
   opacity: .8;
   //border: 1px solid $darkgray;
-  background-color: $lightslategray2;
+  background-color: $indianred;
   //
   //background-size: stretch;
 
@@ -149,11 +166,11 @@ body{
 box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 }
   a{
-    color: black;
+    color: white;
     //transition: border-bottom 0.2s ease;
   }
   a:hover{
-    color: white;
+    color: black;
     //border-bottom: 4px solid $indianred;
   }
 
@@ -167,36 +184,77 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 .col-group > div {
   padding: 1em 1em 0;
 }
+$downtown: url("http://www.hilton.com/top-destinations/assets/uploads/hero-images/Destinations_Header_Atlanta_2.jpg");
+$arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
 @media screen and (min-width: 50em) {
+  .console2{
+    background-image: $highway;
+    height: 520px;
+    margin-left: 16%;
 
-  .console{
-    height: 70px;
-    margin-top: -5px;
-    background-color: $slate;
-    #login, #signUp{
-      padding-left: 5%;
-      padding-top: 25px;
-    }
-    input, button{
-    display: inline-block;
-    width: 30%;
-    margin-top: -10px;
-    margin-left: 10px;
-    //width: 80%;
-    //height: 30px;
-
+    width: 68%;
+    input, textarea{
+      opacity: .9;
+      display: block;
+      margin-left: 20%;
+      width: 60%;
+      padding: 5px;
+      font-family: Helvetica;
+      font-size: 0.4em;
+      margin-top: 13px;
 
     }
     button{
-    //  margin-top: 20px;
+      width: 40%;
+      padding-bottom: 10px;
+      font-size: .4em;
+    }
+    button:hover{
+    opacity: .9;
+    color: gray;
+    }
+    #addRider{
+      padding-top: 10px;
+    }
+  }
+  .console{
+    height: 500px;
+    width: 80%;//650px;
+    margin-top: 20px;
+    margin-left: 10%;
+    background-image: $arty2;//url("http://i.imgur.com/9DPfrWQ.jpg");
+    background-size: cover;
+    //background-color: $indianred;
+    #login, #signUp{
+      padding-left: 5%;
+      padding-top: 60px;
+    }
+    input, button{
+    display:block;
+    //width: 70%;
+    opacity: .85;
+    margin-left: 7%;
+    font-size: 0.4em;
+    font-family: Helvetica;
+    height: 40px;
+    color: black;
+    margin-top: 10px;
+    }
+    button{
+      background-color: $indianred;
+      font-family: $fijalla;
+      width: 50%;
+      margin-left: 22%;
       opacity: 1;
+      margin-top: 25px;
       height: 30px;
     }
     #signer{
       display: inline-block;
-      width: 20%;
-      padding-top: 5px;
-      margin-left: 70%;
+      width: 50%;
+      //margin-left: 10%;
+      //padding-top: 5px;
+      //margin-left: 70%;
       //margin-top: -10px;
     }
     button:hover{
@@ -209,18 +267,23 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 @media screen and (min-width: 50em) {
   .header, .header-bg{
 
-  height: 510px;
+  //height: 510px;
 
     h1{
-      font-size: 7.0em;
-    color: black;
-      padding-top: 50px;
+      font-size: 9.0em;
+      width:65%;
+      //border: 2px solid black;
+      //margin-top: 200px;
+      margin-left: 17%;
+    color: black;//$indianred;
+    //background-color: gray;
+      padding-top: 20px;
     }
   }
 
   .header-bg{
-    background-image: url("http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg");
-  //  background-image: url("http://gokms.com/wp-content/uploads/2014/06/Atlanta-At-Night-Hd.jpg");
+    //background-image: url("http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg");
+// background-image: url("http://gokms.com/wp-content/uploads/2014/06/Atlanta-At-Night-Hd.jpg");
   //background-image: url("http://i.imgur.com/knYc6Lp.png");
     background-size: cover;
     opacity: 1;
@@ -248,7 +311,6 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 }
 html, body, #map-canvas {
         height: 100%;
-
         margin: 0px;
         padding: 0px
       }
@@ -265,9 +327,10 @@ html, body, #map-canvas {
 #map-canvas{
   //height: 300px;
 //  width: 500px;
-height: 300px;
+height: 200px;
 //display:none;
-width: 300px;
+width: 80%;
+margin-left: 10%;
   //border: 2px solid blue;
 }
 #riderList li{
@@ -299,30 +362,121 @@ width: 300px;
   height: 150px;
 
 }
-
+@media screen and (min-width: 50em) {
+///individual profile styling goes here//
 .bigProfile{
-
+background-color: black;
+  box-shadow: #6E7849 1px 1px 10px;
   overflow: auto;
-  .content{
-   float: left;
-   padding: 20px;
+  opacity: .9;
+
+  width:100%;
+
+  .profile_details{
+
+    float: left;
+    width: 70%;
+    display: inline;
+  //  border: 1px solid green;
+    margin-top:20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    height:170px;
+    //border: 2px solid red;
+  }
+  .fontawesome-exchange{
+    background-color: white;
+    color: white;
+    padding: 10px;
+    font-size: 5.0em;
+  }
+
+  .mail{
+    //margin-top: 10px;
+    //border: 1px solid gray;
+  }
+  .fontawesome-exchange:hover{
+    background-color: $indianred;
+  }
+
+  .brandico-linkedin-rect{
+    color: hsl(199,100,35);
+    font-size: 1.4em;
+    //margin-top: -20px;
+    padding: 5px;
+    display: inline;
+    //padding: 10px;
 
   }
-  h2{
+  .brandico-linkedin-rect:hover{
+
+    color: hsla(199, 100%, 47%, 1);//hsla(199, 100%, 22%, 1);
+  }
+  .info{
+    clear: both;
+    padding:20px;
+    font-size: 1.7em;
+    //box-shadow: 1px 4px 18px 0px rgba(50, 50, 50, 1);
+    //border: 1px solid gray;
+    text-align: left;
+    background-color: black;
+    color:white;
+    padding-bottom: 20px;
+    //padding-left: 10px;
+  }
+  .employer{
+   clear: both;
+   color:white;
+   //border: 2px solid blue;
+   margin-top: -20px;
+   //padding-top: -10px;
+   font-size: 1.1em;
+  }
+  .profile_name{
   color: white;
+  float: left;
+  font-size: 2.2em;
+  margin-top: 2px;
+  }
+  .photo_section{
+    width:150px;
+    position: relative;
+    height: 200px;
+    float: left;
+
+  }
+  .entypo-switch{
+    //color: $darkgray;
+    opacity: .8;
+    background-color: $indianred;
+    margin-left: 110px;
+    font-size: 1.8em;
+    padding: 11px;
+    margin-top:-45px;
+    position: absolute;
+  }
+  .entypo-switch:hover{
+    //background-color:$lightslategray;
+    color: white;
 
   }
 .bigprofilepic{
-  width: 200px;
-  float: left;
-  height: 250px;
-  //border: 3px dashed green;
+//.photo_section{
+  width: 150px;
+
+  //border:2px solid green;
+  height: 200px;
+  //padding-bottom: 20px;
+  //padding-top: 20px;
+  //padding-left: 20px;
 
 }
+}
 .riderprofileSingle{
-  background-color: white;
-
-
+  width: 70%;
+  margin-left: 15%;
+   //border: 2px solid green;
+  //  background-image: url("http://i.huffpost.com/gen/1716876/thumbs/o-ATLANTA-TRAFFIC-facebook.jpg");
 }
 }
 #signUpField{
@@ -344,8 +498,20 @@ width: 300px;
   opacity: 1;
 }
 #home_hood, #work_hood{
-  color: green;
-  height:100px;
+  color: $indianred;
+  border: none;
+  padding: 20px;
+  height:50px;
+}
+#homeSearch{
+width: 100%;
+}
+@media screen and (min-width: 50em){
+#home_hood, #work_hood{
+
+//  background-color: $silver3;
+
+  height:50px;
   padding: 20px;
 
 }
@@ -370,24 +536,32 @@ input[type=submit] {
 	width: 300px;
 	height: 100px;
 	font-family: Arial;
-	font-size: 36px;
+	//font-size: 36px;
 	background: #DF0101; /* red */
 	box-shadow: #6E7849 1px 1px 10px;
 	color: white;
 }
 #homeSearch{
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  font-size: 1.9em;
   opacity: .9;
-  width: 50%;
-  margin-left: 25%;
+  text-align:center;
+  width: 80%;
+
+  margin-left: 10%;
 }
 #homeSearchButton{
-  background-color: $silver2;
+  padding:10px;
+  font-size: 0.9em;
   color: black;
 }
 .hoodResults li{
   list-style-type: none;
   display: inline-block;
+  padding: 5px;
+}
+}
+.entypo-user, .entypo-users, .entypo-logout{
   padding: 5px;
 }

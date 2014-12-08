@@ -14,14 +14,14 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
   });
 
 
-var divs = $('.logo');
-$(window).scroll(function(){
-   if($(window).scrollTop()<100){
-         divs.stop(true,true).fadeIn("slow");
-   } else {
-         divs.stop(true,true).fadeOut("slow");
-   }
-});
+// var divs = $('.logo');
+// $(window).scroll(function(){
+//    if($(window).scrollTop()<100){
+//          divs.stop(true,true).fadeIn("slow");
+//    } else {
+//          divs.stop(true,true).fadeOut("slow");
+//    }
+// });
 
 
 
@@ -138,7 +138,7 @@ $('#homeSearchButton').on('click', function(){
       geocoder = new google.maps.Geocoder();
       var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
       var mapOptions = {
-        zoom: 14,
+        zoom: 12,
         center: latlng
       }
       map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

@@ -9,7 +9,7 @@
     initialize: function(){
       this.render();
 
-      $('#riderList').html(this.$el);
+      $('#homeSearch').html(this.$el);
 
     },
 
@@ -21,7 +21,8 @@
     userLogin: function(e) {
       e.preventDefault();
 
-      var username = $('#username').val();
+      var username = $('#email').val();
+      //var email = $('#email').val();
       var password = $('#password').val();
 
 

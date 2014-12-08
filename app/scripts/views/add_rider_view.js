@@ -9,7 +9,7 @@
     initialize: function () {
       this.render();
 
-      $('#riderList').html(this.$el);
+      $('#homeSearch').html(this.$el);
     },
 
     render: function () {
@@ -30,8 +30,8 @@
 
 
       var c = new App.Models.Rider({
-        //name: $('#rider_name').val(),
-        name: App.user.attributes.username,
+        name: $('#rider_name').val(),
+        //name: App.user.attributes.name,
         home_address: $('#rider_home').val(),
         work_address: $('#rider_work').val(),
         info: $('#rider_info').val(),

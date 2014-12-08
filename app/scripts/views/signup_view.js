@@ -9,7 +9,7 @@
     initialize: function(){
       this.render();
 
-      $('#riderList').html(this.$el);
+      $('#homeSearch').html(this.$el);
     },
 
     render: function(){
@@ -19,10 +19,10 @@
     addUser: function(e){
       e.preventDefault();
       var user = new Parse.User({
-      username: $('#signUpUser').val(),
+      username: $('#signUpEmail').val(),
       email: $('#signUpEmail').val(),
       password: $('#signUpPassword').val()
-
+      //name: $('#signUpN')
       });
       user.signUp(null, {
         success: function(user) {

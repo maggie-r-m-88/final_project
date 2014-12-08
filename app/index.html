@@ -27,15 +27,18 @@
       <div id="pattern" class="pattern">
       <div class="col-group">
         <div class="mid-nav">
-          <h2><a href="#/matches">Find a Match</a></h2>
+          <h2 id="logOut"><a href="#"><span class="entypo-logout"></span>Log Out</a></h2>
+          <!--<h2><a id="logOut" href="#">Logout</a></h2>-->
 
         </div>
         <div class="mid-nav">
-        <h2><a href="#/myCommute">My Commute</a></h2>
+          <h2><a href="#/matchesCalc"><span class="entypo-users"></span>Ride Matches</a></h2>
+
 
         </div>
         <div class="mid-nav">
-          <h2><a href="#/matchesCalc">Match Calc</a></h2>
+        <h2><a href="#/myCommute"><span class="entypo-user"></span> My Commute</a></h2>
+
 
         </div>
       </div>
@@ -45,9 +48,9 @@
           <div class="header">
 
 
-          <h1 class="logo">  ATL Rideshare </h1>
+        <h1 class="logo">  ATL Rideshare <span class="fontawesome-exchange"></span></h1>
           <h2 class="topnavlinks">
-
+                <a href="#/login" id="login-link"> Login</a> | <a href="#/signUp" >Sign Up</a>
               <div id="homeSearch">
                 <!-- <form ID = "Form">
          <!-- Standard input text boxes
@@ -59,8 +62,8 @@
    </form>   Submit button -->
 
 
-              I'm commuting from : <br>
-            <select id="home_hood" name="home_hood">
+              <p>I'm commuting from
+            <select id="home_hood" name="home_hood"></p>
                       <option value="Buckhead">Buckhead</option>
                       <option value="Chamblee">Chamblee</option>
                       <option value="College Park">College Park</option>
@@ -69,10 +72,10 @@
                       <option value="Marietta">Marietta</option>
                       <option value="Midtown">Midtown</option>
                       <option value="Norcross">Norcross</option>
-              </select>
+              </select> <br>
 
 
-              To: <select id="work_hood" name="work_hood">
+              To <select id="work_hood" name="work_hood">
                       <option value="Buckhead">Buckhead</option>
                       <option value="Chamblee">Chamblee</option>
                       <option value="College Park">College Park</option>
@@ -95,33 +98,29 @@
 
               </div>
 
-            <a href="#/login" id="login-link"> Login</a> | <a href="#/signUp" >Sign Up</a>
 
-          </h2>
-          <h2 id="logOut"><a href="#">Log Out</a></h2>
+
+
+        <!--  <h2 id="logOut"><a href="#">Log Out</a></h2>-->
 
 
         </div>
 
+<div id="riderList"></div>
         </div><!--end of header bg-->
 
 
 
+
   <div class="hero-unit">
-
-
-     <div id="riderList"></div>
-
-      </div>
+  </div>
   </div>
 
-        <hr>
+
 </div><!--end of body container-->
         <script type="text/template" id="homeTemp">
         <div class="homeview">
-        <ul>
-        <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Other</a>
-        </ul>
+        <!-- <img src="http://i.imgur.com/XQiNCZU.jpg" />-->
         </div>
         </script>
 
@@ -145,11 +144,11 @@
         <script type="text/template" id="SignUpTemp">
         <div class="console">
         <form action="submit" id="signUp">
-        <input type="text" id="signUpUser" placeholder="Name">
+        <!--<input type="text" id="signUpUser" placeholder="First Name">-->
         <input type="text" id="signUpEmail" placeholder="Email Address">
         <input type="password" id="signUpPassword" placeholder="Password"><br>
 
-         <button id="signer">Sign Up</button>
+         <button>Sign Up</button>
          </form>
          </div>
         </script>
@@ -158,30 +157,33 @@
         <script type="text/template" id="loginTemp">
         <div class="console">
         <form action="submit" id="login">
-         <input type="text" placeholder="Name" id="username">
+        <!-- <input type="text" placeholder="Name" id="username">-->
+         <input type="text" placeholder="Email" id="email">
          <input type="password" placeholder="Password" id="password">
 
-         <button>Login</button>
+         <button><span class="entypo-login"></span> Login</button>
         </form>
         </div>
         </script>
 
       <!--adding a new commute-->
         <script type="text/template" id="addTemp">
+        <div class="console2">
         <form id="addRider">
-        <!--<input type="text" id="rider_name" placeholder="Name" />-->
+        <input type="text" id="rider_name" placeholder="First Name" />
         <input type="file" id="profilePhotoFileUpload">
         <input type="text" id="rider_home" placeholder="Home Address" />
         <input type="text" id="rider_home_neighborhood" placeholder="Neighborhood" />
         <input type="text" id="rider_work" placeholder="Work Address" />
         <input type="text" id="rider_work_neighborhood" placeholder="Neighborhood" />
-        <br>
+
         <input type="text" id="rider_employer" placeholder="Employer" />
         <input type="text" id="rider_linked_in" placeholder="Linked In" />
         <!--<input type="text" id="rider_twitter" placeholder="Twitter" />-->
         <textarea id="rider_info" placeholder="Additional Info" />
         <button>Add Rider</button>
         </form>
+        </div>
         <hr />
     </script>
 
@@ -202,18 +204,35 @@
     <!--individual profile of riders-->
     <script type="text/template" id="riderprofileTemp">
       <div id="<%= objectId %>" class="bigProfile">
-
+             <div class="photo_section">
             <img class="bigprofilepic" src="  <%= picture.url %>">
-            <div class="content">
-            <h2><%= name %></h2>
-            <hr/>
-            <p><%= info %></p>
+            <a href="#"><span class="entypo-switch"></span></a>
+             </div>
+          <div class="profile_details">
+
+           <h2 class="profile_name"><%= name %> </h2>
 
 
-            <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.user.attributes.username %>&body=Hi, would you be interested in carpooling with me?%0D   <%= App.currentUser.attributes.info%> %0D  Thanks! %0D <%=App.currentUser.attributes.name %> ">Email me</a>
+
+      <p class="employer"><%= employer %>
+
+      <a class="linkedin" href="<%= linked_in %>">
+          <span class="brandico-linkedin-rect"></span></a>
+
+
+          </p><hr/>
+<p class="info"><%= info %></p>
+
+
+          <!--<p class="profile_neighborhood"><%= home_neighborhood %></p>-->
+
+          </div><!--end of profile details-->
+
+
+
             <!--<%= App.user.attributes .username %> %0D<%=App.user.attributes.email %> -->
 
-            </div><!--end of content-->
+          <!--end of content   </div>-->
 
       </div><!--end of bigProfile-->
     </script>
