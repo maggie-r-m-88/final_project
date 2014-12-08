@@ -667,3 +667,58 @@ input[type=submit] {
     width: 32%;
   }
 }
+.allRiders{
+  background-color: black;
+}
+//edit profile view
+@media screen and (min-width: 50em) {
+.myProfile{
+  font-family: Helvetica;
+  background-color: white;
+  height: 300px;
+  width: 950px;
+  border: 2px solid gray;
+  padding-top: 10px;
+  margin-left: 5%;
+  img{
+    float: left;
+    opacity: .9;
+    width: 220px;
+    padding: 20px;
+    height: 280px;
+  }
+  img:hover{
+    opacity: 1;
+  }
+  .more_details{
+    float: left;
+    display: block;
+    //border: 2px solid red;
+    h2{
+      font-size: 2.6em;
+    }
+    p{
+      font-size: 1.6em;
+    }
+    .brandico-linkedin-rect{
+      color: hsl(199,100,35);
+    }
+    .brandico-linkedin-rect:hover{
+
+      color: hsla(199, 100%, 47%, 1);
+    }
+    button{
+
+      color: $indianred;
+      padding: 5px;
+      font-size: 1.6em;
+    }
+    button:hover{
+      color: black;
+    }
+    .fontawesome-edit{
+      padding: 6px;
+    }
+  }
+}
+}

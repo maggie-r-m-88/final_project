@@ -105,7 +105,7 @@
 
 
         </div>
-      <hr/>
+    
 <div id="riderList"></div>
         </div><!--end of header bg-->
 
@@ -120,7 +120,7 @@
 </div><!--end of body container-->
         <script type="text/template" id="homeTemp">
         <div class="homeview">
-           <div id="pattern" class="pattern">
+    <!--       <div id="pattern" class="pattern">
     <div class="col-group2">
   		<div id="homepic1">
 				<h2>Improve your commute and lower your blood pressure.
@@ -231,8 +231,6 @@
 
            <h2 class="profile_name"><%= name %> </h2>
 
-
-
       <p class="employer"><%= employer %>
 
       <a class="linkedin" href="<%= linked_in %>">
@@ -259,15 +257,23 @@
     <!--this shows your Commutes/link to edit your profile-->
     <script type="text/template" id="listTemp">
 
-      <li id="<%= objectId %>">
-        <a href="#/edit/<%= objectId %>">Edit Profile</a>
+      <div class="myProfile" id="<%= objectId %>">
+
 
       <img class="profilepic" src="  <%= picture.url %>">
-        <%= name %>
 
+        <div class="more_details">
+
+        <h2><%= name %></h2>
+
+        <p> <%= employer %> <a class="linkedin" href="<%= linked_in %>">
+            <span class="brandico-linkedin-rect"></span></a></p>
+            <hr />
+        <p> <%= info %> </p>
+        <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
         </div>
+      </div>
 
-      </li>
     </script>
 
     <!--update your individual profile goes here-->
