@@ -187,6 +187,9 @@ box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 $downtown: url("http://www.hilton.com/top-destinations/assets/uploads/hero-images/Destinations_Header_Atlanta_2.jpg");
 $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
 @media screen and (min-width: 50em) {
+  .entypo-user, .entypo-users, .entypo-logout{
+    padding:5px;
+  }
   .console2{
     background-image: $highway;
     height: 520px;
@@ -271,10 +274,9 @@ $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
 
     h1{
       font-size: 9.0em;
-      width:65%;
-      //border: 2px solid black;
-      //margin-top: 200px;
-      margin-left: 17%;
+    //  width:65%;
+      text-align: center;
+      //margin-left: 17%;
     color: black;//$indianred;
     //background-color: gray;
       padding-top: 20px;
@@ -563,5 +565,5 @@ input[type=submit] {
 }
 }
 .entypo-user, .entypo-users, .entypo-logout{
-  padding: 5px;
+  padding:5px;
 }
