@@ -107,13 +107,13 @@ $tunnel:  url("http://i.imgur.com/ubxdEzh.jpg.jpg");
 $highway: url("http://i.imgur.com/XQiNCZU.jpg");
 $bufordhwy:  url("http://i.imgur.com/YMBAo6T.jpg");
 $map: url("http://i.imgur.com/QI4vPAt.jpg");
-.homeview img{
+.homeview{
 
-  margin-left: 20%;
-  width:60%;
-  height: 350px;
-  //border: 2px solid blue;
-  font-size: 2.0em;
+
+  width:100%;
+  //height: 350px;
+
+  //font-size: 2.0em;
 
 }
 
@@ -584,4 +584,86 @@ input[type=submit] {
 }
 .entypo-user, .entypo-users, .entypo-logout{
   padding:5px;
+}
+
+
+///images on home page
+.col-group2 > div {
+  padding: 1em 1em 0;
+
+}
+#homepic1,#homepic2,#homepic3{
+  margin-left: 1%;
+  opacity: .9;
+  box-shadow: #6E7849 1px 1px 10px;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+#homepic1{
+  height: 300px;
+  background-image: url("http://i.imgur.com/hrryUR4.jpg");
+  background-size: cover;
+  position: relative;
+  h2{
+    background-color: white;
+    position: absolute;
+    margin-top: 140px;
+    margin-left: -10px;
+    opacity: .8;
+    color: black;
+    font-size: 2.1em;
+    padding: 10px;
+  }
+  h2:hover{
+    background-color: $indianred;
+    color: white;
+  }
+
+}
+#homepic2{
+  background-image: url("http://i.imgur.com/YBCeC34.jpg");
+  background-size: cover;
+  height: 300px;
+  position: relative;
+  h2{
+    background-color: white;
+    position: absolute;
+    margin-top: 20px;
+    //margin-left: -10px;
+    color: black;
+    opacity: .8;
+    font-size: 2.1em;
+    padding: 10px;
+  }
+  h2:hover{
+    background-color: $indianred;
+    color: white;
+  }
+}
+#homepic3{
+  background-image: url("http://alt.coxnewsweb.com/cnishared/tools/shared/mediahub/01/16/00/slideshow_1001612536_battle.0718-BH087.jpg");
+  height: 300px;
+  h2{
+    background-color: white;
+
+    color: black;
+    opacity: .8;
+    font-size: 2.1em;
+    padding: 10px;
+  }
+  h2:hover{
+    background-color: $indianred;
+    color: white;
+  }
+}
+@media screen and (min-width: 50em) {
+  .col-group2 {
+    overflow: hidden;
+  }
+  .col-group2 > div {
+    float: left;
+    width: 32%;
+  }
 }

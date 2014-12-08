@@ -75,34 +75,6 @@ var marker_array = [
     ['erin', 33.8460287, -84.3718806]
   ];
 
-// function showMap() {
-//   geocoder = new google.maps.Geocoder();
-//   var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
-//   var mapOptions = {
-//     zoom: 14,
-//     center: latlng
-//   }
-//   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-//
-//   var markers = [
-//       ['maggie', 33.848688, -84.37332900000001],
-//       ['tim', 33.848688, -84.37332900000001],
-//       ['erin', 33.8460287, -84.3718806]
-//     ];
-//
-//    var markersset = _.each(test, function (x) {
-//
-//     var latlng = new google.maps.LatLng(x[1], x[2]);
-//     new google.maps.Marker({
-//     position: latlng,
-//     map: map
-//             });
-//
-//         });
-//
-//
-// } //this is the end of initialize
- //showMap();
 
 
   window.getCoordinates = function ( address, callback) {
@@ -153,25 +125,12 @@ $('#homeSearchButton').on('click', function(){
 
             });
 
-
     }
-
-
-
 
     showMap();
 
- //
- // var neighbors = _.each(found, function(x) {
- //     $('.hoodResults').append("<li>" +  "<img class='hoodprofile' src='" + x.attributes.picture._url + "'/>" + "</li>");
-  //  });
+}); //homeSearch  neighborhooods thing
 
 
-
-
-
-
-
-}); //homeSearch  neighborhooods thing-->
 
 }());
