@@ -112,7 +112,26 @@
 </div><!--end of body container-->
         <script type="text/template" id="homeTemp">
         <div class="homeview">
-        <!-- <img src="http://i.imgur.com/XQiNCZU.jpg" />-->
+    <!--       <div id="pattern" class="pattern">
+    <div class="col-group2">
+  		<div id="homepic1">
+				<h2>Improve your commute and lower your blood pressure.
+				Share the ride -- it saves money and reduces stress. </h2>
+			</div>
+			<div id="homepic2">
+				<h2>Each person in your carpool takes another car off the road.  You save money and by using the uncongested HOV lane, you save time. In other words, you're part the solution.</h2>
+			</div>
+      <div id="homepic3">
+        <h2>By carpooling, you keep pollutants out of the air and reduce traffic.</h2>
+      </div>
+		</div>
+	</div>
+	<!--End Pattern HTML-->
+
+
+
+
+
         </div>
         </script>
 
@@ -195,16 +214,14 @@
 
     <!--individual profile of riders-->
     <script type="text/template" id="riderprofileTemp">
-      <div id="<%= objectId %>" class="bigProfile">
+      <div id="<%= objectId %>" class="myProfile">
              <div class="photo_section">
             <img class="bigprofilepic" src="  <%= picture.url %>">
-            <a href="#"><span class="entypo-switch"></span></a>
+
              </div>
-          <div class="profile_details">
+          <div class="more_details">
 
            <h2 class="profile_name"><%= name %> </h2>
-
-
 
       <p class="employer"><%= employer %>
 
@@ -214,7 +231,8 @@
 
           </p><hr/>
 <p class="info"><%= info %></p>
-
+     <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.currentUser.attributes.name %>&body=Hi, would you be interested in carpooling with me?%0D %0D
+<%=App.currentUser.attributes.info %> %0D %0D Thanks, %0D <%= App.currentUser.attributes.name %> %0D<%=App.user.attributes.email %> "><button><span class="entypo-forward"></span> Connect</button></a>
 
           <!--<p class="profile_neighborhood"><%= home_neighborhood %></p>-->
 
@@ -232,55 +250,47 @@
     <!--this shows your Commutes/link to edit your profile-->
     <script type="text/template" id="listTemp">
 
-      <li id="<%= objectId %>">
-        <a href="#/edit/<%= objectId %>">Edit Profile</a>
+      <div class="myProfile" id="<%= objectId %>">
+
 
       <img class="profilepic" src="  <%= picture.url %>">
-        <%= name %>
 
+        <div class="more_details">
+
+        <h2><%= name %></h2>
+
+        <p> <%= employer %> <a class="linkedin" href="<%= linked_in %>">
+            <span class="brandico-linkedin-rect"></span></a></p>
+            <hr />
+        <p> <%= info %> </p>
+        <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
         </div>
+      </div>
 
-      </li>
     </script>
 
     <!--update your individual profile goes here-->
     <script type="text/template" id="singleTemp">
-      <div class="editprofile" id="<%= objectId %>">
+      <div class="myProfile" id="<%= objectId %>">
 
         <form id="updateRider">
               <img class="bigprofilepic" src="  <%= picture.url %>"><br>
-            <hr>
-              <input type="text" value="<%= name %>" id="update_name" />
-              <input type="text" value="<%= email %>" id="update_email" />
-              <input type="text" value="<%= info %>" id="update_info" ></textarea>
-              <input type="text" value="<%= home_address %>" id="update_home_address" />
-<input type="text" value="<%= work_address %>" id="update_work_address" />
-
+               <div class="more_details">
+              <p>  First Name :  <input type="text" value="<%= name %>" id="update_name" />
+              Email: <input type="text" value="<%= email %>" id="update_email" /></p>
+        <p>Home :<input type="text" value="<%= home_address %>" id="update_home_address" />
+Work : <input type="text" value="<%= work_address %>" id="update_work_address" /></p>
                <hr>
-        <!--    <select id="update_home_hood" name="update_home_hood">
-                       <option value="Buckhead">Buckhead</option>
-                       <option value="Chamblee">Chamblee</option>
-                       <option value="College Park">College Park</option>
-                       <option value="Decatur">Decatur</option>
-                       <option value="Downtown">Downtown</option>
-                       <option value="Marietta">Marietta</option>
-                       <option value="Midtown">Midtown</option>
-                       <option value="Norcross">Norcross</option>
-               </select>
 
-               <select id="update_work_hood" name="update_work_hood" value="<% work_neighborhood">
-                       <option value="Buckhead">Buckhead</option>
-                       <option value="Chamblee">Chamblee</option>
-                       <option value="College Park">College Park</option>
-                       <option value="Decatur">Decatur</option>
-                       <option value="Downtown">Downtown</option>
-                       <option value="Marietta">Marietta</option>
-                       <option value="Midtown">Midtown</option>
-                       <option value="Norcross">Norcross</option>
-               </select>-->
+              <p>Your Info : <input type="text" value="<%= info %>" id="update_info" > </p>
+              <p>LinkedIn : <input type="text" value="<%= linked_in %>" id="update_linkedin" >             Employer : <input type"text" value="<%= employer %>" id="update_employer"><br><br>
+              <div class="buttons">
+              <button><span class="entypo-floppy"></span>Update </button>
 
-              <button>Update </button>
-              <button id="delete">Delete</button>
+              <button id="delete">Delete Account</button></p>
+              </div>
+
+          </div>
 
         </form>
       </div>
