@@ -45,6 +45,7 @@ $silver3: hsl(67,5,71);
 
 // Custom Styles
 body{
+  background-color: hsl(0,0,96);
   font-size: 62.5%;
   a{
     text-decoration: none;
@@ -222,7 +223,7 @@ $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
   }
   .console2{
     background-image: $highway;
-    height: 520px;
+    height: 470px;
     margin-left: 16%;
     width: 68%;
     input, textarea{
@@ -710,7 +711,7 @@ input[type=submit] {
 	color: white;
 }
 #homeSearch{
-  background-color: white;
+  //background-color: white;
   color: black;
   font-size: 1.9em;
   opacity: .9;
@@ -867,6 +868,7 @@ input[type=submit] {
     }
     .buttons{
       text-align: center;
+
       margin-top: -10px;
     }
     p{
@@ -889,7 +891,7 @@ input[type=submit] {
       color: $indianred;
       padding: 6px;
       font-size: 1.3em;
-
+      margin-right: 10px;
 
 
     }
