@@ -230,6 +230,8 @@
 
            <h2 class="profile_name"><%= name %> </h2>
 
+
+
       <p class="employer"><%= employer %>
 
       <a class="linkedin" href="<%= linked_in %>">
@@ -237,7 +239,24 @@
 
 
           </p><hr/>
-<p class="info"><%= info %></p><br>
+
+<p class="info">
+<% if(spanish === true) { %>
+  <img class="flag" src="../images/spanish.gif" />
+     <% } %>
+
+<% if(portuguese === true) { %>
+  <img class="flag" src="../images/brazil.png" />
+     <% } %>
+
+     <% if(french === true) { %>
+       <img class="flag" src="../images/french.gif" />
+          <% } %>
+          
+<%= info %></p><br>
+
+
+
      <a href="mailto:<%= email %>?subject=Atl Rideshare Request from <%= App.currentUser.attributes.name %>&body=Hi, would you be interested in carpooling with me?%0D %0D
 <%=App.currentUser.attributes.info %> %0D %0D Thanks, %0D <%= App.currentUser.attributes.name %> %0D<%=App.user.attributes.email %> "><button><span class="entypo-forward"></span> Connect</button></a>
 
@@ -264,7 +283,21 @@
         <p> <%= employer %> <a class="linkedin" href="<%= linked_in %>">
             <span class="brandico-linkedin-rect"></span></a></p>
             <hr />
-        <p> <%= info %> </p><br>
+
+        <p class="info">
+       <% if(spanish === true) { %>
+          <img class="flag" src="../images/spanish.gif" />
+             <% } %>
+
+        <% if(portuguese === true) { %>
+          <img class="flag" src="../images/brazil.png" />
+             <% } %>
+
+        <% if(french === true) { %>
+          <img class="flag" src="../images/french.gif" />
+             <% } %>
+        <%= info %></p><br>
+
         <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
 
         <a href="#/matchesCalc"><button><span class="entypo-users"></span>Ride Matches</button></a>

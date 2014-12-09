@@ -607,6 +607,7 @@ background-color: black;
    //padding-top: -10px;
    font-size: 1.1em;
   }
+
   .profile_name{
   color: white;
   float: left;
@@ -838,6 +839,20 @@ input[type=submit] {
   padding-top: 10px;
   margin-left: 5%;
   position: relative;
+
+  .flag{
+    padding: 0;
+    width: 18px;
+    margin-right: 18px;
+    height: 15px;
+    padding-top:1px;
+    clear: both;
+    opacity: .8;
+    //border:2px solid blue;
+  }
+  .flag:hover{
+    opacity: 1;
+  }
  .stats {
    border: 2px solid yellow;
    position: absolute;
