@@ -122,11 +122,22 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
   height: 500px;
   font-size: .5em;
   border-radius: 7px;
+  position: relative;
   background-image: $map;
   #login, #signUp{
     padding-top: 20px;
   }
+  h3{
+    position: absolute;
+    opacity: .9;
+    font-family: Helvetica;
+    text-align: center;
+    margin-left: 20%;
+    margin-top: 70px;
+    width: 60%;
 
+    color: #eee;
+  }
   input, button, textarea{
     border-radius: 6px;
     opacity: .9;
@@ -157,6 +168,7 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
   #addRider{
     padding-top: 20px;
   }
+
 }
 
 //: hsl(216,6,56);
@@ -379,8 +391,8 @@ margin-left: 10%;
 }
 #riderList li{
   list-style-type: none;
-//  width: 200px;
-// height: 250px;
+  width: 200px;
+ height: 200px;
   text-align: center;
   background-color: black;
   display: inline-block;
@@ -419,7 +431,7 @@ margin-left: 10%;
 }
 .matchpic{
   width: 200px;
-  height: 90px;
+  height: 200px;
 
 }
 .profilepic{
@@ -434,7 +446,7 @@ margin-left: 10%;
 
   h2{
     font-size: 1.2em;
-    text-align: center;
+    //text-align: center;
   }
   p{
     margin-left: 10%;
@@ -456,7 +468,7 @@ margin-left: 10%;
 #riderList li{
   list-style-type: none;
   width: 200px;
-  height: 90px;
+  height: 0px;
   text-align: center;
   background-color: black;
   display: inline-block;
