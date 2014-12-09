@@ -370,7 +370,10 @@ margin-left: 10%;
 
   h2{
     font-size: 1.2em;
-    text-align: center;
+    //text-align: center;
+  }
+  a{
+    color: $indianred;
   }
   p{
     margin-left: 10%;
@@ -443,10 +446,16 @@ margin-left: 10%;
 
 @media screen and (min-width: 50em) {
 #filter_console{
+  .navbar{
 
+    margin-left: 39%;
+  }
   h2{
-    font-size: 1.2em;
+    font-size: 1.3em;
     //text-align: center;
+  }
+  a{
+    color: $indianred;
   }
   p{
     margin-left: 10%;

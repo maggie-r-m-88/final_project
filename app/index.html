@@ -146,7 +146,9 @@
 <!--match calc view-->
         <script type="text/template" id="matchesTemp">
         <div id="filter_console">
-          <h2> Your Ride Matches </h2><br/><hr/>
+          <div class="navbar">
+              <h2><a href="#/myCommute">My Commute</a> | <b>Ride Matches</b> | <a id="logout2" href="#/">Log Out</a></h2>
+          </div><br/><hr/>
           <p>Select Mile Radius:
           <input id="filternumber" value="10"></p>
         <!--  <br><input id="filterwork" placeholder="Work Mi Radius"><br>-->
@@ -272,6 +274,8 @@
             <hr />
         <p> <%= info %> </p><br>
         <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
+
+        <a href="#"><button><span class="entypo-users"></span>Ride Matches</button></a>
         </div>
       </div>
 
