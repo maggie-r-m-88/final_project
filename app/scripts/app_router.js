@@ -24,14 +24,9 @@
     home: function () {
     //  new App.Views.PublicListRiders({ collection: App.riders });
       //new App.Views.ListRiders({ collection: App.riders });
+    //  new App.Views.ListRiders({ collection: App.riders });
         new App.Views.HomeView();
     },
-
-    // hoods: function(){
-    //
-    //   new App.Views.HomeSearchView();
-    //
-    // },
 
 
     matches: function(){

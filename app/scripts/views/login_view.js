@@ -33,6 +33,7 @@
           $('#pattern').show();
           $('.topnavlinks').hide();
           $('#logOut').show();
+          App.router.navigate('#/myCommute', {trigger: true});
           //$('#loginField').hide();
           console.log('were logged in');
         },

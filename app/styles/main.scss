@@ -174,34 +174,34 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
 
 //: hsl(216,6,56);
 
-.mid-nav, .midnav2, .midnav3{
+.mid-nav{
   margin-top: 20px;
-  font-family: $fijalla;
-  font-size: 3.0em;
+  font-family: Helvetica;
+  font-size: 0.8em;
   color: black;
   margin-top: 0;
   text-align: center;
-  height: 150px;
+  height: 50px;
   opacity: .8;
   //border: 1px solid $darkgray;
-  background-color: $indianred;
+  //background-color: $indianred;
   //
   //background-size: stretch;
 
   h2{
     margin-top: 20px;
+
   }
   &:hover{
 
     opacity: 1;
-box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
 }
   a{
-    color: white;
+    color: black;
     //transition: border-bottom 0.2s ease;
   }
   a:hover{
-    color: black;
+    color: $indianred;
     //border-bottom: 4px solid $indianred;
   }
 
@@ -323,13 +323,14 @@ $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
 
  }
   .mid-nav{
-    font-size:2.5em;
+    font-size:1.6em;
   }
-  .mid-nav, .midnav2, .midnav3{
+  .mid-nav{
     margin-top: 5px;
     height: 40px;
     h2{
-      margin-top: -15px;
+      font-family: Helvetica;
+      margin-top: 5px;
       font-size: 0.7em;
     }
   }
@@ -338,7 +339,7 @@ $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
   }
   .col-group > div {
     float: left;
-    width: 33.3333333%;
+    width: 100%;
   }
 
 }
@@ -446,6 +447,11 @@ margin-left: 10%;
 }
 
 @media screen and (min-width: 50em) {
+  .navbar2{
+    margin-left: 37%;
+    font-size: 0.9em;
+    font-weight: normal;
+  }
 #filter_console{
   .navbar{
 

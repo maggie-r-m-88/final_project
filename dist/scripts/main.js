@@ -142,14 +142,9 @@
     home: function () {
     //  new App.Views.PublicListRiders({ collection: App.riders });
       //new App.Views.ListRiders({ collection: App.riders });
+    //  new App.Views.ListRiders({ collection: App.riders });
         new App.Views.HomeView();
     },
-
-    // hoods: function(){
-    //
-    //   new App.Views.HomeSearchView();
-    //
-    // },
 
 
     matches: function(){
@@ -502,7 +497,9 @@ function dynamicSort(property) {
         home_address: $('#update_home_address').val(),
         work_address: $('#update_work_address').val(),
         home_neighborhood: $('#update_home_hood').val(),
-        work_neighborhood: $('#update_work_hood').val()
+        work_neighborhood: $('#update_work_hood').val(),
+        linked_in: $('#update_linkedin').val(),
+        employer: $('#update_employer').val
       });
 
 
@@ -864,6 +861,7 @@ function dynamicSort(property) {
           $('#pattern').show();
           $('.topnavlinks').hide();
           $('#logOut').show();
+          App.router.navigate('#/myCommute', {trigger: true});
           //$('#loginField').hide();
           console.log('were logged in');
         },
@@ -921,14 +919,7 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
   });
 
 
-$('#logout2').on('click', function (e) {
-  e.preventDefault();
-  Parse.User.logOut();
-  App.updateUser();
-  console.log('user has logged out');
-  //$('.topnavlinks').show();
-  App.router.navigate('', {trigger: true});
-});
+
 
 
   $('#logOut').on('click', function (e) {

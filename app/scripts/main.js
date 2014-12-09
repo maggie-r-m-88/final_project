@@ -14,14 +14,7 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
   });
 
 
-$('#logout2').on('click', function (e) {
-  e.preventDefault();
-  Parse.User.logOut();
-  App.updateUser();
-  console.log('user has logged out');
-  //$('.topnavlinks').show();
-  App.router.navigate('', {trigger: true});
-});
+
 
 
   $('#logOut').on('click', function (e) {

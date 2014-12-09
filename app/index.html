@@ -24,25 +24,7 @@
   </head>
   <body>
     <div class="body-container">
-      <div id="pattern" class="pattern">
-      <div class="col-group">
-        <div class="mid-nav">
-          <h2 id="logOut"><a href="#"><span class="entypo-logout"></span>Log Out</a></h2>
-          <!--<h2><a id="logOut" href="#">Logout</a></h2>-->
 
-        </div>
-        <div class="mid-nav">
-          <h2><a href="#/matchesCalc"><span class="entypo-users"></span>Ride Matches</a></h2>
-
-
-        </div>
-        <div class="mid-nav">
-        <h2><a href="#/myCommute"><span class="entypo-user"></span> My Commute</a></h2>
-
-
-        </div>
-      </div>
-      </div>
         <div class="header-bg">
 
           <div class="header">
@@ -112,11 +94,18 @@
 
 
 
-  <!--<div class="hero-unit">
-  </div>-->
   </div>
 
+<div id="pattern" class="pattern">
+<div class="col-group">
+  <div class="mid-nav">
+    <h2 id="logOut"><a href="#"><span class="entypo-logout"></span>Log Out</a></h2>
+    <!--<h2><a id="logOut" href="#">Logout</a></h2>-->
 
+  </div>
+
+</div>
+</div>
 </div><!--end of body container-->
         <script type="text/template" id="homeTemp">
         <div class="homeview">
@@ -147,7 +136,7 @@
         <script type="text/template" id="matchesTemp">
         <div id="filter_console">
           <div class="navbar">
-              <h2><a href="#/myCommute">My Commute</a> | <b>Ride Matches</b> | <a id="logout2" href="#/">Log Out</a></h2>
+              <h2><a href="#/myCommute">My Commute</a> | <b>Ride Matches</b></h2>
           </div><br/><hr/>
           <p>Select Mile Radius:
           <input id="filternumber" value="10"></p>
@@ -229,6 +218,9 @@
 
     <!--individual profile of riders-->
     <script type="text/template" id="riderprofileTemp">
+    <div class="navbar2">
+        <h2><a href="#/myCommute">My Commute</a> | <a href="#/matchesCalc">Ride Matches</a></h2>
+    </div><br/>
       <div id="<%= objectId %>" class="myProfile">
              <div class="photo_section">
             <img class="bigprofilepic" src="  <%= picture.url %>">
