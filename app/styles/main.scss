@@ -11,7 +11,7 @@ $roboto:'Roboto Condensed', sans-serif;
 //http://i.imgur.com/cHBDSf1.png brazil
 //http://i.imgur.com/0QiPmii.png spain
 // http://i.imgur.com/MfZm9xg.gif france
-
+$beltline: url("http://atlantasightstosee.com/wp-content/uploads/2011/11/art-on-the-beltline.jpg");
 /* brandico */
 [class*="brandico-"]:before {
   font-family: 'brandico', sans-serif;
@@ -124,7 +124,7 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
   margin-top: 30px;
   height: 500px;
   font-size: .5em;
-  opacity: .9;
+  //opacity: .9;
   //border-radius: 7px;
   position: relative;
   background-image: $map;
@@ -153,6 +153,9 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
   font-family: Helvetica;
   padding: 10px;
   border: none;
+  }
+  input:hover{
+    opacity: 1;
   }
   button{
     margin-top: 20px;
@@ -432,6 +435,7 @@ margin-left: 10%;
 
   height: 75px;
     position: absolute;
+    transition: opacity 0.3s ease;
   }
   .stats:hover{
     opacity: 1;
@@ -724,7 +728,7 @@ input[type=submit] {
 	color: white;
 }
 #homeSearch{
-  //background-color: white;
+  //background-color: yellow;
   color: black;
   font-size: 1.9em;
   opacity: .9;
@@ -964,10 +968,12 @@ input[type=submit] {
 .entypo-floppy{
   padding: 5px;
 }
+$underbridge:  url("http://clatl.com/binary/e6ae/1405974561-1343074098-art_on_the_beltline_jd434.jpg");
+$big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jpg");
 .gas-container{
-  background-color: yellow;
+  background-image:  $underbridge;
   width: 93%;
-  height: 300px;
+  height: 350px;
   position: relative;
   #form{
     padding-top: 40px;
@@ -979,7 +985,12 @@ input[type=submit] {
     padding: 7px;
     border-radius: 8px;
     margin-left: 5%;
+    font-size: 1.1em;
+    opacity: .9;
     margin-top: 15px;
+  }
+  input:hover{
+  opacity: 1;
   }
   #mpg{
     width: 30%;
@@ -998,18 +1009,24 @@ input[type=submit] {
   color: $indianred;
 }
 #gas-results li{
-  width: 90%;
-  height: 30px;
-  background-color: white;
+  width: 80%;
+  height: 60px;
+  margin-left: 20%;
+  text-align: right;
+  font-size: 1.6em;
+  background-color: yellow;
   opacity: .8;
-  margin-top: 50px;
+  margin-top: 15px;
   box-shadow: none;
   color: black;
+
+}
+#gas-results li:hover{
+  opacity: .9;
 }
 }
 
-$underbridge:  url("http://clatl.com/binary/e6ae/1405974561-1343074098-art_on_the_beltline_jd434.jpg");
-$big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jpg");
+
 @media screen and (min-width: 50em) {
 .gas-container{
   background-image: $big;
@@ -1028,13 +1045,26 @@ $big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jp
   color: black;
 }
 #gas-results li{
-  width: 90%;
-  height: 30px;
-  background-color: white;
+  width: 80%;
+  height: 45px;
+  margin-left: 20%;
+  text-align: right;
+  font-size: 1.6em;
+  background-color: yellow;
   opacity: .8;
-  margin-top: 50px;
+  margin-top: 15px;
   box-shadow: none;
   color: black;
+
 }
+#gas-results li:hover{
+  opacity: .9;
 }
+
+}
+
+
+}
+.entypo-chart-bar{
+  padding: 5px;
 }

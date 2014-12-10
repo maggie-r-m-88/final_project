@@ -54,9 +54,12 @@
             return Math.round( x * 100) / 100;
       }
       var results2 = round(result);
-           console.log('It costs $' + results2 + ' per year to commute.')
+      var divided = results2/2
+           console.log('It costs $' +  results2 +  ' per year to commute.')
            $('#gas-results').empty();
-           $('#gas-results').append("<li>" + 'It costs $' + results2 + ' per year to commute.'+ "</li>");
+          
+
+           $('#gas-results').append("<li>" + 'It costs $' + results2 + ' per year to commute.'+ "<br>" + 'Carpooling saves you $'+ divided + '.' + "</li>");
     },
 
 
