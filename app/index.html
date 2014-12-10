@@ -202,6 +202,21 @@
         <hr />
     </script>
 
+    <script type="text/template" id="gasTemp">
+     <div class="gas-container">
+
+      <input id="mpg" placeholder="Miles per Gallon"><br>
+      <input id="days" placeholder="How many days a month do you commute?">
+      <input id="miles" placeholder="How many miles per day is your commute?"><br>
+
+        <button id="gasCalc"> Calculate </button>
+
+
+
+      </div>
+    </script>
+
+
     <!--list of all riders will go here-->
     <script type="text/template" id="publiclistTemp">
 
@@ -301,6 +316,8 @@
         <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
 
         <a href="#/matchesCalc"><button><span class="entypo-users"></span>Ride Matches</button></a>
+
+        <a href="#/gas/<%= objectId %>"><button>Commute Calculator </button></a>
         </div>
       </div>
 

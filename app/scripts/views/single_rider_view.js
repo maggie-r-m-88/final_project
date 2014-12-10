@@ -45,7 +45,7 @@
         home_neighborhood: $('#update_home_hood').val(),
         work_neighborhood: $('#update_work_hood').val(),
         linked_in: $('#update_linkedin').val(),
-        employer: $('#update_employer').val
+        employer: $('#update_employer').val()
       });
 
 

@@ -17,7 +17,8 @@
       'add' : 'addRider',
       'signUp' : 'userSignUp',
       'login' : 'userLogin',
-       'matchesCalc' : 'matchesCalc'
+       'matchesCalc' : 'matchesCalc',
+       'gas/:riderID': 'gasRider'
 
     },
 
@@ -99,6 +100,11 @@ function dynamicSort(property) {
     editRider: function (riderID) {
       var c = App.riders.get(riderID);
       new App.Views.SingleRider({ rider: c });
+    },
+
+    gasRider: function (riderID) {
+      var c = App.riders.get(riderID);
+      new App.Views.GasRider({ rider: c });
     },
 
     addRider: function () {

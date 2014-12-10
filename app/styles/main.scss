@@ -8,7 +8,9 @@
 
 $fijalla: 'Fjalla One', sans-serif;
 $roboto:'Roboto Condensed', sans-serif;
-
+//http://i.imgur.com/cHBDSf1.png brazil
+//http://i.imgur.com/0QiPmii.png spain
+// http://i.imgur.com/MfZm9xg.gif france
 
 /* brandico */
 [class*="brandico-"]:before {
@@ -940,4 +942,14 @@ input[type=submit] {
 }
 .entypo-floppy{
   padding: 5px;
+}
+.gas-container{
+  background-color: yellow;
+  input{
+    width: 30%;
+    margin-top: 10px;
+  }
+#gasCalc{
+  color: black;
+}
 }
