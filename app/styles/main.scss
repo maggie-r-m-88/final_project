@@ -945,11 +945,59 @@ input[type=submit] {
 }
 .gas-container{
   background-color: yellow;
+  width: 93%;
+  height: 300px;
+  position: relative;
+  #form{
+    padding-top: 40px;
+
+  }
   input{
-    width: 30%;
+    width: 60%;
+    padding: 6px;
+    border-radius: 6px;
+    margin-left: 5%;
     margin-top: 10px;
   }
 #gasCalc{
   color: black;
+  padding: 5px;
+  margin-top: -75px;
+  position: absolute;
+  margin-left: 75%;
+}
+#gas-results li{
+  width: 90%;
+  height: 30px;
+  background-color: white;
+  opacity: .8;
+  margin-top: 50px;
+  box-shadow: none;
+  color: black;
+}
+}
+
+
+@media screen and (min-width: 50em) {
+.gas-container{
+  background-color: yellow;
+  margin-left: 18%;
+  width: 60%;
+  input{
+    //width: 30%;
+    margin-top: 10px;
+  }
+#gasCalc{
+  color: black;
+}
+#gas-results li{
+  width: 90%;
+  height: 30px;
+  background-color: white;
+  opacity: .8;
+  margin-top: 50px;
+  box-shadow: none;
+  color: black;
+}
 }
 }

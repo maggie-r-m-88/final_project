@@ -39,23 +39,24 @@
       var mpg = $('#mpg').val();
       var days = $('#days').val();
       var miles = $('#miles').val();
+      var parking = $('#parking').val()
       var priceOfGas = 2.60;
       var tires = .0524
 
+      var parkingTotal = parking * 12
       var costPerMile = priceOfGas/mpg
       var totalCPM = costPerMile + tires
-
       var time = days * 12
-
-      var result = totalCPM * time * miles
-
+      var totalCost = totalCPM * time * miles
+      var result = totalCost + parkingTotal
 
       var round = function(x) {
             return Math.round( x * 100) / 100;
       }
       var results2 = round(result);
            console.log('It costs $' + results2 + ' per year to commute.')
-
+           $('#gas-results').empty();
+           $('#gas-results').append("<li>" + 'It costs $' + results2 + ' per year to commute.'+ "</li>");
     },
 
 
