@@ -135,7 +135,8 @@
       'add' : 'addRider',
       'signUp' : 'userSignUp',
       'login' : 'userLogin',
-       'matchesCalc' : 'matchesCalc'
+       'matchesCalc' : 'matchesCalc',
+       'gas/:riderID': 'gasRider'
 
     },
 
@@ -217,6 +218,11 @@ function dynamicSort(property) {
     editRider: function (riderID) {
       var c = App.riders.get(riderID);
       new App.Views.SingleRider({ rider: c });
+    },
+
+    gasRider: function (riderID) {
+      var c = App.riders.get(riderID);
+      new App.Views.GasRider({ rider: c });
     },
 
     addRider: function () {
@@ -357,7 +363,7 @@ function dynamicSort(property) {
       };
 
     var neighbors = _.each(homefilter, function(x) {
-     $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<p class='stats'>"+'Home:  ' + x.miles +'mi' +'    '+ 'Work:  ' +  x.work_miles + 'mi' + "</p>" + "<img class='matchpic' src='" + x.picture + "'/>" + "<h3>" + x.username + "</h3>" +   "</a>" + "</li>");
+     $('.testresults').append("<li class='matcher'>" + "<a href='"+ '#/allriders/' + x.objectId +"' >"  + "<p class='stats'>"+'Home:  ' + x.miles +'mi' +'<br>'+ 'Work:  ' +  x.work_miles + 'mi' + "</p>" + "<img class='matchpic' src='" + x.picture + "'/>" + "<h3>" + x.username + "</h3>" +   "</a>" + "</li>");
      });
 
 
@@ -499,7 +505,7 @@ function dynamicSort(property) {
         home_neighborhood: $('#update_home_hood').val(),
         work_neighborhood: $('#update_work_hood').val(),
         linked_in: $('#update_linkedin').val(),
-        employer: $('#update_employer').val
+        employer: $('#update_employer').val()
       });
 
 
@@ -902,6 +908,75 @@ function dynamicSort(property) {
 //   });
 // }());
 
+(function () {
+
+  App.Views.GasRider = Parse.View.extend({
+
+    tagName: 'ul',
+    className: 'allRiders',
+
+    events: {
+        'click #gasCalc' : 'testRider'
+
+    },
+
+    template: _.template($('#gasTemp').html()),
+
+    initialize: function (options) {
+      this.options = options;
+      this.render();
+
+      // Get our Element On Our Page
+      $('#riderList').html(this.$el);
+      /**********define our current user*********** this is global*******/
+      currentUser = App.riders.find( function (a) {
+          return a.attributes.user.id == App.user.id;
+        });
+
+
+    },
+
+    render: function () {
+
+      this.$el.empty();
+
+      this.$el.html(this.template(this.options.rider.toJSON()));
+
+    },
+
+    testRider: function (x) {
+
+      var mpg = $('#mpg').val();
+      var days = $('#days').val();
+      var miles = $('#miles').val();
+      var parking = $('#parking').val()
+      var priceOfGas = 2.60;
+      var tires = .0524
+
+      var parkingTotal = parking * 12
+      var costPerMile = priceOfGas/mpg
+      var totalCPM = costPerMile + tires
+      var time = days * 12
+      var totalCost = totalCPM * time * miles
+      var result = totalCost + parkingTotal
+
+      var round = function(x) {
+            return Math.round( x * 100) / 100;
+      }
+      var results2 = round(result);
+      var divided = results2/2
+           console.log('It costs $' +  results2 +  ' per year to commute.')
+           $('#gas-results').empty();
+          
+
+           $('#gas-results').append("<li>" + 'It costs $' + results2 + ' per year to commute.'+ "<br>" + 'Carpooling saves you $'+ divided + '.' + "</li>");
+    },
+
+
+
+  });
+
+}());
 
 Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq1sVIcw0Lu9dO9Bo5qZ5UqY");
 
@@ -917,7 +992,6 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
 
         var collection = App.riders.models
   });
-
 
 
 
@@ -1002,7 +1076,7 @@ $('#homeSearchButton').on('click', function(){
   });
    console.log(found_points);
 
-
+  
     function showMap() {
       geocoder = new google.maps.Geocoder();
       var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
