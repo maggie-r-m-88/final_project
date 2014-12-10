@@ -124,7 +124,8 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
   margin-top: 30px;
   height: 500px;
   font-size: .5em;
-  border-radius: 7px;
+  opacity: .9;
+  //border-radius: 7px;
   position: relative;
   background-image: $map;
   #login, #signUp{
@@ -408,21 +409,21 @@ margin-left: 10%;
   color: white;
   position: relative;
   opacity: .8;
-  box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
+   box-shadow:  6px 6px 28px 0px rgba(50, 50, 50, 0.75);
 
-  transition: opacity 0.3s ease;
   a{
     color: white;
   }
   &:hover{
-    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+     box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
     opacity: 1;
 
   }
   .stats{
     color:#eee;
-    font-weight: bold;
-    margin-top: 177px;
+    font-size: 1.7em;
+    //font-weight: bold;
+    margin-top: 137px;
     margin-left: 20px;
   padding: 5px;
   opacity: .9;
@@ -439,7 +440,7 @@ margin-left: 10%;
 .matchpic{
   width: 200px;
   height: 200px;
-
+   box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
 }
 .profilepic{
 
@@ -495,32 +496,35 @@ margin-left: 10%;
   color: white;
   position: relative;
   opacity: .8;
-  box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
 
-  transition: opacity 0.3s ease;
+box-shadow:  6px 6px 28px 0px rgba(50, 50, 50, 0.75);
+
+
   a{
     color: white;
   }
   &:hover{
-    box-shadow:         7px 7px 16px 0px rgba(50, 50, 50, 0.75);
+    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
     opacity: 1;
 
   }
   .stats{
     color:#eee;
     font-weight: bold;
-    margin-top: 177px;
-    margin-left: 20px;
+    margin-top: 142px;
+    margin-left: 2px;
   padding: 5px;
-  opacity: .9;
+
+  opacity: .8;
   border-radius: 10px;
-    text-align: right;
+    text-align: left;
 
   height: 75px;
     position: absolute;
   }
   .stats:hover{
     opacity: 1;
+    color: white;
   }
 }
 .matchpic{
@@ -834,8 +838,8 @@ input[type=submit] {
 .myProfile{
   font-family: Helvetica;
   background-color: white;
-  box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
-  height: 300px;
+  //box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
+  height: 350px;
   width: 950px;
   margin-bottom:50px;
   padding-top: 10px;
@@ -856,15 +860,32 @@ input[type=submit] {
     opacity: 1;
   }
  .stats {
-   border: 2px solid yellow;
-   position: absolute;
- }
+
+      color:#eee;
+      font-weight: bold;
+      margin-top: 142px;
+      margin-left: 2px;
+    padding: 5px;
+
+    opacity: .8;
+    border-radius: 10px;
+      text-align: left;
+
+    height: 75px;
+      position: absolute;
+    }
+    .stats:hover{
+      opacity: 1;
+      color: white;
+    }
+
   img{
     float: left;
     opacity: .9;
-    width: 220px;
-    padding: 20px;
-    height: 280px;
+    padding: 10px;
+    width: 200px;
+
+    height: 220px;
   }
   .entypo-switch{
     padding: 5px;
@@ -954,10 +975,17 @@ input[type=submit] {
   }
   input{
     width: 60%;
-    padding: 6px;
-    border-radius: 6px;
+    border: none;
+    padding: 7px;
+    border-radius: 8px;
     margin-left: 5%;
-    margin-top: 10px;
+    margin-top: 15px;
+  }
+  #mpg{
+    width: 30%;
+  }
+  #days{
+    width: 50%;
   }
 #gasCalc{
   color: black;
@@ -965,6 +993,9 @@ input[type=submit] {
   margin-top: -75px;
   position: absolute;
   margin-left: 75%;
+}
+#gasCalc:hover{
+  color: $indianred;
 }
 #gas-results li{
   width: 90%;
@@ -977,15 +1008,21 @@ input[type=submit] {
 }
 }
 
-
+$underbridge:  url("http://clatl.com/binary/e6ae/1405974561-1343074098-art_on_the_beltline_jd434.jpg");
+$big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jpg");
 @media screen and (min-width: 50em) {
 .gas-container{
-  background-color: yellow;
+  background-image: $big;
   margin-left: 18%;
   width: 60%;
   input{
-    //width: 30%;
-    margin-top: 10px;
+    font-size: 1.8em;
+    margin-top: 15px;
+    font-family: Helvetica;
+    opacity: .85;
+  }
+  #mpg{
+    width: 30%;
   }
 #gasCalc{
   color: black;
