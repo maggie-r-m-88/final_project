@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>final</title>
+    <title>ATL Rideshare</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -34,14 +34,7 @@
           <h2 class="topnavlinks">
                 <a href="#/login" id="login-link"> Login</a> | <a href="#/signUp" >Sign Up</a>
               <div id="homeSearch">
-                <!-- <form ID = "Form">
-         <!-- Standard input text boxes
-         <input type="Text" name="FirstName" placeholder="First Name"> <br>
-         <input type="Text" name="Surname" placeholder="Surname"> <br>
 
-
-         <input type="submit" value="Submit" name="Submit">
-   </form>   Submit button -->
 
 
               <p>I'm commuting from
@@ -81,11 +74,6 @@
               </div>
 
 
-
-
-        <!--  <h2 id="logOut"><a href="#">Log Out</a></h2>-->
-
-
         </div>
 
 <div id="riderList"></div>
@@ -109,27 +97,17 @@
 </div><!--end of body container-->
         <script type="text/template" id="homeTemp">
         <div class="homeview">
-    <!--       <div id="pattern" class="pattern">
-    <div class="col-group2">
-  		<div id="homepic1">
-				<h2>Improve your commute and lower your blood pressure.
+    <!--
+				Improve your commute and lower your blood pressure.
 				Share the ride -- it saves money and reduces stress. </h2>
-			</div>
-			<div id="homepic2">
+
 				<h2>Each person in your carpool takes another car off the road.  You save money and by using the uncongested HOV lane, you save time. In other words, you're part the solution.</h2>
-			</div>
-      <div id="homepic3">
+
         <h2>By carpooling, you keep pollutants out of the air and reduce traffic.</h2>
-      </div>
-		</div>
-	</div>
-	<!--End Pattern HTML-->
 
 
 
-
-
-        </div>
+        </div>-->
         </script>
 
 <!--match calc view-->
@@ -317,12 +295,13 @@
           <img class="flag" src="../images/french.gif" />
              <% } %>
         <%= info %></p><br>
-
+          
         <a href="#/edit/<%= objectId %>"><button><span class="fontawesome-edit"></span>Edit Profile</button></a>
 
         <a href="#/matchesCalc"><button><span class="entypo-users"></span>Ride Matches</button></a>
 
         <a href="#/gas/<%= objectId %>"><button><span class="entypo-chart-bar"></span>Commute Calculator </button></a>
+
         </div>
       </div>
 

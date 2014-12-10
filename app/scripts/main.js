@@ -15,7 +15,6 @@ Parse.initialize("ZlXURNfISFDfQJfjyDJITna1XYOTSsJiH3EVw1Sv", "NM4JnHAME4e35LZKbq
 
 
 
-
   $('#logOut').on('click', function (e) {
     e.preventDefault();
     Parse.User.logOut();
@@ -96,7 +95,7 @@ $('#homeSearchButton').on('click', function(){
   });
    console.log(found_points);
 
-  
+
     function showMap() {
       geocoder = new google.maps.Geocoder();
       var latlng = new google.maps.LatLng(33.848688,-84.37332900000001);
