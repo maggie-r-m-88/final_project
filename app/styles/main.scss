@@ -501,14 +501,14 @@ margin-left: 10%;
   position: relative;
   opacity: .8;
 
-box-shadow:  6px 6px 28px 0px rgba(50, 50, 50, 0.75);
+//box-shadow:  6px 6px 28px 0px rgba(50, 50, 50, 0.75);
 
 
   a{
     color: white;
   }
   &:hover{
-    box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+    //box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
     opacity: 1;
 
   }
@@ -534,7 +534,7 @@ box-shadow:  6px 6px 28px 0px rgba(50, 50, 50, 0.75);
 .matchpic{
   width: 200px;
   height: 200px;
-  box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
+  //box-shadow:  1px 4px 18px 0px rgba(50, 50, 50, 1);
 }
 .profilepic{
 
@@ -991,6 +991,7 @@ $big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jp
   }
   input:hover{
   opacity: 1;
+
   }
   #mpg{
     width: 30%;
@@ -1038,6 +1039,7 @@ $big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jp
     font-family: Helvetica;
     opacity: .85;
   }
+
   #mpg{
     width: 30%;
   }
