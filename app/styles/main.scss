@@ -5,7 +5,7 @@
 @import url(http://weloveiconfonts.com/api/?family=brandico);
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
-
+$underbridge:  url("http://clatl.com/binary/e6ae/1405974561-1343074098-art_on_the_beltline_jd434.jpg");
 $fijalla: 'Fjalla One', sans-serif;
 $roboto:'Roboto Condensed', sans-serif;
 //http://i.imgur.com/cHBDSf1.png brazil
@@ -127,7 +127,8 @@ $map: url("http://i.imgur.com/QI4vPAt.jpg");
   //opacity: .9;
   //border-radius: 7px;
   position: relative;
-  background-image: $map;
+  background-size: cover;
+  background-image: $arty;
   #login, #signUp{
     padding-top: 20px;
   }
@@ -268,6 +269,9 @@ $arty2: url("http://i.imgur.com/JuG4Cyi.jpg");
     #login, #signUp{
       padding-left: 5%;
       padding-top: 60px;
+    }
+    h3{
+      color: white;
     }
     input, button{
     display:block;
@@ -452,7 +456,12 @@ margin-left: 10%;
   height: 150px;
 
 }
-
+.navbar{
+  margin-left: 31%;
+}
+.navbar2{
+  margin-left: 15%;
+}
 @media screen and (min-width: 50em) {
   .navbar2{
     margin-left: 37%;
@@ -647,14 +656,12 @@ background-color: black;
 
   }
 .bigprofilepic{
-//.photo_section{
-
-  //border:2px solid green;
 
 
 
 }
 }
+
 .riderprofileSingle{
   width: 70%;
   margin-left: 15%;
@@ -841,12 +848,12 @@ input[type=submit] {
   background-color: white;
   //box-shadow:         6px 6px 24px 0px rgba(50, 50, 50, 1);
   height: 350px;
-  width: 950px;
+  width: 920px;
   margin-bottom:50px;
   padding-top: 10px;
-  margin-left: 5%;
+  margin-left: 10%;
   position: relative;
-
+box-shadow:  6px 6px 28px 0px rgba(50, 50, 50, 0.75);
   .flag{
     padding: 0;
     width: 18px;
@@ -883,7 +890,7 @@ input[type=submit] {
   img{
     float: left;
     opacity: .9;
-    padding: 10px;
+    padding: 20px;
     width: 200px;
 
     height: 220px;
@@ -899,7 +906,7 @@ input[type=submit] {
     float: left;
 
     display: block;
-    padding: 5px;
+    padding: 4px;
     input{
       margin: 5px;
     border-radius: 5px;
@@ -917,9 +924,15 @@ input[type=submit] {
 
       margin-top: -10px;
     }
+    .employer{
+      font-size: 2.0em;
+    }
     p{
 
-      font-size: 1.3em;
+      font-size: 1.6em;
+    }
+    .info{
+
     }
 
     .brandico-linkedin-rect{
@@ -966,7 +979,7 @@ input[type=submit] {
 .entypo-floppy{
   padding: 5px;
 }
-$underbridge:  url("http://clatl.com/binary/e6ae/1405974561-1343074098-art_on_the_beltline_jd434.jpg");
+
 $big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jpg");
 .gas-container{
   background-image:  $underbridge;
@@ -1067,4 +1080,16 @@ $big: url("http://www.atlantaintownpaper.com/wp-content/uploads/2013/07/Art-2.jp
 }
 .entypo-chart-bar{
   padding: 5px;
+}
+.brandico-linkedin-rect:hover{
+
+  color: hsla(199, 100%, 47%, 1);//hsla(199, 100%, 22%, 1);
+}
+.myProfile{
+  background-color: white;
+  padding: 5px;
+  .bigprofilepic{
+    height: 220px;
+    width: 200px;
+  }
 }
