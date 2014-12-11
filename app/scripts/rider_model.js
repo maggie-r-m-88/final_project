@@ -15,7 +15,10 @@
       info: '',
       linked_in: '',
       twitter: '',
-      employer: ''
+      employer: '',
+      spanish: false,
+      portuguese: true,
+      french: false
 
     },
 

@@ -69,13 +69,16 @@ var marker_array = [
 
   window.getCoordinates = function ( address, callback) {
     var coordinates;
-
+console.log('hello')
     geocoder.geocode({ address: address}, function (results, status){
+
        coords_obj = results[0].geometry.location;
-       coordinates = [coords_obj.k, coords_obj.B];
-       callback(coordinates);
+       coordinates = [coords_obj.k, coords_obj.D];
+       //callback(coords_obj);
     });
   }
+
+
 
 $('#homeSearchButton').on('click', function(){
  $('.hoodResults').empty();
@@ -121,6 +124,14 @@ $('#homeSearchButton').on('click', function(){
 
 }); //homeSearch  neighborhooods thing
 
+
+$('#test_geo').on('click', function(){
+
+   var address = $('#test_address').val();
+
+
+
+});
 
 
 }());

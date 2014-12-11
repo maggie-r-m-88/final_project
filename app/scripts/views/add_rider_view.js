@@ -74,7 +74,7 @@
                 success: function () {
                   App.updateUser();
                   App.riders.add(c);
-                  App.router.navigate('', { trigger: true });
+                  App.router.navigate('#/myCommute', { trigger: true });
                 }
             });
           });

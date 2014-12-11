@@ -48,8 +48,9 @@ window.getCoordinates = function ( address, callback) {
   var coordinates;
 
   geocoder.geocode({ address: address}, function (results, status){
+    console.log(results)
      coords_obj = results[0].geometry.location;
-     coordinates = [coords_obj.k, coords_obj.B];
+     coordinates = [coords_obj.k, coords_obj.D];
      callback(coordinates);
   })
 
