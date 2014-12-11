@@ -15,7 +15,10 @@
       info: '',
       linked_in: '',
       twitter: '',
-      employer: ''
+      employer: '',
+      spanish: false,
+      portuguese: true,
+      french: false
 
     },
 
@@ -317,7 +320,7 @@ function dynamicSort(property) {
 
       geocoder.geocode({ address: address}, function (results, status){
          coords_obj = results[0].geometry.location;
-         coordinates = [coords_obj.k, coords_obj.B];
+         coordinates = [coords_obj.k, coords_obj.D];
          callback(coordinates);
       })
 
@@ -631,7 +634,7 @@ function dynamicSort(property) {
                 success: function () {
                   App.updateUser();
                   App.riders.add(c);
-                  App.router.navigate('', { trigger: true });
+                  App.router.navigate('#/myCommute', { trigger: true });
                 }
             });
           });
@@ -1051,11 +1054,14 @@ var marker_array = [
     var coordinates;
 
     geocoder.geocode({ address: address}, function (results, status){
+
        coords_obj = results[0].geometry.location;
-       coordinates = [coords_obj.k, coords_obj.B];
-       callback(coordinates);
+       coordinates = [coords_obj.k, coords_obj.D];
+    
     });
   }
+
+
 
 $('#homeSearchButton').on('click', function(){
  $('.hoodResults').empty();
@@ -1101,6 +1107,14 @@ $('#homeSearchButton').on('click', function(){
 
 }); //homeSearch  neighborhooods thing
 
+
+$('#test_geo').on('click', function(){
+
+   var address = $('#test_address').val();
+
+
+
+});
 
 
 }());
@@ -1155,8 +1169,9 @@ window.getCoordinates = function ( address, callback) {
   var coordinates;
 
   geocoder.geocode({ address: address}, function (results, status){
+    console.log(results)
      coords_obj = results[0].geometry.location;
-     coordinates = [coords_obj.k, coords_obj.B];
+     coordinates = [coords_obj.k, coords_obj.D];
      callback(coordinates);
   })
 
