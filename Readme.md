@@ -1,3 +1,10 @@
-## Yo, I'm a Readme
+## A Rideshare app for people in the city of Atlanta
 
-You should probably update me so people looking at your code have an idea what it is being used for :)
+Users can find people to carpool with who live and work close to them. 
+
+Backbone js
+Jquery
+Google Maps Javascript API 
+
+run bower install
+run npm install
