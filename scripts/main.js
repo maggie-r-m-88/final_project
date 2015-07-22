@@ -319,6 +319,7 @@ function dynamicSort(property) {
       var coordinates;
 
       geocoder.geocode({ address: address}, function (results, status){
+        console.log(results)
          coords_obj = results[0].geometry.location;
          coordinates = [coords_obj.k, coords_obj.D];
          callback(coordinates);
@@ -968,14 +969,62 @@ function dynamicSort(property) {
       }
       var results2 = round(result);
       var divided = round(results2/2);
+
+
+           if( results2 > 0 ){
            console.log('It costs $' +  results2 +  ' per year to commute.')
            $('#gas-results').empty();
 
 
            $('#gas-results').append("<li>" + 'It costs $' + results2 + ' per year to commute.'+ "<br>" + 'Carpooling saves you $'+ divided + '.' + "</li>");
+         }
+
+         else {
+            $('#gas-results').append("<li>" + "Please enter an amount for each field."+"</li>");
+         }
     },
 
 
+
+  });
+
+}());
+
+
+$( document ).ready(function(){
+
+  App.Models.MessageModel = Parse.Object.extend({
+
+    className: 'Message',
+
+    defaults: {
+
+      sender: '',
+      senderName: '',
+      recipient: '',
+      recipientName: '',
+      content: ''
+
+    },
+
+    idAttribute: 'objectID',
+
+    initialize: function(){
+
+    }
+
+  });
+
+
+}());
+
+(function () {
+
+  App.Collections.MessageCollection = Parse.Collection.extend ({
+    model: App.Models.MessageModel,
+    comparator: function (model) {
+      return (model.get('createdAt'));
+    },
 
   });
 
@@ -1054,10 +1103,10 @@ var marker_array = [
     var coordinates;
 
     geocoder.geocode({ address: address}, function (results, status){
-
+      console.log(results)
        coords_obj = results[0].geometry.location;
        coordinates = [coords_obj.k, coords_obj.D];
-    
+
     });
   }
 
@@ -1161,7 +1210,7 @@ var findDistance;
 //       }
 //
 // google.maps.event.addDomListener(window, 'load', initialize);
-
+//window.getCoordinates('1197 Hampton Hall Dr', function(coordinates){console.log(coordinates)})
  geocoder = new google.maps.Geocoder();
 
 
@@ -1172,7 +1221,7 @@ window.getCoordinates = function ( address, callback) {
     console.log(results)
      coords_obj = results[0].geometry.location;
      coordinates = [coords_obj.k, coords_obj.D];
-     callback(coordinates);
+     callback(coords_obj);
   })
 
 }

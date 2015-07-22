@@ -178,10 +178,10 @@
     </div><br/>
      <div class="gas-container">
        <div id="form">
-      <input id="mpg" placeholder="Miles per Gallon" ><br>
-      <input id="days" placeholder="# of Days you commute per month" >
-      <input id="miles" placeholder="How many miles per day is your commute?"><br>
-      <input id="parking" placeholder ="How much do you pay in Parking per month?"><br>
+      <input id="mpg" placeholder="Miles per Gallon" required><br>
+      <input id="days" placeholder="# of Days you commute per month"  required>
+      <input id="miles" placeholder="How many miles per day is your commute?" required><br>
+      <input id="parking" placeholder ="How much do you pay in Parking per month?" required><br>
         <button id="gasCalc"> Calculate </button>
         </div>
            <div id="gas-results">
@@ -219,7 +219,6 @@
           <div class="more_details">
 
            <h2 class="profile_name"><%= name %> </h2>
-
 
 
       <p class="employer"><%= employer %>
